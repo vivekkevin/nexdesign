@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Contact from '../components/Contact';
+import homeImage1 from '../assets/home_1.png';
 
 // Container for the whole About Section
 const AboutContainer = styled.div`
@@ -14,13 +15,12 @@ const AboutContainer = styled.div`
 
 // Section Wrapper for Each Part
 const SectionWrapper = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: ${({ bgColor }) => bgColor || 'transparent'};
-  padding: 60px;
   text-align: left;
 
   @media (max-width: 768px) {
@@ -49,9 +49,9 @@ const SectionWrapper2 = styled(SectionWrapper)`
 
 // Left Section for Image and Text
 const LeftSection = styled.div`
-  height: 100%;
+  height: 100vh;
   width: 50vw;
-  background: url('/assets/aboutImage.png') no-repeat center center/cover;
+  background: url(${homeImage1}) no-repeat center center/cover; 
   display: flex;
   flex-direction: column;
   justify-content: center;

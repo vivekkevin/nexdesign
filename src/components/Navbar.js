@@ -30,7 +30,7 @@ const Logo = styled.h1`
 
 const Menu = styled.div`
   display: flex;
-  gap: 50px;
+  gap: 25px;
 
   @media (max-width: 768px) {
     display: ${({ isMobileMenuOpen }) => (isMobileMenuOpen ? 'flex' : 'none')};
@@ -52,7 +52,7 @@ const MenuItem = styled(NavLink)`
   text-decoration: none;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 29px;
   padding: 15px;
   text-align: center;

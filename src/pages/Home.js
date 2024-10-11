@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import homeImage1 from '../assets/home_1.png';
 import homeImage2 from '../assets/home_2.png';
-import homeImage4 from '../assets/home_4.png';
-import homeImage5 from '../assets/home_5.png';
+import homeImage3 from '../assets/home_3.png';
+
 
 // Styled Components for Hero Section
 const HeroContainer = styled.div`
@@ -187,19 +187,14 @@ const Hero = () => {
     },
     {
       bgImage: homeImage2,
-      title: 'We CREATE',
+      title: 'We ANIMATE',
       subtitle: 'WELCOME Everyone',
     },
     {
-      bgImage: homeImage5,
-      title: 'We INNOVATE',
+      bgImage: homeImage3,
+      title: 'We IDEATE',
       subtitle: 'KEEP GOING',
-    },
-    {
-      bgImage: homeImage4,
-      title: 'We ACHIEVE',
-      subtitle: 'SUCCESS Together',
-    },
+    }
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0); // Track the index of the current slide

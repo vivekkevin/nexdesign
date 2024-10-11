@@ -22,7 +22,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Router>
-        <Navbar />
+       <Navbar transparent={true} />
         {/* Routes for various pages */}
         <Routes>
           <Route path="/" element={<Home />} />
