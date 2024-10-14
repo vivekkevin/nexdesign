@@ -1,6 +1,18 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import sec1 from '../assets/sec_1.png'
+import sec2 from '../assets/sec_2.png'
+import sec3 from '../assets/sec_3.png'
+import sec4 from '../assets/sec_4.png'
+import sec5 from '../assets/sec_5.png'
+import sec6 from '../assets/sec_6.png'
+import sec2_1 from '../assets/sec2_1.png'
+import sec2_2 from '../assets/sec2_2.png'
+import sec2_3 from '../assets/sec2_3.png'
+import sec2_4 from '../assets/sec2_4.png'
+import sec2_5 from '../assets/sec2_5.png'
+import sec2_6 from '../assets/sec2_6.png'
 
 // Container for the Services Section
 const ServicesSectionContainer = styled.div`
@@ -137,21 +149,21 @@ const ServicesSection = () => {
   const [activeTab, setActiveTab] = useState('Immersive Technology');
 
   const immersiveTechnologyServices = [
-    { image: '/assets/sec_1.png', title: 'Graphics', path: '/3d-modeling' },
-    { image: '/assets/sec_2.png', title: 'UI UX', path: '/3d-modeling' },
-    { image: '/assets/sec_3.png', title: 'Digital Marketing', path: '/3d-modeling' },
-    { image: '/assets/sec_4.png', title: 'Web Design', path: '/3d-modeling' },
-    { image: '/assets/sec_5.png', title: 'Video Production', path: '/3d-modeling' },
-    { image: '/assets/sec_6.png', title: '3D Modeling', path: '/3d-modeling' },
+    { image: sec1, title: 'Graphics', path: '/3d-modeling' },
+    { image: sec2, title: 'UI UX', path: '/3d-modeling' },
+    { image: sec3, title: 'Digital Marketing', path: '/3d-modeling' },
+    { image: sec4, title: 'Web Design', path: '/3d-modeling' },
+    { image: sec5, title: 'Video Production', path: '/3d-modeling' },
+    { image: sec6, title: '3D Modeling', path: '/3d-modeling' },
   ];
 
   const learningPerformanceServices = [
-    { image: '/assets/sec2_1.png', title: 'Web Design', path: '/3d-modeling' },
-    { image: '/assets/sec2_2.png', title: 'Video Production', path: '/3d-modeling' },
-    { image: '/assets/sec2_3.png', title: '3D Modeling', path: '/3d-modeling' },
-    { image: '/assets/sec2_4.png', title: 'Web Design', path: '/3d-modeling' },
-    { image: '/assets/sec2_5.png', title: 'Video Production', path: '/3d-modeling' },
-    { image: '/assets/sec2_6.png', title: '3D Modeling', path: '/3d-modeling' },
+    { image: sec2_1, title: 'Web Design', path: '/3d-modeling' },
+    { image: sec2_2, title: 'Video Production', path: '/3d-modeling' },
+    { image: sec2_3, title: '3D Modeling', path: '/3d-modeling' },
+    { image: sec2_4, title: 'Web Design', path: '/3d-modeling' },
+    { image: sec2_5, title: 'Video Production', path: '/3d-modeling' },
+    { image: sec2_6, title: '3D Modeling', path: '/3d-modeling' },
   ];
 
   const handleCardClick = (path) => {
