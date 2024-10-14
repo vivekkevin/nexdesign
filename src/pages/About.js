@@ -26,7 +26,9 @@ const AboutContainer = styled.div`
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  padding-top: 80px; /* Add padding to prevent overlap with navbar */
 `;
+
 
 const StyledNexImage = styled.img`
   width: 450px;

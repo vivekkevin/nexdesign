@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { FaBars, FaTimes } from 'react-icons/fa'; // Icons for Hamburger and Close
-import { NavLink, useLocation } from 'react-router-dom'; // Import NavLink for routing and useLocation to determine the path
+import { FaBars, FaTimes } from 'react-icons/fa';
+import { NavLink, useLocation } from 'react-router-dom';
 import logo from '../assets/Logo.png';
 
 // Styled Components
@@ -11,22 +11,33 @@ const NavbarContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: ${({ isMobileMenuOpen }) => (isMobileMenuOpen ? '#000000' : 'transparent')};
-  position: ${({ isHomePage }) => (isHomePage ? 'absolute' : 'relative')}; /* Set position based on the page */
+  background: ${({ isMobileMenuOpen, isHomePage }) =>
+    isMobileMenuOpen ? '#000000' : isHomePage ? 'transparent' : '#000'};
+  position: ${({ isHomePage }) => (isHomePage ? 'absolute' : 'fixed')};
   top: 0;
   left: 0;
   z-index: 10;
+  transition: background 0.3s ease;
 
   @media (max-width: 768px) {
     padding: 10px 30px;
-    background: ${({ isHomePage }) => (isHomePage ? '#000' : 'transparent')}; /* Fixed background color for mobile view on Home */
+    background: #000; /* Solid background on mobile */
   }
 `;
 
-const Logo = styled.h1`
-  font-size: 24px;
-  color: ${({ isMobileMenuOpen }) => (isMobileMenuOpen ? '#ffffff' : '#ffffff')};
+const Logo = styled.div`
+  display: flex;
+  align-items: center;
   cursor: pointer;
+
+  img {
+    width: 150px; /* Adjust logo size */
+    height: auto;
+
+    @media (max-width: 768px) {
+      width: 120px; /* Adjust for mobile */
+    }
+  }
 `;
 
 const Menu = styled.div`
@@ -43,13 +54,31 @@ const Menu = styled.div`
     background: #000000;
     padding: 20px 0;
     z-index: 9;
+    animation: ${({ isMobileMenuOpen }) =>
+      isMobileMenuOpen ? 'fadeIn 0.3s ease-in-out' : 'fadeOut 0.3s ease-in-out'};
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
   }
 `;
 
-// Update MenuItem to be a NavLink instead of an <a> tag
 const MenuItem = styled(NavLink)`
-  color: ${({ isMobileMenuOpen }) => (isMobileMenuOpen ? '#ffffff' : '#ffffff')};
-  cursor: pointer;
+  color: #ffffff;
   text-decoration: none;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
@@ -57,42 +86,31 @@ const MenuItem = styled(NavLink)`
   line-height: 29px;
   padding: 15px;
   text-align: center;
-  width: 100%;
 
   &.active {
-    color: #f0a500; /* Change to yellow when active */
+    color: #f0a500; /* Yellow on active state */
   }
 
   &:hover {
-    color: ${({ theme }) => theme.colors.lightYellow};
+    color: #ffcc3f; /* Slightly lighter yellow on hover */
   }
 `;
 
 const HamburgerIcon = styled.div`
   display: none;
   cursor: pointer;
-  color: ${({ isMobileMenuOpen }) => (isMobileMenuOpen ? '#ffffff' : '#ffffff')};
+  color: #ffffff;
 
   @media (max-width: 768px) {
     display: block;
   }
 `;
 
-const StyledLogoImage = styled.img`
-  width: 20%;
-  height: auto;
-
-  @media (max-width: 768px) {
-    width: 120px; /* Adjust size for mobile */
-  }
-`;
-
-
 // Navbar Component
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation(); // Get the current route
-  const isHomePage = location.pathname === '/'; // Check if the current path is home page
+  const isHomePage = location.pathname === '/'; // Check if the current path is the home page
 
   const toggleMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
@@ -100,72 +118,34 @@ const Navbar = () => {
 
   return (
     <NavbarContainer isMobileMenuOpen={isMobileMenuOpen} isHomePage={isHomePage}>
-      <Logo isMobileMenuOpen={isMobileMenuOpen}>
-        <StyledLogoImage src={logo} alt="Nex Design Studio Logo" />
+      <Logo onClick={() => setMobileMenuOpen(false)}>
+        <img src={logo} alt="Nex Design Studio Logo" />
       </Logo>
 
-      {/* Hamburger Icon */}
-      <HamburgerIcon onClick={toggleMenu} isMobileMenuOpen={isMobileMenuOpen}>
+      <HamburgerIcon onClick={toggleMenu}>
         {isMobileMenuOpen ? <FaTimes size={30} /> : <FaBars size={30} />}
       </HamburgerIcon>
 
-      {/* Menu Items */}
       <Menu isMobileMenuOpen={isMobileMenuOpen}>
-        <MenuItem
-          to="/"
-          isMobileMenuOpen={isMobileMenuOpen}
-          activeClassName="active"
-          exact
-          onClick={() => setMobileMenuOpen(false)}
-        >
+        <MenuItem to="/" exact onClick={() => setMobileMenuOpen(false)}>
           Home
         </MenuItem>
-        <MenuItem
-          to="/about"
-          isMobileMenuOpen={isMobileMenuOpen}
-          activeClassName="active"
-          onClick={() => setMobileMenuOpen(false)}
-        >
+        <MenuItem to="/about" onClick={() => setMobileMenuOpen(false)}>
           About
         </MenuItem>
-        <MenuItem
-          to="/services"
-          isMobileMenuOpen={isMobileMenuOpen}
-          activeClassName="active"
-          onClick={() => setMobileMenuOpen(false)}
-        >
+        <MenuItem to="/services" onClick={() => setMobileMenuOpen(false)}>
           Services
         </MenuItem>
-        <MenuItem
-          to="/work"
-          isMobileMenuOpen={isMobileMenuOpen}
-          activeClassName="active"
-          onClick={() => setMobileMenuOpen(false)}
-        >
+        <MenuItem to="/work" onClick={() => setMobileMenuOpen(false)}>
           Work
         </MenuItem>
-        <MenuItem
-          to="/team"
-          isMobileMenuOpen={isMobileMenuOpen}
-          activeClassName="active"
-          onClick={() => setMobileMenuOpen(false)}
-        >
+        <MenuItem to="/team" onClick={() => setMobileMenuOpen(false)}>
           Team
         </MenuItem>
-        <MenuItem
-          to="/careers"
-          isMobileMenuOpen={isMobileMenuOpen}
-          activeClassName="active"
-          onClick={() => setMobileMenuOpen(false)}
-        >
+        <MenuItem to="/careers" onClick={() => setMobileMenuOpen(false)}>
           Careers
         </MenuItem>
-        <MenuItem
-          to="/contact"
-          isMobileMenuOpen={isMobileMenuOpen}
-          activeClassName="active"
-          onClick={() => setMobileMenuOpen(false)}
-        >
+        <MenuItem to="/contact" onClick={() => setMobileMenuOpen(false)}>
           Contact
         </MenuItem>
       </Menu>

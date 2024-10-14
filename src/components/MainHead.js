@@ -6,7 +6,7 @@ import workBg from '../assets/work.png'; // Import image properly
 // Container for the Main Head Section
 const MainHeadContainer = styled.h1`
   width: 100%;
-  height: 80vh;
+  height: 100vh;
   background: ${({ bgImage }) => `url(${bgImage})`} no-repeat center center/cover; /* Dynamic Background */
   display: flex;
   flex-direction: column;

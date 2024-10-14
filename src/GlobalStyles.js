@@ -23,6 +23,25 @@ const GlobalStyles = createGlobalStyle`
     background: ${({ theme }) => theme.colors.black}; /* Use theme colors */
   }
 
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #333; /* Dark background for the scrollbar track */
+    border-radius: 10px; /* Rounded corners for the track */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #f0a500; /* Yellow thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ffcc3f; /* Lighter yellow on hover */
+  }
+
   /* Heading Styles */
   h1, h2, h3 {
     font-family: 'Montserrat', sans-serif;

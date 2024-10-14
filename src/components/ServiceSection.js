@@ -1,29 +1,37 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import sec1 from '../assets/sec_1.png'
-import sec2 from '../assets/sec_2.png'
-import sec3 from '../assets/sec_3.png'
-import sec4 from '../assets/sec_4.png'
-import sec5 from '../assets/sec_5.png'
+import sec1 from '../assets/sec_5.png'
+import sec2 from '../assets/sec_3.png'
+import sec3 from '../assets/sec_2.png'
+import sec4 from '../assets/sec_1.png'
+import sec5 from '../assets/sec_4.png'
 import sec6 from '../assets/sec_6.png'
-import sec2_1 from '../assets/sec2_1.png'
+import sec2_1 from '../assets/sec2_3.png'
 import sec2_2 from '../assets/sec2_2.png'
-import sec2_3 from '../assets/sec2_3.png'
-import sec2_4 from '../assets/sec2_4.png'
-import sec2_5 from '../assets/sec2_5.png'
+import sec2_3 from '../assets/sec2_4.png'
+import sec2_4 from '../assets/sec2_5.png'
+import sec2_5 from '../assets/sec2_1.png'
 import sec2_6 from '../assets/sec2_6.png'
+import bgservice from '../assets/bgservice.png'
+import lg1 from '../assets/lg_graphics.png'
+import lg2 from '../assets/lg_graphics_1.png'
+import lg3 from '../assets/lg_graphics_2.png'
+import lg4 from '../assets/lg_graphics_3.png'
+import lg5 from '../assets/lg_graphics_4.png'
+
 
 // Container for the Services Section
 const ServicesSectionContainer = styled.div`
   width: 100%;
   min-height: 100vh;
-  background: #111111;
+  background: url(${bgservice}) no-repeat center center/cover; /* Add bgservice here */
   padding: 50px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
+
 
 // Services Header with clickable tabs
 const ServicesHeader = styled.div`
@@ -104,43 +112,29 @@ const ServiceCard = styled.div`
   }
 `;
 
-// Text Overlay for the Service Card
 const TextOverlay = styled.div`
   position: absolute;
   bottom: 10px;
   left: 10px;
-  color: #ffffff;
-  font-family: 'MBF Canno', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: rgba(0, 0, 0, 0.6);
   padding: 10px 20px;
   border-radius: 5px;
-  display: flex;
-  align-items: center;
 
-  .nex {
-    font-size: 1.5vw;
-    font-weight: 700;
-    color: #ff0000;
-    margin-right: 5px;
-    font: normal normal normal 35px/42px 'MBF Canno', sans-serif;
-  }
-
-  .description {
-    font-size: 1vw;
-    font-weight: 500;
-    font: normal normal normal 35px/42px 'MBF Canno', sans-serif;
+  .service-logo {
+    width: 170px; /* Adjust width as needed */
+    height: auto;
   }
 
   @media (max-width: 768px) {
-    .nex {
-      font-size: 3.5vw;
-    }
-
-    .description {
-      font-size: 2.5vw;
+    .service-logo {
+      width: 30px; /* Adjust size for mobile */
     }
   }
 `;
+
 
 
 // Main Services Section Component
@@ -149,21 +143,22 @@ const ServicesSection = () => {
   const [activeTab, setActiveTab] = useState('Immersive Technology');
 
   const immersiveTechnologyServices = [
-    { image: sec1, title: 'Graphics', path: '/3d-modeling' },
-    { image: sec2, title: 'UI UX', path: '/3d-modeling' },
-    { image: sec3, title: 'Digital Marketing', path: '/3d-modeling' },
-    { image: sec4, title: 'Web Design', path: '/3d-modeling' },
-    { image: sec5, title: 'Video Production', path: '/3d-modeling' },
-    { image: sec6, title: '3D Modeling', path: '/3d-modeling' },
+    { image: sec1, logo: lg1, path: '/3d-modeling' },
+    { image: sec2, logo: lg2, path: '/3d-modeling' },
+    { image: sec3, logo: lg3, path: '/3d-modeling' },
+    { image: sec4, logo: lg4, path: '/3d-modeling' },
+    { image: sec5, logo: lg5, path: '/3d-modeling' },
+    { image: sec6, logo: lg5, path: '/3d-modeling' },
   ];
+  
 
   const learningPerformanceServices = [
-    { image: sec2_1, title: 'Web Design', path: '/3d-modeling' },
-    { image: sec2_2, title: 'Video Production', path: '/3d-modeling' },
-    { image: sec2_3, title: '3D Modeling', path: '/3d-modeling' },
-    { image: sec2_4, title: 'Web Design', path: '/3d-modeling' },
-    { image: sec2_5, title: 'Video Production', path: '/3d-modeling' },
-    { image: sec2_6, title: '3D Modeling', path: '/3d-modeling' },
+    { image: sec2_1, logo: lg1, path: '/3d-modeling' },
+    { image: sec2_2, logo: lg1, path: '/3d-modeling' },
+    { image: sec2_3, logo: lg1, path: '/3d-modeling' },
+    { image: sec2_4, logo: lg1, path: '/3d-modeling' },
+    { image: sec2_5, logo: lg1, path: '/3d-modeling' },
+    { image: sec2_6, logo: lg1, path: '/3d-modeling' },
   ];
 
   const handleCardClick = (path) => {
@@ -175,19 +170,20 @@ const ServicesSection = () => {
   const renderServiceGrid = (services) => (
     <ServiceGrid>
       {services.map((service, index) => (
-        <ServiceCard
-          key={index}
-          onClick={() => handleCardClick(service.path)}
-        >
-          <img src={service.image} alt={`${service.title} Service`} />
+        <ServiceCard key={index} onClick={() => handleCardClick(service.path)}>
+          <img src={service.image} alt={`${service.logo} Service`} />
           <TextOverlay>
-            <span className="nex">NEX</span>
-            <span className="description">{service.title}</span>
+            <img 
+              src={service.logo} 
+              alt={`${service.logo} Logo`} 
+              className="service-logo"
+            />
           </TextOverlay>
         </ServiceCard>
       ))}
     </ServiceGrid>
   );
+  
 
   return (
     <ServicesSectionContainer>
