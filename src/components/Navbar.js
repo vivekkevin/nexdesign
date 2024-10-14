@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FaBars, FaTimes } from 'react-icons/fa'; // Icons for Hamburger and Close
 import { NavLink, useLocation } from 'react-router-dom'; // Import NavLink for routing and useLocation to determine the path
+import logo from '../assets/Logo.png';
 
 // Styled Components
 const NavbarContainer = styled.div`
@@ -77,6 +78,16 @@ const HamburgerIcon = styled.div`
   }
 `;
 
+const StyledLogoImage = styled.img`
+  width: 20%;
+  height: auto;
+
+  @media (max-width: 768px) {
+    width: 120px; /* Adjust size for mobile */
+  }
+`;
+
+
 // Navbar Component
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -89,7 +100,9 @@ const Navbar = () => {
 
   return (
     <NavbarContainer isMobileMenuOpen={isMobileMenuOpen} isHomePage={isHomePage}>
-      <Logo isMobileMenuOpen={isMobileMenuOpen}>NEX Design Studio</Logo>
+      <Logo isMobileMenuOpen={isMobileMenuOpen}>
+        <StyledLogoImage src={logo} alt="Nex Design Studio Logo" />
+      </Logo>
 
       {/* Hamburger Icon */}
       <HamburgerIcon onClick={toggleMenu} isMobileMenuOpen={isMobileMenuOpen}>
@@ -122,6 +135,14 @@ const Navbar = () => {
           onClick={() => setMobileMenuOpen(false)}
         >
           Services
+        </MenuItem>
+        <MenuItem
+          to="/work"
+          isMobileMenuOpen={isMobileMenuOpen}
+          activeClassName="active"
+          onClick={() => setMobileMenuOpen(false)}
+        >
+          Work
         </MenuItem>
         <MenuItem
           to="/team"

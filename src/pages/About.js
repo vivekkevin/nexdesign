@@ -1,7 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 import Contact from '../components/Contact';
-import homeImage1 from '../assets/home_1.png';
+import About1 from '../assets/About_1.png';
+import NexImage from '../assets/About_2.png'; 
+import idea from '../assets/About_3.png';// Update with your image path
+import MiddleImage from '../assets/M_question.png'; 
+import creative from '../assets/creative.svg'; 
+import clock from '../assets/clock.svg'; 
+import hand from '../assets/hand-shake.svg'; 
+import experience from '../assets/experience.svg'
+import g4305 from '../assets/g4305.svg'
+import quality from '../assets/quality.svg'
+import Icon_1 from '../assets/Icon_1.svg'
+import Icon_2 from '../assets/Icon_2.svg'
+import Icon_3 from '../assets/Icon_3.svg'
+import Icon_4 from '../assets/Icon_4.svg'
+import Icon_5 from '../assets/Icon_5.svg'
+import bgimage from '../assets/bg_image.png'
 
 // Container for the whole About Section
 const AboutContainer = styled.div`
@@ -12,6 +27,18 @@ const AboutContainer = styled.div`
   flex-direction: column;
   overflow-y: auto;
 `;
+
+const StyledNexImage = styled.img`
+  width: 450px;
+  height: auto;
+  margin-top: auto; /* Push to the bottom */
+  opacity: 0.7; /* Subtle effect */
+  
+  @media (max-width: 768px) {
+    width: 150px; /* Adjust size for mobile */
+  }
+`;
+
 
 // Section Wrapper for Each Part
 const SectionWrapper = styled.div`
@@ -49,9 +76,10 @@ const SectionWrapper2 = styled(SectionWrapper)`
 
 // Left Section for Image and Text
 const LeftSection = styled.div`
+  position: relative;
   height: 100vh;
   width: 50vw;
-  background: url(${homeImage1}) no-repeat center center/cover; 
+  background: url(${About1}) no-repeat center center/cover; 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -80,28 +108,30 @@ const RightSection = styled.div`
   }
 `;
 
-// Welcome Text in the Left Section
 const WelcomeText = styled.h1`
   font-size: 36px;
   color: #f0a500;
   text-align: center;
+  position: absolute; /* Allow absolute positioning */
+  bottom: 15%; /* 75% from the top */
 
   @media (max-width: 768px) {
-    font-size: 28px; /* Reduced font size for mobile */
+    font-size: 28px; /* Adjust font size for mobile */
   }
 `;
 
-// Nex Design Studio Text
 const StudioText = styled.h2`
   font-size: 28px;
   color: #ffffff;
   text-align: center;
-  margin-top: 10px;
+  position: absolute; /* Allow absolute positioning */
+  bottom: 10%; /* Adjust position for spacing */
 
   @media (max-width: 768px) {
     font-size: 24px; /* Reduced font size for mobile */
   }
 `;
+
 
 // Right Section Heading
 const RightHeading = styled.h1`
@@ -169,11 +199,11 @@ const CenterColumn = styled.div`
 
 // Large Icon Styling
 const LargeIcon = styled.img`
-  width: 250px;
+  width: 300px;
   height: 250px;
 
   @media (max-width: 768px) {
-    width: 150px; /* Adjust icon size for mobile */
+    width: 175px; /* Adjust icon size for mobile */
     height: 150px;
   }
 `;
@@ -213,35 +243,61 @@ const NexText = styled.h1`
 const WhoWeAreContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between; 
   width: 100%;
+  padding: 10px; /* Reduce padding to avoid overflow */
+
+  @media (max-width: 768px) {
+    flex-direction: column; /* Stack vertically on mobile */
+    align-items: center;
+  }
 `;
 
-// Left Text for Who We Are Section
 const LeftText = styled.div`
-  flex: 1;
+  width: 15%;
   text-align: center;
 
   h1 {
     font-size: 3vw;
     font-family: 'Montserrat', sans-serif;
-    color: #ccc;
     margin: 0;
+    line-height: 1.2; /* Adjust line height for proper spacing */
   }
 
-  h1 span {
-    color: #f0a500;
-    font-size: 4vw;
-    margin-right: 10px;
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 5vw; /* Adjust font size for smaller screens */
+    }
   }
 `;
 
-// Right Text for Who We Are Section
+const ImageSection1 = styled.div`
+  width: 10%; 
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    width: 50%; 
+    margin-bottom: 10px;
+  }
+`;
+
+const StyledImage1 = styled.img`
+  width: 80%; 
+  height: auto;
+  border-radius: 10px;
+`;
+
 const RightText = styled.div`
-  flex: 2;
+  width: 70%; /* Reduced width slightly to prevent overflow */
   font-size: 1.2vw;
   line-height: 1.6;
   color: #333;
+
+  @media (max-width: 768px) {
+    width: 100%; 
+  }
 `;
 
 
@@ -271,12 +327,17 @@ const ServiceBox = styled.div`
 const ProcessSection = styled.div`
   width: 100%;
   padding: 60px 0;
-  background: #111111;
+  background: url(${bgimage}) no-repeat center center/cover;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 40px 20px; /* Adjust padding for mobile */
+  }
 `;
+
 
 // Section Title
 const SectionTitle = styled.h1`
@@ -291,63 +352,115 @@ const SectionTitle = styled.h1`
   }
 `;
 
-// Container for the Process Steps
 const ProcessContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
-  grid-gap: 40px; /* Gap between cards */
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  grid-gap: 40px; /* Spacing between cards */
   width: 90%;
-  max-width: 1200px;
+  max-width: 1600px;
   margin-top: 40px;
 
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr; /* Stack cards in a single column */
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr; /* 1 column on small screens */
   }
 `;
 
-// Individual Card Styling
+
+
 const ProcessCard = styled.div`
+  position: relative; /* Ensures the pseudo-element aligns correctly */
   background: #ffffff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
+  padding: 20px;
+  border-radius: 12px; /* Smooth rounded corners */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: visible; /* Ensure the red border can extend outside the card */
+  z-index: 1; /* Ensure the card content stays above the red border */
 
   &:hover {
-    transform: translateY(-10px); /* Lift effect on hover */
+    transform: translateY(-5px); /* Lift effect */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
   }
 
-  /* Number Circle */
+  /* Pseudo-element for the red border */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 5px; /* Slight offset */
+    left: 5px;
+    right: -5px;
+    bottom: -5px;
+    border: 2px solid #ff0000; /* Red border */
+    border-radius: 14px; /* Match card’s corners */
+    z-index: 0; /* Ensure the red border is behind the card content */
+    pointer-events: none; /* Prevent interaction issues */
+    background-color: transparent; /* Ensure only the border is visible */
+  }
+
   .number {
-    width: 50px;
-    height: 50px;
-    background: #ff0000; /* Red background */
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    font-size: 1.2em;
-    margin-bottom: 20px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 2em;
+    color: #ccc; /* Light gray color */
+    font-weight: 700;
   }
 
-  /* Icon Image */
   .icon {
-    margin-bottom: 20px;
+    width: 70px;
+    margin-top: 20px;
   }
 
-  /* Title and Description */
   h3 {
     font-size: 1.5em;
     margin-bottom: 15px;
-    color: #111111;
+    color: #111;
   }
 
   p {
-    color: #555555;
-    font-size: 1em;
+    color: #555;
+    font-size: 0.7em;
+    font-weight: 600;
   }
 `;
+
+
+
+const GrayText = styled.span`
+  color: #ccc; /* Light gray */
+`;
+
+const RedText = styled.span`
+  color: #ff0000; /* Red */
+  font-weight: bold;
+`;
+
+const ImageSection = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1px;
+
+  @media (max-width: 768px) {
+    padding: 1px; /* Adjust padding for mobile */
+  }
+`;
+
+const StyledImage = styled.img`
+  width: 100px;
+  height: auto;
+  border-radius: 10px;
+
+  @media (max-width: 768px) {
+    width: 50px; /* Adjust size for mobile */
+  }
+`;
+
 
 
 // About Component Implementation
@@ -368,23 +481,31 @@ const About = () => {
           <ParagraphText>
             Our team of talented designers, developers, and strategists work collaboratively to deliver unique and impactful designs that elevate your brand and captivate your audience.
           </ParagraphText>
-          <NexText>NEX</NexText>
+          <StyledNexImage src={NexImage} alt="Nex Logo" />
         </RightSection>
       </SectionWrapper>
 
-      {/* Second Section: Who We Are */}
       <SectionWrapper1 bgColor="#ffffff">
         <WhoWeAreContainer>
           <LeftText>
             <h1>
-              <span>who</span>ARE we
+              <GrayText>who </GrayText>
+              <br /> {/* Line break */}
+              <RedText>ARE </RedText>
+              <GrayText>we</GrayText>
             </h1>
           </LeftText>
+          <ImageSection1>
+            <StyledImage1 src={MiddleImage} alt="Who We Are" />
+          </ImageSection1>
+
           <RightText>
-            At Nex Design Studio, we are a team of passionate designers, strategists, and creative thinkers with a shared goal to bring your brand’s vision to life. With years of experience in the industry, we have honed our skills in various aspects of design and branding, enabling us to deliver high-quality, tailored solutions that meet your unique needs.
+            At Nex Design Studio, we are a team of passionate designers, strategists, and creative thinkers with a shared goal to bring your brand’s vision to life. 
+            With years of experience in the industry, we have honed our skills in various aspects of design and branding, enabling us to deliver high-quality, tailored solutions that meet your unique needs.
           </RightText>
         </WhoWeAreContainer>
       </SectionWrapper1>
+
 
       {/* Third Section: Why Choose Us */}
       <SectionWrapper2 bgColor="#ffffff">
@@ -392,100 +513,101 @@ const About = () => {
         {/* Left Column: Service Icons */}
         <LeftColumn>
           <ServiceBox>
-            <img src="/assets/icon-innovation.png" alt="Creativity & Innovation" />
+            <img src={creative} alt="Creativity & Innovation" />
             <h3>Creativity & Innovation</h3>
-            <p>We bring innovative ideas to life.</p>
           </ServiceBox>
           <ServiceBox>
-            <img src="/assets/icon-client.png" alt="Client-Centric Approach" />
+            <img src={hand} alt="Client-Centric Approach" />
             <h3>Client-Centric Approach</h3>
-            <p>Understanding and delivering client needs.</p>
           </ServiceBox>
           <ServiceBox>
-            <img src="/assets/icon-quality.png" alt="Quality and Precision" />
+            <img src={quality} alt="Quality and Precision" />
             <h3>Quality and Precision</h3>
-            <p>Attention to detail in every project.</p>
           </ServiceBox>
           <ServiceBox>
-            <img src="/assets/icon-delivery.png" alt="Timely Delivery" />
+            <img src={clock} alt="Timely Delivery" />
             <h3>Timely Delivery</h3>
-            <p>Projects delivered on time, every time.</p>
           </ServiceBox>
           <ServiceBox>
-            <img src="/assets/icon-expertise.png" alt="Versatile Expertise" />
+            <img src={experience} alt="Versatile Expertise" />
             <h3>Versatile Expertise</h3>
-            <p>Expertise across various industries.</p>
           </ServiceBox>
           <ServiceBox>
-            <img src="/assets/icon-partnership.png" alt="Long-Term Partnership" />
+            <img src={g4305} alt="Long-Term Partnership" />
             <h3>Long-Term Partnership</h3>
-            <p>Building long-term relationships with clients.</p>
           </ServiceBox>
         </LeftColumn>
 
         {/* Center Column: Large Icon */}
         <CenterColumn>
-          <LargeIcon src="/assets/creative-idea.png" alt="Creative Idea" />
+          <LargeIcon src={idea} alt="Creative Idea" />
         </CenterColumn>
 
         {/* Right Column: Why Choose Us Text */}
         <RightColumn>
-          <TextColumnItem color="#ccc">why</TextColumnItem>
-          <TextColumnItem color="#ffcc3f">CHOOSE</TextColumnItem>
-          <TextColumnItem color="#e34f26">us</TextColumnItem>
+        <h1>
+              <GrayText>why </GrayText>
+              <br /> {/* Line break */}
+              <RedText>CHOOSE </RedText>
+              <GrayText>us</GrayText>
+            </h1>
         </RightColumn>
       </WhyChooseUsSection>
       </SectionWrapper2>
 
       <ProcessSection>
-      {/* Section Title */}
-      <SectionTitle>
-        our <span>PROCESS</span>
-      </SectionTitle>
+        <ProcessContainer>
+          <div style={{ gridColumn: 'span 1' }}>
+            <SectionTitle>
+              our <span>PROCESS</span>
+            </SectionTitle>
+              <ProcessCard>
+                <div className="number">01</div>
+                <img src={Icon_1} alt="Consultation" className="icon" />
+                <h3>Consultation</h3>
+                <p>We start by understanding your needs, goals, and vision.</p>
+              </ProcessCard>
+          </div>
 
-      {/* Container for All Process Steps */}
-      <ProcessContainer>
-        {/* Step 1: Consultation */}
-        <ProcessCard>
-          <div className="number">01</div>
-          <img src="/assets/icon-consultation.png" alt="Consultation" className="icon" />
-          <h3>Consultation</h3>
-          <p>We start by understanding your needs, goals, and vision.</p>
-        </ProcessCard>
+          <div style={{ gridColumn: 'span 1' }}>
+              <ProcessCard>
+                <div className="number">02</div>
+                <img src={Icon_2} alt="Research & Strategy" className="icon" />
+                <h3>Research & Strategy</h3>
+                <p>We conduct thorough research to create a strategic design plan.</p>
+              </ProcessCard>
+          </div>
 
-        {/* Step 2: Research & Strategy */}
-        <ProcessCard>
-          <div className="number">02</div>
-          <img src="/assets/icon-research.png" alt="Research & Strategy" className="icon" />
-          <h3>Research & Strategy</h3>
-          <p>We conduct thorough research to create a strategic design plan.</p>
-        </ProcessCard>
+          <div style={{ gridColumn: 'span 1' }}>
+              <ProcessCard>
+                <div className="number">03</div>
+                <img src={Icon_3} alt="Review & Feedback" className="icon" />
+                <h3>Review & Feedback</h3>
+                <p>We present the design for your review and incorporate your feedback.</p>
+              </ProcessCard>
 
-        {/* Step 3: Design & Development */}
-        <ProcessCard>
-          <div className="number">03</div>
-          <img src="/assets/icon-design.png" alt="Design & Development" className="icon" />
-          <h3>Design & Development</h3>
-          <p>Our creative team gets to work, bringing your ideas to life.</p>
-        </ProcessCard>
+              <ProcessCard>
+                <div className="number">04</div>
+                <img src={Icon_4} alt="Launch & Support" className="icon" />
+                <h3>Launch & Support</h3>
+                <p>We ensure a smooth launch and provide ongoing support as needed.</p>
+              </ProcessCard>
+          </div>
 
-        {/* Step 4: Review & Feedback */}
-        <ProcessCard>
-          <div className="number">04</div>
-          <img src="/assets/icon-review.png" alt="Review & Feedback" className="icon" />
-          <h3>Review & Feedback</h3>
-          <p>We present the design for your review and incorporate your feedback.</p>
-        </ProcessCard>
+          <div style={{ gridColumn: 'span 1' }}>
+              <ProcessCard>
+                <div className="number">05</div>
+                <img src={Icon_5} alt="Continuous Growth" className="icon" />
+                <h3>Continuous Growth</h3>
+                <p>We constantly innovate to help your business grow.</p>
+              </ProcessCard>
+          </div>
+        </ProcessContainer>
+      </ProcessSection>
 
-        {/* Step 5: Launch & Support */}
-        <ProcessCard>
-          <div className="number">05</div>
-          <img src="/assets/icon-launch.png" alt="Launch & Support" className="icon" />
-          <h3>Launch & Support</h3>
-          <p>We ensure a smooth launch and provide ongoing support as needed.</p>
-        </ProcessCard>
-      </ProcessContainer>
-    </ProcessSection>
+
+
+
     <Contact />
     </AboutContainer>
   );

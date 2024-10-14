@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import services from '../assets/services.png'; // Import image properly
+import workBg from '../assets/work.png'; // Import image properly
 
 // Container for the Main Head Section
 const MainHeadContainer = styled.h1`
   width: 100%;
   height: 100vh;
-  left: 5%;
-  background: url('/assets/your-background-image.jpg') no-repeat center center/cover; /* Background image */
+  background: ${({ bgImage }) => `url(${bgImage})`} no-repeat center center/cover; /* Dynamic Background */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -15,6 +16,9 @@ const MainHeadContainer = styled.h1`
   align-content: flex-start;
   flex-wrap: wrap;
 `;
+
+
+
 
 // Container for Text Overlays
 const TextOverlay = styled.div`
@@ -37,7 +41,7 @@ const DynamicTextContainer = styled.div`
   }
 `;
 
-// Yellow Text Styling
+// White Text Styling
 const WhiteText = styled.span`
   color: #ffffff;
   padding: 5px 5px;
@@ -52,22 +56,30 @@ const RedText = styled.span`
 // Subtext Styling
 const SubText = styled.h2`
   font-size: 1.5vw;
-  font-family: 'Poppins', sans-serif; /* Use Poppins Regular */
+  font-family: 'Poppins', sans-serif;
   margin-top: 20px;
-  font-weight: 400; /* Regular weight */
+  font-weight: 400;
   text-transform: capitalize;
-  line-height: 60px; /* Adjusted line-height */
-  
+  line-height: 60px;
+
   @media (max-width: 768px) {
     font-size: 4vw;
   }
 `;
 
-
 // MainHead Component
-const MainHead = ({ mainTextParts, subText }) => {
+const MainHead = ({ mainTextParts, subText, pageName }) => {
+  // Background images based on page name
+  const backgroundImages = {
+    services: services,
+    work: workBg,
+    contact: '/assets/contact-background.jpg',
+  };
+
+  const bgImage = backgroundImages[pageName] || '/assets/default-background.jpg'; // Fallback to default
+
   return (
-    <MainHeadContainer>
+    <MainHeadContainer bgImage={bgImage}>
       <TextOverlay>
         {/* Dynamic Main Text with different color styles */}
         <DynamicTextContainer>
@@ -80,7 +92,7 @@ const MainHead = ({ mainTextParts, subText }) => {
           )}
         </DynamicTextContainer>
       </TextOverlay>
-              <SubText>{subText}</SubText>
+      <SubText>{subText}</SubText>
     </MainHeadContainer>
   );
 };

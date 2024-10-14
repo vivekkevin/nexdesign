@@ -5,6 +5,7 @@ import homeImage2 from '../assets/home_2.png';
 import homeImage3 from '../assets/home_3.png';
 
 
+
 // Styled Components for Hero Section
 const HeroContainer = styled.div`
   height: 100vh;
