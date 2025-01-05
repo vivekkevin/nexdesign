@@ -194,7 +194,7 @@ const ServicesSection = () => {
   const [activeTab, setActiveTab] = useState('Immersive Technology');
 
   const immersiveTechnologyServices = [
-    { image: sec1, logo: lg1, path: '/3d-modeling' },
+    { image: sec1, logo: lg1, path: '/Service1' },
     { image: sec2, logo: lg2, path: '/3d-modeling' },
     { image: sec3, logo: lg3, path: '/3d-modeling' },
     { image: sec4, logo: lg4, path: '/3d-modeling' },

@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
+import Service1 from './pages/Service1';
 import Work from './pages/Work';
 import Team from './pages/Team';
 import SocialIcons from './components/SocialIcons';
@@ -30,6 +31,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/service1" element={<Service1 />} />
           <Route path="/work" element={<Work />} />
           <Route path="/team" element={<Team />} />
         </Routes>

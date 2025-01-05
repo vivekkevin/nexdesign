@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import MainHead from '../components/MainHead';
-import ServiceSection from '../components/ServiceSection';
 import Contact from '../components/Contact';
 import Portfolio from '../components/Portfolio';
 
