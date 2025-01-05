@@ -15,7 +15,8 @@ const ContactContainer = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column;
-    padding: 40px 20px;
+    padding: 20px 20px;
+    
   }
 `;
 
@@ -27,24 +28,38 @@ const ContactInfo = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 20px;
+  margin-left: 100px;
 
   h1 {
-    font-size: 3vw;
+    font-size: 50px;
     font-family: 'Montserrat', sans-serif;
     margin-bottom: 20px;
 
+    @media (max-width: 1024px) {
+      font-size: 2.6vw;
+    }
+
     @media (max-width: 768px) {
-      font-size: 6vw;
+      font-size: 3vw;
+      
+
     }
   }
-
+  
+ 
   p {
-    font-size: 1.2vw;
+    font-size: 22px;
     margin-bottom: 20px;
-    line-height: 1.6;
+    line-height: 2.2;
+    width:90%;
+
+    @media (max-width: 1024px) {
+      font-size: 1.4vw;
+    }
 
     @media (max-width: 768px) {
-      font-size: 4vw;
+      font-size: 2vw;
+      line-height: 2.6;
     }
   }
 
@@ -56,13 +71,18 @@ const ContactInfo = styled.div`
       color: #f0a500;
     }
   }
+  @media (max-width: 1024px) {
+      margin-left: 60px;
+  }
+  @media (max-width: 1024px) {
+      margin-left: 10px;
+  }
 `;
 
 // Contact Details Container
 const ContactDetails = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
 
   p {
     display: flex;
@@ -71,8 +91,12 @@ const ContactDetails = styled.div`
     margin-bottom: 10px;
     gap: 10px; /* Space between the icon and the text */
 
+    @media (max-width: 1024px) {
+      font-size: 1.6vw;
+    }
+
     @media (max-width: 768px) {
-      font-size: 4vw;
+      font-size: 2vw;
     }
 
     svg {
@@ -140,6 +164,8 @@ const ContactForm = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 20px;
+  gap:10px;
+  margin-top:40px;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -151,17 +177,28 @@ const FooterNav = styled.nav`
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
-  gap: 15px; /* Space between links */
+  gap: 40px; /* Space between links */
+  
 
   a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 20px;
+    
 
     &:hover {
       color: #f0a500; /* Highlight on hover */
     }
   }
+  @media (max-width: 1440px) {
+  a{
+  font-size: 18px;
+  }
+  @media (max-width: 1024px) {
+  a{
+  font-size: 14px;
+  }
+}
 `;
 
 // Styled Input and Textarea
@@ -194,19 +231,31 @@ const Select = styled.select`
   margin-bottom: 20px;
 `;
 
+
 // Submit Button
 const SubmitButton = styled.button`
   padding: 15px 30px;
   background: #f0a500;
-  color: #ffffff;
+  color:rgb(0, 0, 0);
   border: none;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 100%;
   cursor: pointer;
   width: 15%;
+  font-weight:600;
 
   &:hover {
     background: #ffcc3f;
+  }
+  
+  @media (max-width: 1440px) {
+  font-size: 180px;
+  width: 20%;
+  }
+
+  @media (max-width: 1024px) {
+  font-size: 10%;
+  width: 25%;
   }
 `;
 
@@ -214,7 +263,6 @@ const SubmitButton = styled.button`
 const BackgroundWrapper = styled.div`
   width: 100%;
   background: url(${contact}) no-repeat center center/cover;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* Ensure content is spaced evenly */
@@ -226,9 +274,19 @@ const Footer = styled.footer`
   padding: 10px 0;
   text-align: center;
   color: #ffffff;
+  font-size: 20px;
+
+  @media (max-width: 1440px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 1440px) {
+    font-size: 15px;
+  }
 
   @media (max-width: 768px) {
-    font-size: 4vw;
+    font-size: 15px;
+    text-align: left;
   }
 
   a {
@@ -241,6 +299,7 @@ const Footer = styled.footer`
     }
   }
 `;
+
 
 // Contact Component
 const Contact = () => {
@@ -282,7 +341,7 @@ const Contact = () => {
           <a href="/work">Work</a>
           <a href="/team">Team</a>
           <a href="/careers">Careers</a>
-          <a href="/contact">Contact</a>
+          <a href="/contact" style={{ color: '#f0a500', textDecoration: 'none' }}>Contact</a>
         </FooterNav>
         </ContactInfo>
 
@@ -291,12 +350,15 @@ const Contact = () => {
           <Input type="text" placeholder="Enter Your Name*" required />
           <Input type="tel" placeholder="Enter Your Phone Number*" required />
           <Input type="email" placeholder="Enter Your Email ID*" required />
-          <Select required>
-            <option>Choose Service</option>
-            <option value="Web Design">Web Design</option>
-            <option value="Graphic Design">Graphic Design</option>
-            <option value="Brand Strategy">Brand Strategy</option>
-            <option value="UI/UX Design">UI/UX Design</option>
+          <Select id="dropdown" required>
+          <option value="" hidden>Choose Services</option>
+          <option value="Graphic Design">Graphic Design</option>
+          <option value="UI/UX Design">UI/UX Design</option>
+          <option value="Digital Marketing">Digital Marketing</option>
+          <option value="Web Development">Web Development</option>
+          <option value="Video Design">Video Design</option>
+          <option value="3D Animation">3D Animation</option>
+          <option value="Workshop & Learning Performance">Workshop & Learning Performance</option>
           </Select>
           <Textarea placeholder="Message" required></Textarea>
           <SubmitButton type="submit">Send</SubmitButton>

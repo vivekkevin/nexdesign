@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import MainHead from '../components/MainHead';
 import ServiceSection from '../components/ServiceSection';
 import Contact from '../components/Contact';
-import Portfolio from '../components/Portfolio';
 
 // Container for the Work Page
 const WorkContainer = styled.div`
@@ -27,9 +26,7 @@ const Work = () => {
         subText="Check Out Our Stuffs"
         pageName="work" // Ensure this matches the key in MainHead
       />
-      <div>
-      <Portfolio />
-    </div>
+      <ServiceSection />
       <Contact />
     </WorkContainer>
   );

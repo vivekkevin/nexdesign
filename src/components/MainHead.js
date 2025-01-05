@@ -5,20 +5,18 @@ import workBg from '../assets/work.png'; // Import image properly
 
 // Container for the Main Head Section
 const MainHeadContainer = styled.h1`
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   background: ${({ bgImage }) => `url(${bgImage})`} no-repeat center center/cover; /* Dynamic Background */
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: center;
   position: relative;
   align-content: flex-start;
   flex-wrap: wrap;
+  margin-top:-10px;
 `;
-
-
-
 
 // Container for Text Overlays
 const TextOverlay = styled.div`
@@ -58,6 +56,7 @@ const SubText = styled.h2`
   font-size: 1.5vw;
   font-family: 'Poppins', sans-serif;
   margin-top: 20px;
+  margin-left: 150px;
   font-weight: 400;
   text-transform: capitalize;
   line-height: 60px;

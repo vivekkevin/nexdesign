@@ -17,6 +17,8 @@ import Icon_3 from '../assets/Icon_3.svg'
 import Icon_4 from '../assets/Icon_4.svg'
 import Icon_5 from '../assets/Icon_5.svg'
 import bgimage from '../assets/bg_image.png'
+import borimage from '../assets/borimage.png'
+import Slider from 'react-slick';
 
 // Container for the whole About Section
 const AboutContainer = styled.div`
@@ -26,18 +28,31 @@ const AboutContainer = styled.div`
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  padding-top: 80px; /* Add padding to prevent overlap with navbar */
+  padding-top: 0px; /* Add padding to prevent overlap with navbar */
 `;
 
 
 const StyledNexImage = styled.img`
-  width: 450px;
+  width: 80%;
   height: auto;
   margin-top: auto; /* Push to the bottom */
   opacity: 0.7; /* Subtle effect */
+
+  @media (max-width: 1440px) {
+    width: 80%; /* Adjust size for mobile */
+  }
+  
+  @media (max-width: 1440px) {
+    width: 90%; /* Adjust size for mobile */
+  }
   
   @media (max-width: 768px) {
-    width: 150px; /* Adjust size for mobile */
+    width: 60%;  // Adjust the width for smaller devices
+    height: auto;  // Maintain natural aspect ratio
+    position: relative;  // Fix position relative to the viewport
+    top: 30%;  // Position from the top of the viewport
+    left: 20%;  // Position from the left of the viewport
+    z-index: -1;  // Place it behind other content
   }
 `;
 
@@ -54,13 +69,21 @@ const SectionWrapper = styled.div`
 
   @media (max-width: 768px) {
     height: auto; /* Allow sections to expand based on content */
-    flex-direction: column; /* Stack sections vertically */
+    flex-direction: column;
     padding: 30px; /* Reduced padding for mobile */
   }
 `;
 
 const SectionWrapper1 = styled(SectionWrapper)`
-  height: 30vh;
+  height: 40vh;
+
+  @media (max-width: 1440px) {
+    height: 40vh;
+  }
+
+  @media (max-width: 1024px) {
+    height: 30vh;
+  }
 
   @media (max-width: 768px) {
     height: auto; /* Allow sections to expand based on content */
@@ -68,7 +91,7 @@ const SectionWrapper1 = styled(SectionWrapper)`
 `;
 
 const SectionWrapper2 = styled(SectionWrapper)`
-  height: 70vh;
+  height: 60vh;
 
   @media (max-width: 768px) {
     height: auto; /* Allow sections to expand based on content */
@@ -89,8 +112,9 @@ const LeftSection = styled.div`
   padding: 20px;
 
   @media (max-width: 768px) {
-    width: 100%;
-    height: 50vh; /* Adjust image height for mobile */
+    width: 100vw;
+    height: 90vh; /* Adjust image height for mobile */
+    top:-30px;
   }
 `;
 
@@ -103,33 +127,49 @@ const RightSection = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 50px;
+  z-index: 1;
 
   @media (max-width: 768px) {
     width: 100%;
-    padding: 20px; /* Reduced padding for mobile */
+    padding: 10px; /* Reduced padding for mobile */
+    min-height: 500px;
   }
 `;
 
 const WelcomeText = styled.h1`
-  font-size: 36px;
+  font-size: 60px;
   color: #f0a500;
   text-align: center;
   position: absolute; /* Allow absolute positioning */
   bottom: 15%; /* 75% from the top */
 
+  @media (max-width: 1440px) {
+  font-size: 45px;
+  }
+
+  @media (max-width: 1024px) {
+  font-size: 40px;
+  }
+
   @media (max-width: 768px) {
+    bottom: 13%;
     font-size: 28px; /* Adjust font size for mobile */
   }
 `;
 
 const StudioText = styled.h2`
-  font-size: 28px;
+  font-size: 50px;
   color: #ffffff;
   text-align: center;
   position: absolute; /* Allow absolute positioning */
-  bottom: 10%; /* Adjust position for spacing */
+  bottom: 7%; /* Adjust position for spacing */
+
+  @media (max-width: 1440px) {
+  font-size: 35px;
+  }
 
   @media (max-width: 768px) {
+    bottom: 5%;
     font-size: 24px; /* Reduced font size for mobile */
   }
 `;
@@ -137,54 +177,89 @@ const StudioText = styled.h2`
 
 // Right Section Heading
 const RightHeading = styled.h1`
-  font-size: 32px;
+  font-size: 50px;
   color: #ffcc3f;
-  margin-bottom: 20px;
+  margin-top: 100px;
+  margin-bottom: 60px;
+
+  @media (max-width: 1540px) and (min-width : 1281px) {
+  margin-top:100px;
+  font-size: 30px;
+  }
 
   @media (max-width: 768px) {
-    font-size: 28px; /* Reduced font size for mobile */
+    font-size: 35px; /* Reduced font size for mobile */
     text-align: center; /* Center align for better visibility */
+    margin-top: 20px;
   }
 `;
 
 // Paragraph Text in the Right Section
 const ParagraphText = styled.p`
-  font-size: 18px;
-  line-height: 1.6;
+  font-size: 20px;
+  line-height: 2.5;
   color: #ffffff;
   margin-bottom: 20px;
+  width: 80%; /* Ensures paragraph width is 75% */
+  text-align: justify; /* Justifies text */
+  word-wrap: break-word; /* Ensures text wraps properly */
+  overflow-wrap: break-word; /* Prevents text overflow */
+  hyphens: auto; /* Adds hyphenation if needed */
+
+  @media (max-width: 1024px) {
+  font-size: 14px;
+  width: 90%;
+  }
 
   @media (max-width: 768px) {
-    font-size: 16px; /* Reduced font size for mobile */
-    text-align: center; /* Center align text */
+    font-size: 20px; /* Reduced font size for mobile */
+    width: 90%; /* Slightly wider for smaller screens */
+    text-align: center; /* Keeps justification */
+    padding: 0 10px; /* Adds padding for better readability */
   }
 `;
+
+
 
 // Main Section Wrapper for the "Why Choose Us" layout
 const WhyChooseUsSection = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 100%;
   padding: 40px 0;
   background: #ffffff;
 
   @media (max-width: 768px) {
-    flex-direction: column; /* Stack items vertically on mobile */
-    padding: 20px;
+    display: grid;  // Switch to grid layout on mobile
+    grid-template-columns: 1fr;  // Single column layout for simplicity
+    grid-template-rows: auto auto auto;  // Adjust based on number of items
+    grid-gap: 20px;  // Space between grid items
+    padding: 20px;  // Adjusted padding for mobile
   }
+`;
+
+const SecondColumn1 = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;  // Two columns in this container
+  align-items: center;
 `;
 
 // Left Column: Service Icons in Two Rows
 const LeftColumn = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 items per row */
-  grid-gap: 30px;
+  grid-gap: 60px;
   justify-content: center;
+  @media (max-width: 1440px) {
+  grid-gap: 30px;
+  }
 
+  @media (max-width: 1024px) {
+  grid-gap: 4px;
+  }
   @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr); /* Show 2 items per row on mobile */
-    grid-gap: 20px; /* Smaller gaps on mobile */
+    grid-template-columns: repeat(3, 1fr); /* Show 2 items per row on mobile */
+    grid-gap: 30px; /* Smaller gaps on mobile */
   }
 `;
 
@@ -193,6 +268,7 @@ const CenterColumn = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left:50px;
 
   @media (max-width: 768px) {
     margin-top: 20px; /* Add margin for spacing */
@@ -201,9 +277,18 @@ const CenterColumn = styled.div`
 
 // Large Icon Styling
 const LargeIcon = styled.img`
-  width: 300px;
-  height: 250px;
+  width: 500px;
+  height: 450px;
 
+  @media (max-width: 1440px) {
+    width: 300px;
+    height: 250px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 250px;
+    height: 200px;
+  }
   @media (max-width: 768px) {
     width: 175px; /* Adjust icon size for mobile */
     height: 150px;
@@ -212,15 +297,17 @@ const LargeIcon = styled.img`
 
 // Right Column: Why Choose Us Text
 const RightColumn = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: left;
-  gap: 10px;
+  text-align: right; /* Ensures right alignment */
+  
+  h1 {
+    font-size: 3vw; /* Increase the overall heading size */
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 20px;
 
-  @media (max-width: 768px) {
-    text-align: center; /* Center align text for mobile */
-    margin-top: 20px; /* Add margin for spacing */
+    @media (max-width: 768px) {
+      font-size: 35px; /* Reduce size for mobile */
+    }
   }
 `;
 
@@ -244,61 +331,103 @@ const NexText = styled.h1`
 // Container for "Who We Are" Section
 const WhoWeAreContainer = styled.div`
   display: flex;
+  margin-left:5%;
+  margin-right:5%;
   align-items: center;
-  justify-content: space-between; 
-  width: 100%;
-  padding: 10px; /* Reduce padding to avoid overflow */
+  padding: 20px;
+  gap:180px;
 
   @media (max-width: 768px) {
-    flex-direction: column; /* Stack vertically on mobile */
-    align-items: center;
+    display: grid;
+    grid-template-columns: 2fr 1fr;  // Two columns in the first row
+    grid-template-rows: auto auto;  // Automatic row height
+    grid-gap: 10px;
   }
 `;
 
-const LeftText = styled.div`
-  width: 15%;
-  text-align: center;
+const FirstColumn = styled.div`
+  @media (max-width: 768px) {
+    grid-column: 1;  // Takes the first fraction in the first row
+  }
+`;
 
+const SecondColumn = styled.div`
+  @media (max-width: 768px) {
+    grid-column: 2;  // Takes the second fraction in the first row
+  }
+`;
+
+const FullWidthColumn = styled.div`
+  @media (max-width: 768px) {
+    grid-column: 1 / -1;  // Spans from the first to the last column in the grid
+  }
+`;
+
+
+const LeftText = styled.div`
+  margin-left:50px;
+  text-align: left;
   h1 {
     font-size: 3vw;
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     line-height: 1.2; /* Adjust line height for proper spacing */
+    width:200%;
   }
 
 
+  @media (max-width: 1024px) {
+    margin-left:100px;
+    width: 20%;
+  }
+
   @media (max-width: 768px) {
-    h1 {
-      font-size: 5vw; /* Adjust font size for smaller screens */
-    }
+    margin-left: 0;
+    width: 90%; /* Full width for mobile */
+
+  h1 {
+    font-size: 5vw; /* Larger font size for better readability on smaller screens */
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    line-height: 1.2;
+  }
   }
 `;
 
-const ImageSection1 = styled.div`
-  width: 10%; 
+const ImageSection1 = styled.div` 
   display: flex;
   justify-content: center;
+  margin-left:80px;
 
   @media (max-width: 768px) {
-    width: 50%; 
-    margin-bottom: 10px;
+    width: 15%; /* Adjusted width for the image section */
+    display: flex;
+    justify-content: flex-start; /* Align image to the start */
+    margin-bottom: 10px; /* Extra bottom margin for spacing between elements */
   }
 `;
 
 const StyledImage1 = styled.img`
-  width: 80%; 
+  width: 280%; 
   height: auto;
   border-radius: 10px;
 `;
 
 const RightText = styled.div`
-  width: 70%; /* Reduced width slightly to prevent overflow */
-  font-size: 1.2vw;
-  line-height: 1.6;
+  font-size: 1vw;
+  line-height: 2.5;
   color: #333;
 
+  @media (max-width: 1024px) {
+  width: 70%;
+  font-size: 1.4vw;
+  margin-right:100px;
+  }
+
   @media (max-width: 768px) {
-    width: 100%; 
+    width: 100%; /* Full width for mobile */
+    font-size: 2vw; /* Increase font size for readability */
+    margin-right: 0; /* Remove right margin on mobile */
   }
 `;
 
@@ -309,13 +438,13 @@ const ServiceBox = styled.div`
   width: 150px;
 
   img {
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
     margin-bottom: 10px;
   }
 
   h3 {
-    font-size: 1.1vw;
+    font-size: 0.8vw;
     color: #000;
     margin: 10px 0;
   }
@@ -324,16 +453,46 @@ const ServiceBox = styled.div`
     font-size: 0.9vw;
     color: #555;
   }
+  @media (max-width: 1440px) {
+  img {
+    width: 70px;
+    height: 70px;
+  }
+  }
+  @media (max-width: 1024px) {
+  margin-left:5px;
+  img {
+    width: 40px;
+    height: 40px;
+  }
+  h3 {
+    font-size: 1.2vw;
+  }
+  }
+  @media (max-width: 768px) {
+  margin-left:5px;
+  img {
+    width: 50px;
+    height: 50px;
+  }
+  h3 {
+    font-size: 1.8vw;
+  }
+  }
 `;
 
 const ProcessSection = styled.div`
   width: 100%;
+  height: 100vh;
   padding: 60px 0;
   background: url(${bgimage}) no-repeat center center/cover;
   display: flex;
   flex-direction: column;
-  align-items: center;
   text-align: center;
+
+  @media (max-width: 1024px) {
+  height: 80vh;
+  }
 
   @media (max-width: 768px) {
     padding: 40px 20px; /* Adjust padding for mobile */
@@ -343,82 +502,98 @@ const ProcessSection = styled.div`
 
 // Section Title
 const SectionTitle = styled.h1`
-  font-size: 3.5vw;
+  font-size: 2vw;
   font-family: 'Montserrat', sans-serif;
   color: #ffffff;
-  text-transform: uppercase;
-  margin-bottom: 40px;
-
+  text-align: left;
+  margin-left:90px;
   span {
     color: #ff0000; /* Red color for emphasis */
+    font-size: 3vw;
+  }
+  @media (max-width: 1024px) {
+  font-size: 3vw;
+  }
+  span {
+    font-size: 4vw;
   }
 `;
 
 const ProcessContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 columns */
-  grid-gap: 40px; /* Spacing between cards */
+  grid-gap: 30px; /* Spacing between cards */
   width: 90%;
-  max-width: 1600px;
   margin-top: 40px;
+  margin-left:90px;
 
-  @media (max-width: 992px) {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+  @media (max-width: 1440px) {
+  margin-top: 110px;
   }
 
-  @media (max-width: 600px) {
-    grid-template-columns: 1fr; /* 1 column on small screens */
+  @media (max-width: 1024px) {
+  margin-top: 80px;
+  }
+
+  @media (max-width: 768px) {
+    display: none; // Hide the grid layout on small screens
   }
 `;
 
-
-
 const ProcessCard = styled.div`
-  position: relative; /* Ensures the pseudo-element aligns correctly */
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 12px; /* Smooth rounded corners */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: visible; /* Ensure the red border can extend outside the card */
-  z-index: 1; /* Ensure the card content stays above the red border */
+  position: relative;
+  background: url(${borimage}) no-repeat center center;
+  background-size: cover; // Cover the entire area of the div, adjust as necessary
+  width: 80%;
+  height: 53.5%;
+  padding: 30px; // Adjust padding to prevent content from overlapping the border in the image
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, top 0.5s ease;
+  overflow: visible;
+  z-index: 10; // Maintain higher z-index
 
   &:hover {
-    transform: translateY(-5px); /* Lift effect */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
-  }
-
-  /* Pseudo-element for the red border */
-  &::before {
-    content: '';
-    position: absolute;
-    top: 5px; /* Slight offset */
-    left: 5px;
-    right: -5px;
-    bottom: -5px;
-    border: 2px solid #ff0000; /* Red border */
-    border-radius: 14px; /* Match card’s corners */
-    z-index: 0; /* Ensure the red border is behind the card content */
-    pointer-events: none; /* Prevent interaction issues */
-    background-color: transparent; /* Ensure only the border is visible */
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
   }
 
   .number {
     position: absolute;
     top: 10px;
     left: 10px;
-    font-size: 2em;
-    color: #ccc; /* Light gray color */
+    font-size: 3em;
+    color: #ccc;
     font-weight: 700;
   }
 
   .icon {
-    width: 70px;
+    width: 80px;
     margin-top: 20px;
   }
 
   h3 {
-    font-size: 1.5em;
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    color: #111;
+  }
+
+  p {
+    color: #000;
+    font-size: 0.9em;
+    font-weight: 500;
+  }
+  @media (max-width: 1440px) {
+    width: 75%;
+    height: 46%;
+  .number {
+    font-size: 2em;
+  }
+  .icon {
+    width: 50px;
+  }
+  h3 {
+    font-size: 1em;
     margin-bottom: 15px;
     color: #111;
   }
@@ -428,18 +603,87 @@ const ProcessCard = styled.div`
     font-size: 0.7em;
     font-weight: 600;
   }
+  }
+
+  @media (max-width: 1024px) {
+    width: 94%;
+    height: 49%;
+  .number {
+    font-size: 1.5em;
+  }
+  .icon {
+    margin-top: 2px;
+    width: 42px;
+  }
+  h3 {
+    font-size: 0.8em;
+    margin-bottom: 15px;
+    color: #111;
+  }
+
+  p {
+    color: #555;
+    font-size: 0.6em;
+    font-weight: 600;
+  }
+  }
+
+  @media (max-width: 768px) {
+    position: relative; // Only apply absolute positioning on mobile
+    left: 0;
+    width: 60%;
+    height: 60%;
+    transition: top 0.5s ease-out; // Smooth transition for sliding effect
+
+  .number {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    font-size: 4em;
+    color: #ccc;
+    font-weight: 700;
+  }
+
+  .icon {
+    width: 90px;
+    margin-top: 20px;
+  }
+
+  h3 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #111;
+  }
+
+  p {
+    color: #555;
+    font-size: 1.3em;
+    font-weight: 600;
+  }
+  }
 `;
 
 
 
 const GrayText = styled.span`
   color: #ccc; /* Light gray */
+  text-align: left;
+  display: inline-block;
+  font-weight: 300; /* Reduce weight */
+`;
+
+const GrayText1 = styled.span`
+  color: #ccc; /* Light gray */
+  text-align: right;
+  display: inline-block;
+  font-weight: 300; /* Reduce weight */
 `;
 
 const RedText = styled.span`
-  color: #ff0000; /* Red */
-  font-weight: bold;
+  color: red;
+  font-weight: 700; /* Ensure "ARE" is bold */
 `;
+
 
 const ImageSection = styled.div`
   flex: 1;
@@ -463,6 +707,31 @@ const StyledImage = styled.img`
   }
 `;
 
+const MobileProcessContainer = styled.div`
+  display: none; // Hide by default
+
+  @media (max-width: 768px) {
+    display: block; // Show only on mobile
+    padding: 20px;
+  }
+`;
+
+// Configure settings for react-slick
+const settings = {
+  dots: true,
+  infinite: false,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1
+};
+
+const steps = [
+  { number: 1, title: "Initial Consultation", description: "We begin by understanding your needs and the scope of your project." },
+  { number: 2, title: "Strategy Development", description: "Developing a strategy that aligns with your business goals." },
+  { number: 3, title: "Design & Development", description: "Creating engaging designs and development solutions tailored to your needs." },
+  { number: 4, title: "Implementation", description: "Rolling out your project in phases, ensuring optimal performance." },
+  { number: 5, title: "Feedback & Support", description: "Continuous support and adjustments based on feedback to ensure success." }
+];
 
 
 // About Component Implementation
@@ -470,7 +739,7 @@ const About = () => {
   return (
     <AboutContainer>
       {/* First Section: Welcome Section with Image on Left and Text on Right */}
-      <SectionWrapper bgColor="#000">
+      <SectionWrapper bgColor="rgb(15, 15, 15)">
         <LeftSection>
           <WelcomeText>Welcome to</WelcomeText>
           <StudioText>Nex Design Studio</StudioText>
@@ -479,8 +748,6 @@ const About = () => {
           <RightHeading>Your Vision, Our Expertise</RightHeading>
           <ParagraphText>
             Where creativity meets innovation. We are a dynamic design studio committed to bringing your vision to life through exceptional design solutions.
-          </ParagraphText>
-          <ParagraphText>
             Our team of talented designers, developers, and strategists work collaboratively to deliver unique and impactful designs that elevate your brand and captivate your audience.
           </ParagraphText>
           <StyledNexImage src={NexImage} alt="Nex Logo" />
@@ -489,22 +756,24 @@ const About = () => {
 
       <SectionWrapper1 bgColor="#ffffff">
         <WhoWeAreContainer>
+        <FirstColumn>
           <LeftText>
-            <h1>
-              <GrayText>who </GrayText>
-              <br /> {/* Line break */}
-              <RedText>ARE </RedText>
-              <GrayText>we</GrayText>
-            </h1>
+            <h1><GrayText>who </GrayText>
+              <br /> {/* Line break */}<RedText>ARE </RedText><GrayText1>we</GrayText1></h1>
+
           </LeftText>
+          </FirstColumn>
+          <SecondColumn>
           <ImageSection1>
             <StyledImage1 src={MiddleImage} alt="Who We Are" />
           </ImageSection1>
-
+          </SecondColumn>
+          <FullWidthColumn>
           <RightText>
             At Nex Design Studio, we are a team of passionate designers, strategists, and creative thinkers with a shared goal to bring your brand’s vision to life. 
             With years of experience in the industry, we have honed our skills in various aspects of design and branding, enabling us to deliver high-quality, tailored solutions that meet your unique needs.
           </RightText>
+          </FullWidthColumn>
         </WhoWeAreContainer>
       </SectionWrapper1>
 
@@ -512,7 +781,7 @@ const About = () => {
       {/* Third Section: Why Choose Us */}
       <SectionWrapper2 bgColor="#ffffff">
       <WhyChooseUsSection>
-        {/* Left Column: Service Icons */}
+      <FullWidthColumn>
         <LeftColumn>
           <ServiceBox>
             <img src={creative} alt="Creativity & Innovation" />
@@ -539,13 +808,15 @@ const About = () => {
             <h3>Long-Term Partnership</h3>
           </ServiceBox>
         </LeftColumn>
-
-        {/* Center Column: Large Icon */}
+        </FullWidthColumn>
+        <SecondColumn1>
         <CenterColumn>
           <LargeIcon src={idea} alt="Creative Idea" />
         </CenterColumn>
 
+        
         {/* Right Column: Why Choose Us Text */}
+        
         <RightColumn>
         <h1>
               <GrayText>why </GrayText>
@@ -554,62 +825,90 @@ const About = () => {
               <GrayText>us</GrayText>
             </h1>
         </RightColumn>
+        </SecondColumn1>
       </WhyChooseUsSection>
       </SectionWrapper2>
 
       <ProcessSection>
+        <SectionTitle>
+          our<br /><span>PROCESS</span>
+        </SectionTitle>
         <ProcessContainer>
-          <div style={{ gridColumn: 'span 1' }}>
-            <SectionTitle>
-              our <span>PROCESS</span>
-            </SectionTitle>
-              <ProcessCard>
-                <div className="number">01</div>
-                <img src={Icon_1} alt="Consultation" className="icon" />
-                <h3>Consultation</h3>
-                <p>We start by understanding your needs, goals, and vision.</p>
-              </ProcessCard>
+        <div style={{
+            gridColumn: 'span 1',
+            position: 'relative',  // Ensures that child positioning is relative to this div
+          }}>
+            <ProcessCard style={{
+              position: 'absolute',  // Allows absolute positioning within the div
+              top: '20%',         // Positions the ProcessCard 10% from the bottom of the div
+            }}>
+              <div className="number">01</div>
+              <img src={Icon_1} alt="Consultation" className="icon" />
+              <h3>Consultation</h3>
+              <p>We start by understanding your needs, goals, and vision.</p>
+            </ProcessCard>
           </div>
 
           <div style={{ gridColumn: 'span 1' }}>
-              <ProcessCard>
-                <div className="number">02</div>
-                <img src={Icon_2} alt="Research & Strategy" className="icon" />
-                <h3>Research & Strategy</h3>
-                <p>We conduct thorough research to create a strategic design plan.</p>
-              </ProcessCard>
+            <ProcessCard >
+              <div className="number">02</div>
+              <img src={Icon_2} alt="Research & Strategy" className="icon" />
+              <h3>Research & Strategy</h3>
+              <p>We conduct thorough research to create a strategic design plan.</p>
+            </ProcessCard>
           </div>
 
-          <div style={{ gridColumn: 'span 1' }}>
-              <ProcessCard>
-                <div className="number">03</div>
-                <img src={Icon_3} alt="Review & Feedback" className="icon" />
-                <h3>Review & Feedback</h3>
-                <p>We present the design for your review and incorporate your feedback.</p>
-              </ProcessCard>
+          <div style={{
+            gridColumn: 'span 1',
+            position: 'relative',  // Ensures that child positioning is relative to this div
+          }}>
+            <ProcessCard style={{
+              top: '-20%',         // Positions the ProcessCard 10% from the bottom of the div
+            }}>
+              <div className="number">03</div>
+              <img src={Icon_3} alt="Design & Development" className="icon" />
+              <h3>Design & Development</h3>
+              <p>Our creative team gets to work, bringing ideas to life</p>
+            </ProcessCard>
 
-              <ProcessCard>
-                <div className="number">04</div>
-                <img src={Icon_4} alt="Launch & Support" className="icon" />
-                <h3>Launch & Support</h3>
-                <p>We ensure a smooth launch and provide ongoing support as needed.</p>
-              </ProcessCard>
+            <ProcessCard style={{
+              top: '-10%',         // Positions the ProcessCard 10% from the bottom of the div
+            }}>
+              <div className="number">04</div>
+              <img src={Icon_5} alt="Launch & Support" className="icon" />
+              <h3>Review & Feedbacks</h3>
+              <p>We present the design for your review and incorprate your feedback.</p>
+            </ProcessCard>
           </div>
 
-          <div style={{ gridColumn: 'span 1' }}>
-              <ProcessCard>
-                <div className="number">05</div>
-                <img src={Icon_5} alt="Continuous Growth" className="icon" />
-                <h3>Continuous Growth</h3>
-                <p>We constantly innovate to help your business grow.</p>
-              </ProcessCard>
+          <div style={{
+            gridColumn: 'span 1',
+            position: 'relative',  // Ensures that child positioning is relative to this div
+          }}>
+            <ProcessCard style={{
+              top: '-10%',         // Positions the ProcessCard 10% from the bottom of the div
+            }}>
+              <div className="number">05</div>
+              <img src={Icon_4} alt="Continuous Growth" className="icon" />
+              <h3>Launch & Support</h3>
+              <p>We ensure a smooth launch and provide ongoing support as needed.</p>
+            </ProcessCard>
           </div>
         </ProcessContainer>
+        {/* Mobile Slider */}
+        <MobileProcessContainer>
+          <Slider {...settings}>
+            {steps.map((step) => (
+              <ProcessCard key={step.number}>
+                <div className="number">{`0${step.number}`}</div>
+                <img src={require(`../assets/Icon_${step.number}.svg`)} alt={`Step ${step.number}`} className="icon" />
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
+              </ProcessCard>
+            ))}
+          </Slider>
+        </MobileProcessContainer>
       </ProcessSection>
-
-
-
-
     <Contact />
     </AboutContainer>
   );

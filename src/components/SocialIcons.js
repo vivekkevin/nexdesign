@@ -10,7 +10,32 @@ const SocialContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @media (max-width: 768px) {
+    position: absolute;
+    right: unset;
+    top: 62%;
+    transform: none;
+    flex-direction: row; /* Make icons horizontal */
+    justify-content: center;
+    width: 100%;
+    margin-top: 15px;
+    gap: 15px;
+  }
+
+  @media (max-width: 480px) {
+    position: absolute;
+    right: unset;
+    top: 65%;
+    transform: none;
+    flex-direction: row; /* Make icons horizontal */
+    justify-content: center;
+    width: 100%;
+    margin-top: 15px;
+    gap: 15px;
+  }
 `;
+
 
 const IconLink = styled.a`
   color: #fff;

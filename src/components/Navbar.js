@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { NavLink, useLocation } from 'react-router-dom';
 import logo from '../assets/Logo.png';
+import menuIcon from '../assets/menu.png';
+
 
 // Styled Components
 const NavbarContainer = styled.div`
@@ -11,9 +13,8 @@ const NavbarContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: ${({ isMobileMenuOpen, isHomePage }) =>
-    isMobileMenuOpen ? '#000000' : isHomePage ? 'transparent' : '#000'};
-  position: ${({ isHomePage }) => (isHomePage ? 'absolute' : 'fixed')};
+  background: transparent !important; /* Ensures full transparency */
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 10;
@@ -21,59 +22,52 @@ const NavbarContainer = styled.div`
 
   @media (max-width: 768px) {
     padding: 10px 30px;
-    background: #000; /* Solid background on mobile */
+    background: transparent !important; /* Ensures transparency on mobile */
   }
 `;
+
+
 
 const Logo = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
-
+  margin-top:10px;
   img {
-    width: 150px; /* Adjust logo size */
-    height: auto;
+    width: ${({ isHomePage }) => (isHomePage ? '230px' : '180px')}; /* Larger on Home */
+    transition: width 0.3s ease-in-out;
 
     @media (max-width: 768px) {
-      width: 120px; /* Adjust for mobile */
+      width: ${({ isHomePage }) => (isHomePage ? '140px' : '120px')}; /* Adjust for mobile */
     }
   }
 `;
+
 
 const Menu = styled.div`
   display: flex;
   gap: 25px;
 
+  @media (max-width: 1440px) {
+  gap: 18px;
+  }
+
+  @media (max-width: 1024px) {
+  gap: 1px;
+  }
+
   @media (max-width: 768px) {
     display: ${({ isMobileMenuOpen }) => (isMobileMenuOpen ? 'flex' : 'none')};
     flex-direction: column;
-    position: absolute;
-    top: 80px;
+    position: fixed;
+    top: 0;
     left: 0;
     width: 100%;
-    background: #000000;
-    padding: 20px 0;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9); /* Full-screen dark overlay */
+    justify-content: center;
+    align-items: center;
     z-index: 9;
-    animation: ${({ isMobileMenuOpen }) =>
-      isMobileMenuOpen ? 'fadeIn 0.3s ease-in-out' : 'fadeOut 0.3s ease-in-out'};
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes fadeOut {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
   }
 `;
 
@@ -86,6 +80,7 @@ const MenuItem = styled(NavLink)`
   line-height: 29px;
   padding: 15px;
   text-align: center;
+  z-index: 10; /* Ensures items are clickable */
 
   &.active {
     color: #f0a500; /* Yellow on active state */
@@ -94,16 +89,53 @@ const MenuItem = styled(NavLink)`
   &:hover {
     color: #ffcc3f; /* Slightly lighter yellow on hover */
   }
+
+  @media (max-width: 1024px) {
+  padding: 7px;
+  }
+
+  @media (max-width: 768px) {
+    background: transparent;
+    border: 1px solid #ffffff;
+    padding: 5px 30px;
+    width: 70%; /* Centered bounding box */
+    margin: -3px 0; /* Spacing between items */
+  }
 `;
 
 const HamburgerIcon = styled.div`
   display: none;
   cursor: pointer;
-  color: #ffffff;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 15;
+  padding: 10px;
 
   @media (max-width: 768px) {
     display: block;
   }
+
+  img {
+    width: 35px;  /* Adjust size as needed */
+    height: auto;
+    filter: brightness(0) invert(1); /* Ensures visibility on dark backgrounds */
+    transition: transform 0.3s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.1); /* Slight hover effect */
+  }
+`;
+
+const CloseIcon = styled.div`
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #ffffff;
+  z-index: 11; /* Higher z-index for close button */
 `;
 
 // Navbar Component
@@ -118,15 +150,21 @@ const Navbar = () => {
 
   return (
     <NavbarContainer isMobileMenuOpen={isMobileMenuOpen} isHomePage={isHomePage}>
-      <Logo onClick={() => setMobileMenuOpen(false)}>
-        <img src={logo} alt="Nex Design Studio Logo" />
-      </Logo>
+    <Logo isHomePage={isHomePage} onClick={() => setMobileMenuOpen(false)}>
+      <img src={logo} alt="Nex Design Studio Logo" />
+    </Logo>
 
-      <HamburgerIcon onClick={toggleMenu}>
-        {isMobileMenuOpen ? <FaTimes size={30} /> : <FaBars size={30} />}
-      </HamburgerIcon>
+
+    <HamburgerIcon onClick={toggleMenu}>
+      {!isMobileMenuOpen && <img src={menuIcon} alt="Menu" />}  {/* Show only when menu is closed */}
+    </HamburgerIcon>
 
       <Menu isMobileMenuOpen={isMobileMenuOpen}>
+        {isMobileMenuOpen && (
+          <CloseIcon onClick={toggleMenu}>
+            <FaTimes size={30} />
+          </CloseIcon>
+        )}
         <MenuItem to="/" exact onClick={() => setMobileMenuOpen(false)}>
           Home
         </MenuItem>

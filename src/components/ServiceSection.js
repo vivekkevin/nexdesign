@@ -23,8 +23,7 @@ import lg5 from '../assets/lg_graphics_4.png'
 
 // Container for the Services Section
 const ServicesSectionContainer = styled.div`
-  width: 100%;
-  min-height: 100vh;
+  width:100%;
   background: url(${bgservice}) no-repeat center center/cover; /* Add bgservice here */
   padding: 50px 0;
   display: flex;
@@ -38,26 +37,39 @@ const ServicesHeader = styled.div`
   width: 80%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 40px;
+  align-items: normal;
+  
 
   h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 4vw;
+    font-size: 70px;
     color: #ff0000;
+    margin-top: 0px;
+  }
+  h2 {
+    font: normal normal normal 45px/82px Poppins;
+    font-size: 45px;
+    color:rgb(255, 255, 255);
+    margin-bottom: 0px;
   }
 
   span {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2vw;
-    color: #f0a500;
-    cursor: pointer;
-    transition: color 0.3s;
+      margin-top: 10%;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 30px;
+      color: rgb(255, 255, 255); /* Normal state */
+      cursor: pointer;
+      transition: color 0.3s;
 
-    &:hover {
-      color: #ffdd00;
-    }
+      &:hover {
+          color: #ffdd00; /* Bright yellow on hover */
+      }
+
+      &.active {
+          color: #f0a500; /* Stay yellow when active */
+      }
   }
+
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -79,10 +91,12 @@ const ServiceGrid = styled.div`
   width: 80%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
-  margin-top: 20px;
+  grid-gap: 10px;
+  margin-top: 10px;
+  background: rgba(0, 0, 0, 0.6);
 
-  @media (max-width: 1024px) {
+  
+  @media (max-width: 1428px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -97,20 +111,59 @@ const ServiceCard = styled.div`
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  height: 300px;
+  height: 400px;
   cursor: pointer;
+  background: black;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease-in-out;
+  }
 
-    &:hover {
-      transform: scale(1.1);
+  &:hover img {
+    transform: scale(1.1);
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1;  // Ensure the overlay is above the image but below the text overlay
+  }
+
+  &:hover:before {
+    opacity: 1;
+  }
+
+  .service-logo {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 2;  // Ensures the logo stays above the overlay
+    width: 170px; // Adjust width as needed
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+
+    @media (max-width: 768px) {
+      width: 30px; // Adjust size for mobile
     }
   }
 `;
+
+
 
 const TextOverlay = styled.div`
   position: absolute;
@@ -119,7 +172,6 @@ const TextOverlay = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.6);
   padding: 10px 20px;
   border-radius: 5px;
 
@@ -134,7 +186,6 @@ const TextOverlay = styled.div`
     }
   }
 `;
-
 
 
 // Main Services Section Component
@@ -188,13 +239,22 @@ const ServicesSection = () => {
   return (
     <ServicesSectionContainer>
       <ServicesHeader>
+      <div class="header-section">
+        <h2>our</h2>
         <h1>SERVICES</h1>
-        <span onClick={() => setActiveTab('Immersive Technology')}>
-          Immersive Technology
-        </span>
-        <span onClick={() => setActiveTab('Learning & Performance')}>
-          Learning & Performance
-        </span>
+      </div>
+      <span
+        className={activeTab === 'Immersive Technology' ? 'active' : ''}
+        onClick={() => setActiveTab('Immersive Technology')}
+      >
+        Immersive Technology
+      </span>
+      <span
+        className={activeTab === 'Learning & Performance' ? 'active' : ''}
+        onClick={() => setActiveTab('Learning & Performance')}
+      >
+        Learning & Performance
+      </span>
       </ServicesHeader>
 
       {activeTab === 'Immersive Technology'
