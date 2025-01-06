@@ -19,6 +19,13 @@ import lg2 from '../assets/lg_graphics_1.png'
 import lg3 from '../assets/lg_graphics_2.png'
 import lg4 from '../assets/lg_graphics_3.png'
 import lg5 from '../assets/lg_graphics_4.png'
+import lg6 from '../assets/lg_graphics_5.png'
+import lg7 from '../assets/lg_graphics_6.png'
+import lg8 from '../assets/lg_graphics_7.png'
+import lg9 from '../assets/lg_graphics_8.png'
+import lg10 from '../assets/lg_graphics_9.png'
+import lg11 from '../assets/lg_graphics_10.png'
+import lg12 from '../assets/lg_graphics_11.png'
 
 
 // Container for the Services Section
@@ -176,7 +183,7 @@ const TextOverlay = styled.div`
   border-radius: 5px;
 
   .service-logo {
-    width: 170px; /* Adjust width as needed */
+    width: 320px; /* Adjust width as needed */
     height: auto;
   }
 
@@ -198,18 +205,18 @@ const ServicesSection = () => {
     { image: sec2, logo: lg2, path: '/3d-modeling' },
     { image: sec3, logo: lg3, path: '/3d-modeling' },
     { image: sec4, logo: lg4, path: '/3d-modeling' },
-    { image: sec5, logo: lg5, path: '/3d-modeling' },
+    { image: sec5, logo: lg6, path: '/3d-modeling' },
     { image: sec6, logo: lg5, path: '/3d-modeling' },
   ];
   
 
   const learningPerformanceServices = [
-    { image: sec2_1, logo: lg1, path: '/3d-modeling' },
-    { image: sec2_2, logo: lg1, path: '/3d-modeling' },
-    { image: sec2_3, logo: lg1, path: '/3d-modeling' },
-    { image: sec2_4, logo: lg1, path: '/3d-modeling' },
-    { image: sec2_5, logo: lg1, path: '/3d-modeling' },
-    { image: sec2_6, logo: lg1, path: '/3d-modeling' },
+    { image: sec2_1, logo: lg8, path: '/3d-modeling' },
+    { image: sec2_2, logo: lg7, path: '/3d-modeling' },
+    { image: sec2_3, logo: lg9, path: '/3d-modeling' },
+    { image: sec2_4, logo: lg11, path: '/3d-modeling' },
+    { image: sec2_5, logo: lg12, path: '/3d-modeling' },
+    { image: sec2_6, logo: lg10, path: '/3d-modeling' },
   ];
 
   const handleCardClick = (path) => {

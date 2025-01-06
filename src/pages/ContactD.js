@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import MainHead from '../components/MainHead';
-import ServiceSection from '../components/ServiceSection';
 import Contact from '../components/Contact';
+import Portfolio from '../components/Portfolio';
 
 // Container for the Work Page
-const TeamContainer = styled.div`
+const ContactDContainer = styled.div`
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -15,20 +15,22 @@ const TeamContainer = styled.div`
   background: #111111;
 `;
 
-const Work = () => {
+const ContactD = () => {
   return (
-    <TeamContainer>
+    <ContactDContainer>
       <MainHead
         mainTextParts={[
-          { text: 'OUR', color: 'white' },
-          { text: 'TEAM', color: 'red' },
+          { text: 'GET IN', color: 'white' },
+          { text: 'TOUCH', color: 'red' },
         ]}
-        subText="Meet the Nex Team"
-        pageName="Nexbg9" // Ensure this matches the key in MainHead
+        subText="Reach Out to Us"
+        pageName="Nexbg8" // Ensure this matches the key in MainHead
       />
+      <div>
+    </div>
       <Contact />
-    </TeamContainer>
+    </ContactDContainer>
   );
 };
 
-export default Work;
+export default ContactD;

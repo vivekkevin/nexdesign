@@ -180,7 +180,7 @@ const Navbar = () => {
         <MenuItem to="/team" onClick={() => setMobileMenuOpen(false)}>
           Team
         </MenuItem>
-        <MenuItem to="/careers" onClick={() => setMobileMenuOpen(false)}>
+        <MenuItem to="/career" onClick={() => setMobileMenuOpen(false)}>
           Careers
         </MenuItem>
         <MenuItem to="/contact" onClick={() => setMobileMenuOpen(false)}>

@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import services from '../assets/services.png'; // Import image properly
 import workBg from '../assets/work.png'; // Import image properly
+import Nexbg7 from '../assets/Nexbg7.png';
+import Nexbg8 from '../assets/Nexbg8.png';
+import Nexbg9 from '../assets/Nexbg9.png';
 
 // Container for the Main Head Section
 const MainHeadContainer = styled.h1`
@@ -72,6 +75,9 @@ const MainHead = ({ mainTextParts, subText, pageName }) => {
   const backgroundImages = {
     services: services,
     work: workBg,
+    Nexbg7: Nexbg7,
+    Nexbg8: Nexbg8,
+    Nexbg9: Nexbg9,
     contact: '/assets/contact-background.jpg',
   };
 

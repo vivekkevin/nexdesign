@@ -340,7 +340,7 @@ const Contact = () => {
           <a href="/services">Services</a>
           <a href="/work">Work</a>
           <a href="/team">Team</a>
-          <a href="/careers">Careers</a>
+          <a href="/career">Career</a>
           <a href="/contact" style={{ color: '#f0a500', textDecoration: 'none' }}>Contact</a>
         </FooterNav>
         </ContactInfo>

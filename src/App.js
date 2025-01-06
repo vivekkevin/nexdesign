@@ -7,6 +7,8 @@ import Services from './pages/Services';
 import Service1 from './pages/Service1';
 import Work from './pages/Work';
 import Team from './pages/Team';
+import Career from './pages/Career';
+import Contact from './pages/ContactD';
 import SocialIcons from './components/SocialIcons';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles from './GlobalStyles';
@@ -34,6 +36,8 @@ function App() {
           <Route path="/service1" element={<Service1 />} />
           <Route path="/work" element={<Work />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/Career" element={<Career />} />
+          <Route path="/Contact" element={<Contact />} />
         </Routes>
         {/* Conditionally render SocialIcons based on the current path */}
         <ConditionalSocialIcons />
