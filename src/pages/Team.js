@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import MainHead from '../components/MainHead';
 import ServiceSection from '../components/ServiceSection';
 import Contact from '../components/Contact';
+import Team from '../components/TTeam';
 
 // Container for the Work Page
 const TeamContainer = styled.div`
@@ -26,6 +27,7 @@ const Work = () => {
         subText="Meet the Nex Team"
         pageName="Nexbg9" // Ensure this matches the key in MainHead
       />
+      <Team />
       <Contact />
     </TeamContainer>
   );

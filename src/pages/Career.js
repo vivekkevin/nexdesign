@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import MainHead from '../components/MainHead';
 import Contact from '../components/Contact';
+import Sfoot from '../components/Sfoot_2';
 import Portfolio from '../components/Portfolio';
 
 // Container for the Work Page
@@ -28,6 +29,7 @@ const Carrer = () => {
       />
       <div>
     </div>
+      <Sfoot />
       <Contact />
     </WorkContainer>
   );

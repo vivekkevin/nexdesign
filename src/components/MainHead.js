@@ -19,6 +19,7 @@ const MainHeadContainer = styled.h1`
   align-content: flex-start;
   flex-wrap: wrap;
   margin-top:-10px;
+  margin-bottom:-10px;
 `;
 
 // Container for Text Overlays

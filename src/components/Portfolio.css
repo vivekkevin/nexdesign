@@ -5,6 +5,8 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  
+
 }
 
 .portfolio-header {
@@ -25,7 +27,7 @@
   line-height: 10px;
   color: #fff;
   margin-left: 50px;
-  margin-bottom: 10px;
+  margin-top: 50px;
   margin-left: 40%;
 }
 
@@ -82,7 +84,7 @@
 }
 
 .rect-toggle1, .rect-toggle2 {
-  width: 70px;
+  width: 50px;
   height: 5px;
   background-color: #666;
   border-radius: 5px;
