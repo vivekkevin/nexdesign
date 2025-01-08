@@ -2,10 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import bgservice from '../assets/bgservice.png';
 import image1 from '../assets/client1.png';
-import image2 from '../assets/client1.png';
-import image3 from '../assets/client1.png';
-import image4 from '../assets/client1.png';
-
+import image2 from '../assets/client2.png';
+import image3 from '../assets/client3.png';
+import image4 from '../assets/client4.png';
+import image5 from '../assets/client5.png';
+import image6 from '../assets/client6.png';
 
 // Styled components
 const PortfolioContainer = styled.div`
@@ -36,6 +37,16 @@ const PortfolioHeading = styled.h1`
   color: #fff;
   margin-left: 40%;
   margin-top: 50px;
+  h2, h3 {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font: 75px/58px Poppins;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  h2 { color: #FFFFFF; }
+  h3 { color: #E8001A; font-weight: bold; }
 `;
 
 const PortfolioLinks = styled.div`
@@ -43,12 +54,13 @@ const PortfolioLinks = styled.div`
   gap: 30px;
   font-size: 1rem;
   color: #fff;
-  margin-right: 30%;
+  margin-right: 20%;
+  font: normal normal normal 25px/82px Poppins;
 `;
 
 const PortfolioGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr); // Changed to 2 for simplicity
+  grid-template-columns: repeat(4, 1fr);
   padding: 70px;
 `;
 
@@ -75,7 +87,7 @@ const PortfolioCardContent = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  height: auto;
+  height: 100%;
 `;
 
 const ToggleContainer = styled.div`
@@ -101,11 +113,13 @@ const RectToggle = styled.div`
   }
 `;
 
-// Sample data for team members
 const teamMembers = [
-  { name: "Sachin Kumar", role: "Chief Executive Officer", slogan: "We Create, You Succeed", image: image1 },
-  { name: "Sahana R Shindhe", role: "Chief Operating Officer", slogan: "Your Story, Our Animation", image: image2 },
-  { name: "Rashmi Hegde", role: "Lead Motion Graphics Designer", slogan: "Animating Your Ideas", image: image3 }
+  { name: "Sachin Kumar", role: "Chief Executive Officer", slogan: "'' We Create, You Succeed ''", description: "We believe in the power of storytelling through the art of animation and visual effects. As CEO, I am honored to lead a company that not only thrives on innovation but also places a strong emphasis on collaboration, creativity, and client success.", image: image1, bgColor: "#222" },
+  { name: "Sumedha NR", role: "Chief Creative Officer", slogan: "'' Immersive Digital Artistry Mastery ''", description: "As CCO, I am driven by the vision of bringing imagination to life through animation and visual effects, blending artistry with cutting-edge technology to create experiences that captivate, inspire and place creativity at the core of everything.", image: image6, bgColor: "#E8001A" },
+  { name: "Sahana R Shindhe", role: "Chief Operating Officer", slogan: "'' Your Story, Our Animation ''", description: "As COO drives operational excellence, ensuring seamless collaboration and innovation. With a passion for fostering creativity, they empower teams to deliver captivating animation and visual effects, transforming imaginative concepts into impactful experiences.", image: image2, bgColor: "#222" },
+  { name: "Rashmi Hegde", role: "Lead - Motion Graphics Designer", description: "As Lead Motion Graphics Designer at Nex Design Studio, I craft visually stunning animations that bring stories to life. With a keen eye for detail and a passion for creativity, I collaborate with teams to deliver captivating designs that inspire and engage audiences.", image: image4, bgColor: "#E8001A" },
+  { name: "Naveena K", role: "Senior - UI | UX Designer", description: "As Senior UI/UX Designer at Nex Design Studio, I blend creativity with user-centered design principles to create intuitive and engaging interfaces. My focus is on enhancing user experiences, ensuring that every interaction is seamless, enjoyable, and visually compelling for our clients.", image: image5, bgColor: "#E8001A" },
+  { name: "Sneha Swami", role: "UX Designer / Writing", description: "As a UX & Writing Designer at Nex Design Studio, I create engaging narratives and user-friendly interfaces that resonate with audiences. By merging compelling storytelling with thoughtful design, I enhance user experiences, ensuring every interaction is meaningful and memorable.", image: image3, bgColor: "#222" }
 ];
 
 const Team = () => {
@@ -113,7 +127,7 @@ const Team = () => {
     <PortfolioContainer>
       <PortfolioHeader>
         <HeaderContent>
-          <PortfolioHeading>Meet <span>Our Team</span></PortfolioHeading>
+          <PortfolioHeading><h2>meet</h2> <span><h3>Our Team</h3></span></PortfolioHeading>
         </HeaderContent>
         <PortfolioLinks>
           <span>Nex Design Studio Is a Blend Of Creativity, Innovation, and Expertise.</span>
@@ -122,16 +136,35 @@ const Team = () => {
       <PortfolioGrid>
         {teamMembers.map((member, index) => (
           <React.Fragment key={index}>
-            <PortfolioCard>
-              <Image src={member.image} alt={member.name} />
-            </PortfolioCard>
-            <PortfolioCard bgColor="#222">
-              <PortfolioCardContent>
-                <h2>{member.name}</h2>
-                <h3>{member.role}</h3>
-                <p>{member.slogan}</p>
-              </PortfolioCardContent>
-            </PortfolioCard>
+            {((index % 4 === 0 || index % 4 === 1) && (
+              <>
+                <PortfolioCard>
+                  <Image src={member.image} alt={member.name} />
+                </PortfolioCard>
+                <PortfolioCard bgColor={member.bgColor}>
+                  <PortfolioCardContent>
+                    <h2>{member.name}</h2>
+                    <h3>{member.role}</h3>
+                    <p>{member.slogan}</p>
+                    <p>{member.description}</p>
+                  </PortfolioCardContent>
+                </PortfolioCard>
+              </>
+            )) || (index % 4 === 2 || index % 4 === 3) && (
+              <>
+                <PortfolioCard bgColor={member.bgColor}>
+                  <PortfolioCardContent>
+                    <h2>{member.name}</h2>
+                    <h3>{member.role}</h3>
+                    <p>{member.slogan}</p>
+                    <p>{member.description}</p>
+                  </PortfolioCardContent>
+                </PortfolioCard>
+                <PortfolioCard>
+                  <Image src={member.image} alt={member.name} />
+                </PortfolioCard>
+              </>
+            )}
           </React.Fragment>
         ))}
       </PortfolioGrid>

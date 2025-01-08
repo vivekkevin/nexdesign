@@ -13,10 +13,8 @@ const MainHeadContainer = styled.h1`
   background: ${({ bgImage }) => `url(${bgImage})`} no-repeat center center/cover; /* Dynamic Background */
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   position: relative;
-  align-content: flex-start;
   flex-wrap: wrap;
   margin-top:-10px;
   margin-bottom:-10px;
@@ -24,19 +22,20 @@ const MainHeadContainer = styled.h1`
 
 // Container for Text Overlays
 const TextOverlay = styled.div`
-  text-align: center;
+  margin-left:10%;
   color: #ffffff;
 `;
 
 // Container for Dynamic Text
 const DynamicTextContainer = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
+  align-item:center;
   font-family: 'Montserrat', sans-serif;
   font-size: 3vw;
   font-weight: 700;
   background: #f0a500;
+  width: fit-content;
 
   @media (max-width: 768px) {
     font-size: 10vw;
@@ -60,7 +59,6 @@ const SubText = styled.h2`
   font-size: 1.5vw;
   font-family: 'Poppins', sans-serif;
   margin-top: 20px;
-  margin-left: 150px;
   font-weight: 400;
   text-transform: capitalize;
   line-height: 60px;
@@ -97,8 +95,8 @@ const MainHead = ({ mainTextParts, subText, pageName }) => {
             )
           )}
         </DynamicTextContainer>
+        <SubText>{subText}</SubText>
       </TextOverlay>
-      <SubText>{subText}</SubText>
     </MainHeadContainer>
   );
 };
