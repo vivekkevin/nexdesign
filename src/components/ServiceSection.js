@@ -202,21 +202,21 @@ const ServicesSection = () => {
 
   const immersiveTechnologyServices = [
     { image: sec1, logo: lg1, path: '/Service1' },
-    { image: sec2, logo: lg2, path: '/3d-modeling' },
-    { image: sec3, logo: lg3, path: '/3d-modeling' },
-    { image: sec4, logo: lg4, path: '/3d-modeling' },
-    { image: sec5, logo: lg6, path: '/3d-modeling' },
-    { image: sec6, logo: lg5, path: '/3d-modeling' },
+    { image: sec2, logo: lg2, path: '/Service1' },
+    { image: sec3, logo: lg3, path: '/Service1' },
+    { image: sec4, logo: lg4, path: '/Service1' },
+    { image: sec5, logo: lg6, path: '/Service1' },
+    { image: sec6, logo: lg5, path: '/Service1' },
   ];
   
 
   const learningPerformanceServices = [
-    { image: sec2_1, logo: lg8, path: '/3d-modeling' },
-    { image: sec2_2, logo: lg7, path: '/3d-modeling' },
-    { image: sec2_3, logo: lg9, path: '/3d-modeling' },
-    { image: sec2_4, logo: lg11, path: '/3d-modeling' },
-    { image: sec2_5, logo: lg12, path: '/3d-modeling' },
-    { image: sec2_6, logo: lg10, path: '/3d-modeling' },
+    { image: sec2_1, logo: lg8, path: '/SService1' },
+    { image: sec2_2, logo: lg7, path: '/SService1' },
+    { image: sec2_3, logo: lg9, path: '/SService1' },
+    { image: sec2_4, logo: lg11, path: '/SService1' },
+    { image: sec2_5, logo: lg12, path: '/SService1' },
+    { image: sec2_6, logo: lg10, path: '/SService1' },
   ];
 
   const handleCardClick = (path) => {

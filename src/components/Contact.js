@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { FaFacebook, FaInstagram, FaLinkedin, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaLinkedin, FaEnvelope, FaPhoneAlt, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import contact from '../assets/contact.png'
+import ArrowIcon from './Arrowicon';
 
 // Main Container for the Contact Section
 // Main Container for the Contact Section
@@ -208,7 +209,8 @@ const Input = styled.input`
   border-radius: 5px;
   border: none;
   width: 90%;
-  font-size: 16px;
+  font: normal normal normal 19px/29px Poppins;
+  color: #5A5A5A;
 `;
 
 const Textarea = styled.textarea`
@@ -217,8 +219,14 @@ const Textarea = styled.textarea`
   border: none;
   width: 90%;
   height: 150px;
-  font-size: 16px;
   margin-bottom: 20px;
+  font: normal normal normal 19px/29px Poppins;
+  color: #5A5A5A;
+`;
+
+const Container = styled.div`
+  position: relative;
+  width: 90%;
 `;
 
 // Styled Select
@@ -226,11 +234,19 @@ const Select = styled.select`
   padding: 15px;
   border-radius: 5px;
   border: none;
-  width: 90%;
-  font-size: 16px;
+  width: 100%;
   margin-bottom: 20px;
+  font: normal normal normal 19px/29px Poppins;
+  color: #5A5A5A;
+  -webkit-appearance: none; /* Removes default styling for select in Chrome */
+  -moz-appearance: none;    /* Removes default styling for select in Firefox */
 `;
 
+const StyledOption = styled.option`
+  color: #E8001A;
+  background-color: #FFFFFF; /* White background for consistency */
+  /* Hover effects will not be applied as :hover is not supported for <option> elements */
+`;
 
 // Submit Button
 const SubmitButton = styled.button`
@@ -301,8 +317,14 @@ const Footer = styled.footer`
 `;
 
 
+
 // Contact Component
 const Contact = () => {
+
+  const [isOpen, setIsOpen] = useState(false);  // Move useState inside the component
+
+  const toggleDropdown = () => setIsOpen(!isOpen);
+
   return (
     <>
     <BackgroundWrapper>
@@ -319,7 +341,7 @@ const Contact = () => {
               <FaEnvelope /> connect@nexdesignstudio.com
             </p>
             <p>
-              <FaPhoneAlt /> +91 9353759335, +91 6361695271
+              <FaPhoneAlt /> +91 9731178024, +91 8660811575
             </p>
           </ContactDetails>
           <SocialIconsContainer>
@@ -350,16 +372,23 @@ const Contact = () => {
           <Input type="text" placeholder="Enter Your Name*" required />
           <Input type="tel" placeholder="Enter Your Phone Number*" required />
           <Input type="email" placeholder="Enter Your Email ID*" required />
-          <Select id="dropdown" required>
-          <option value="" hidden>Choose Services</option>
-          <option value="Graphic Design">Graphic Design</option>
-          <option value="UI/UX Design">UI/UX Design</option>
-          <option value="Digital Marketing">Digital Marketing</option>
-          <option value="Web Development">Web Development</option>
-          <option value="Video Design">Video Design</option>
-          <option value="3D Animation">3D Animation</option>
-          <option value="Workshop & Learning Performance">Workshop & Learning Performance</option>
-          </Select>
+          <Container>
+          <Select
+              onChange={toggleDropdown}
+              onBlur={() => setIsOpen(false)}
+              onFocus={() => setIsOpen(true)}
+            >
+              <StyledOption value="" hidden>Choose Services</StyledOption>
+              <StyledOption value="Graphic Design">Graphic Design</StyledOption>
+              <StyledOption value="UI/UX Design">UI/UX Design</StyledOption>
+              <StyledOption value="Digital Marketing">Digital Marketing</StyledOption>
+              <StyledOption value="Web Development">Web Development</StyledOption>
+              <StyledOption value="Video Design">Video Design</StyledOption>
+              <StyledOption value="3D Animation">3D Animation</StyledOption>
+              <StyledOption value="Workshop & Learning Performance">Workshop & Learning Performance</StyledOption>
+            </Select>
+            <ArrowIcon isOpen={isOpen} />
+          </Container>
           <Textarea placeholder="Message" required></Textarea>
           <SubmitButton type="submit">Send</SubmitButton>
         </ContactForm>

@@ -251,12 +251,13 @@ const VerticalButton = styled.div`
 
 
 const Title = styled.h1`
-  font-size: 5vw;
+  font: normal normal normal 45px/68px Poppins;
   color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.fonts.montserratBold};
   margin: 0;
   font-weight: 100; /* Use regular font weight */
   font-style: normal; /* Regular style */
+  margin-top: 150px;
 
   @media (max-width: 768px) {
     font-size: 8vw;

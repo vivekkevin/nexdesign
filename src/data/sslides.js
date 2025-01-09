@@ -1,11 +1,11 @@
 // slides.js
 import Nexbgstr from '../assets/nexbgs.png';
 
-export const slides = [
+export const sslides = [
     {
         bgImage: Nexbgstr,
-        title: 'Creative Graphic Solutions For Clients',
-        subtitle: 'WHAT WE DO',
+        title: 'Graphic Design - Learning & Performance',
+        subtitle: 'Design process is followed to develop a strong foundation in design principles, software proficiency, and creative problem-solving skills.',
         services: [
             'Logos', 'Characters & Mascots', 'Display Ads', 'Social Media Posts & Ads', 'Infographics',
             'Custom Illustrations', 'Powerpoint Templates', 'Presentation Decks', 'Branding & Identity',

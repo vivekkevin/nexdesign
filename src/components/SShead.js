@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import homeImage1 from '../assets/Nexbg1.png';
-import homeImage2 from '../assets/Nexbg2.png';
-import homeImage3 from '../assets/Nexbg3.png';
-import homeImage4 from '../assets/Nexbg4.png';
-import homeImage5 from '../assets/Nexbg5.png';
-import homeImage6 from '../assets/Nexbg6.png';
+import homeImage1 from '../assets/Nexbg2_1.png';
+import homeImage2 from '../assets/Nexbg2_2.png';
+import homeImage3 from '../assets/Nexbg2_6.png';
+import homeImage4 from '../assets/Nexbg2_5.png';
+import homeImage5 from '../assets/Nexbg2_4.png';
+import homeImage6 from '../assets/Nexbg2_3.png';
 
 
 // Styled Components for Hero Section
@@ -31,12 +31,8 @@ const HeroContainer = styled.div`
 
 // Center Container for Text Elements
 const CenterTextContainer = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-
+position: absolute;
+left: 10%;
   @media (max-width: 768px) {
     position: relative;
     top: 25%;
@@ -102,16 +98,26 @@ const Title = styled.h1`
   font-size: 2.5vw;
   color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.fonts.montserratBold};
-  margin-top: 20%;
+  margin-top: 5%;
   font-weight: 5px; /* Use regular font weight */
   font-style: normal; /* Regular style */
+  align-item: left;
 
   @media (max-width: 768px) {
     font-size: 8vw;
   }
 `;
 
-const slides = [
+const Subtitle = styled.h1`
+text-align: left;
+font: normal normal normal 40px/60px Poppins;
+letter-spacing: 0px;
+color: #FFCC3F;
+`;
+
+
+
+const sslides = [
     {
         bgImage: homeImage1,
         title: 'NEX - GRAPHIC DESIGN',
@@ -146,13 +152,13 @@ const slides = [
 
 const SShead = ({ currentIndex, handleSlideChange }) => {
     return (
-                <HeroContainer bgImage={slides[currentIndex].bgImage}>
+                <HeroContainer bgImage={sslides[currentIndex].bgImage}>
                     <CenterTextContainer>
-                        <Title>{slides[currentIndex].title}</Title>
-                        <Title>{slides[currentIndex].subtitle}</Title>
+                        <Title>{sslides[currentIndex].title}</Title>
+                        <Subtitle>{sslides[currentIndex].subtitle}</Subtitle>
                     </CenterTextContainer>
                     <VerticalButton>
-                        {slides.map((_, index) => (
+                        {sslides.map((_, index) => (
                             <div
                                 key={index}
                                 className={`line ${currentIndex === index ? 'active' : ''}`}

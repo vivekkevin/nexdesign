@@ -74,8 +74,20 @@ const Title = styled.h1`
 `;
 
 const Subtitle = styled.h1`
-  font: normal normal normal 35px/82px Poppins;
-  color: #E8001A;
+text-align: center;
+font: normal normal normal 25px/60px Poppins;
+letter-spacing: 0px;
+color: #FFFFFF;
+opacity: 1;
+`;
+
+const Htitle = styled.h1`
+text-align: left;
+font: normal normal 600 40px/129px Poppins;
+letter-spacing: 0px;
+color: #E8001A;
+text-transform: capitalize;
+opacity: 1;
 `;
 
 const Sub = styled.h1`
@@ -164,12 +176,13 @@ const SSfoot = ({ currentIndex, setCurrentIndex, sslides }) => {
 
   return (
     <Container bgImage={bgImage}>
-      <Title>{title}</Title>
       <Header>
       <Button onClick={handlePrev} image={previous} />
-        <Subtitle>{subtitle}</Subtitle>
-        <Button onClick={handleNext} image={next} />
+      <Title>{title}</Title>
+      <Button onClick={handleNext} image={next} />
       </Header>
+        <Subtitle>{subtitle}</Subtitle>
+        <Htitle>Mastering Graphic Design, You Will Learn:</Htitle>
       <ServiceList>
         {services.map((service, index) => (
           <ServiceItem key={index} isLast={service === '............Many More'}>
