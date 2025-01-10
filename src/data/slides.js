@@ -11,7 +11,7 @@ export const slides = [
             'Custom Illustrations', 'Powerpoint Templates', 'Presentation Decks', 'Branding & Identity',
             'Newsletters', 'Web Ads', 'Amazon Ads', 'Brochures', 'Billboards', 'Packaging & Labels',
             'Flyers & Posters', 'T-Shirt Design', 'Booklets', 'Magazine & Newspaper Ads', 
-            'Business Cards', 'Book Cover Design', 'Product Mock-Ups', 'AI-Generated Images', 'Many More'
+            'Business Cards', 'Book Cover Design', 'Product Mock-Ups', 'AI-Generated Images', 
         ]
     },
     {
@@ -20,15 +20,14 @@ export const slides = [
         subtitle: 'WHAT WE DO',
         services: [
             "User Interface Design",
-            "Visual Design",
-            "Mobile App Design",
             "Wireframing & Prototyping",
-            "Interaction Design",
             "Information Architecture",
-            "Responsive Website Design",
             "User Research & Analysis",
+            "Visual Design",
+            "Interaction Design",
+            "Responsive Website Design",
             "Web App Design",
-            "Many More"
+            "Mobile App Design",   
         ]
     },
     {
@@ -37,16 +36,15 @@ export const slides = [
         subtitle: 'WHAT WE DO',
         services: [
             "Search Engine Optimization",
-            "Social Media Marketing",
-            "Email Marketing",
             "Influencer Marketing",
-            "Affiliate Marketing",
-            "Display Advertising",
             "Video Marketing",
-            "Search Engine Marketing",
             "Content Marketing",
+            "Social Media Marketing",
+            "Affiliate Marketing",
+            "Search Engine Marketing",
             "E-Commerce Marketing",
-            "Many More"
+            "Email Marketing",
+            "Display Advertising",    
         ]        
     },
     {
@@ -59,7 +57,7 @@ export const slides = [
             "Mobile App Development",
             "24 X 7 Support & Maintenance",
             "Website Development",
-            "Many More"
+            
         ]        
     },
     {
@@ -68,16 +66,16 @@ export const slides = [
         subtitle: 'WHAT WE DO',
         services: [
             "Logo Animations",
-            "UI/UX Animations",
-            "Corporate Presentations",
             "Infographic Videos",
-            "Character Animation",
-            "Explainer Videos",
             "Typography Animation",
-            "Demo Videos",
-            "Educational Videos",
             "Social Media Videos",
+            "UI/UX Animations",
+            "Character Animation",
+            "Demo Videos",
             "Promotional Videos",
+            "Corporate Presentations",
+            "Explainer Videos",
+            "Edcational Videos",
             "Video Editing"
         ]              
     },
@@ -87,15 +85,14 @@ export const slides = [
         subtitle: 'WHAT WE DO',
         services: [
             "Game Assets",
-            "Product Visualization",
-            "VFX",
             "Characters",
-            "Rotoscopy",
             "Photogrammetry Clean Up",
-            "Animation",
             "Architectural Visualization",
+            "Product Visualization",
+            "Rotoscopy",
+            "Animation",
             "Environment",
-            "Many More"
+            "VFX",  
         ]                    
     },
 ];

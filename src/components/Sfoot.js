@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Nexbgstr from '../assets/nexbgs.png';
+import Nexz from '../assets/About_2.png';
 import galleryImage1 from '../assets/gallery-image1.png';
 import galleryImage2 from '../assets/gallery-image2.png';
 import galleryImage3 from '../assets/gallery-image3.png';
@@ -54,11 +56,29 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url(${Nexbgstr});
+  background-image: url(${Nexbgstr}); /* Base background image */
   background-size: cover;
+  background-position: center center;
   width: 100%;
   min-height: 100vh;
+  position: relative; /* Needed for positioning pseudo-element */
+
+  &::before { /* Pseudo-element for overlay image */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(${Nexz}); /* Overlay image */
+    background-size: 35% 12%;
+    background-position: center 460px;
+    background-repeat: no-repeat;
+    opacity: 0.4; /* Set the desired opacity here */
+    pointer-events: none; /* Makes the pseudo-element click-through */
+  }
 `;
+
 
 const Header = styled.div`
   display: flex;
@@ -68,34 +88,75 @@ const Header = styled.div`
   gap:40px;
 `;
 
-const Title = styled.h1`
+const Banner = styled.div`
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px; // Adds padding around the content
+  position: relative; // Needed for positioning pseudo-elements
+
+  &::before, &::after {
+    content: '-'; // Using '[' for both, but will change the 'after' content in CSS
+    color: red; // Orange color for the brackets
+    font-size: 48px; // Font size for brackets, adjust as needed
+    font-weight: bold; // Bold brackets
+    
+    position: absolute; // Positioning to place correctly
+  }
+  &::after {
+    content: '-'; // Closing bracket
+  }
+
+  &::before {
+    left:-30px; // Position from the left
+  }
+  &::after {
+    right: -30px; // Position from the right
+  }
+`;
+
+
+const STitle = styled.h1`
   font: normal normal normal 40px/82px Poppins;
   color:rgb(255, 255, 255);
 `;
 
+const Title = styled.h1`
+  font: normal normal normal 40px/82px Poppins;
+  color:rgb(255, 255, 255);
+`;
 const Subtitle = styled.h1`
   font: normal normal normal 35px/82px Poppins;
   color: #E8001A;
 `;
 
-const Sub = styled.h1`
-  position: relative; // Ensures the pseudo-element positions correctly
-  font: normal normal normal 25px/82px Poppins; // Verify Poppins is loaded
+const StyledLink = styled(Link)`
+  position: relative;
+  display: inline-block; // Make sure the component behaves as a block for positioning
+  font: normal normal normal 25px/82px Poppins;
   color: #E8001A;
-  margin-top: -150px; // Be cautious with this in your layout
+  margin-top: -150px;
+  text-decoration: none; // Remove underline from link
 
   &:after {
-    content: '→'; // Simple right arrow character
+    content: '→';
     position: absolute;
-    right: -20px; // Adjust positioning as needed
+    right: -20px;
     top: 50%;
-    transform: translateY(-50%); // Centers the arrow vertically
-    color: #f0a500; // Arrow color, corrected to include '#'
-    font-size: 18px; // Arrow size
-    font-weight: 700; // Increases the thickness of the arrow
+    transform: translateY(-50%);
+    color: #f0a500;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  &:hover {
+    color: #f0a500; // Example hover effect, changing text color
+    &:after {
+      color: #E8001A; // Changing arrow color on hover
+    }
   }
 `;
-
 
 
 
@@ -135,6 +196,7 @@ const ServiceItem = styled.div`
   padding-left: 30px; /* Adjust padding to position text as needed */
   font: normal normal normal 26px/82px Poppins;
   color: ${props => props.isLast ? 'red' : 'white'};
+   color: ${props => props.isLast ? 'red' : 'inherit'};
 
   &:before {
     content: '-';
@@ -176,8 +238,15 @@ const Sfoot = ({ currentIndex, setCurrentIndex, slides }) => {
             {service}
           </ServiceItem>
         ))}
+        <ServiceItem key="manyMore" isLast={true}>
+          ............Many More
+        </ServiceItem>
       </ServiceList>
-      <Title>Explore These Examples Of Our Work To See How We Can Help You!</Title>
+
+      <Banner>
+        <STitle>Explore These Examples Of Our Work To See How We Can Help You</STitle>
+      </Banner>
+
       <Subtitle>Nex Graphics Samples</Subtitle>
       <GalleryContainer>
       {/* First Row */}
@@ -196,7 +265,7 @@ const Sfoot = ({ currentIndex, setCurrentIndex, slides }) => {
       <LargeImage src={galleryImage9} alt="Large Image 9" style={{ gridColumn: "span 3", gridRow: "span 2", marginLeft:'-33%', marginTop:'-4%' }} />
 
     </GalleryContainer>
-    <Sub>View All Graphics Samples</Sub>
+    <StyledLink to="/work">View All Graphics Samples</StyledLink>
     </Container>
   );
 };

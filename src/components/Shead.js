@@ -32,7 +32,8 @@ const HeroContainer = styled.div`
 // Center Container for Text Elements
 const CenterTextContainer = styled.div`
   position: absolute;
-  top: 50%;
+  width:100%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -253,6 +254,7 @@ const VerticalButton = styled.div`
 
 const Title = styled.h1`
   font-size: 2.5vw;
+  
   color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.fonts.montserratBold};
   margin-top: 20%;

@@ -13,16 +13,6 @@ import galleryImage9 from '../assets/gallery-image9.png';
 import next from '../assets/next.png';
 import previous from '../assets/previous.png';
 
-const GalleryContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(12, 1fr); /* 12-column grid */
-  grid-auto-rows: minmax(200px, auto); /* Ensures row height adapts */
-  gap: 10px;
-  padding: 20px;
-  width: 100%;
-  margin-left:250px;
-`;
-
 const Image = styled.img`
   width: 80%;
   height: auto;
@@ -31,20 +21,6 @@ const Image = styled.img`
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 `;
 
-const LargeImage = styled(Image)`
-  grid-column: span 3; /* Large images take half width */
-  grid-row: span 2; /* Take up two rows */
-`;
-
-const MediumImage = styled(Image)`
-  grid-column: span 4; /* Medium images take 4 columns */
-  grid-row: span 2;
-`;
-
-const SmallImage = styled(Image)`
-  grid-column: span 3; /* Small images take 3 columns */
-  grid-row: span 1;
-`;
 
 const Container = styled.div`
   background-color: #121212;
@@ -54,11 +30,12 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url(${Nexbgstr});
+  background-image: url(${props => props.bgImage});
   background-size: cover;
   width: 100%;
   min-height: 100vh;
 `;
+
 
 const Header = styled.div`
   display: flex;
@@ -90,24 +67,6 @@ text-transform: capitalize;
 opacity: 1;
 `;
 
-const Sub = styled.h1`
-  position: relative; // Ensures the pseudo-element positions correctly
-  font: normal normal normal 25px/82px Poppins; // Verify Poppins is loaded
-  color: #E8001A;
-  margin-top: -150px; // Be cautious with this in your layout
-
-  &:after {
-    content: '→'; // Simple right arrow character
-    position: absolute;
-    right: -20px; // Adjust positioning as needed
-    top: 50%;
-    transform: translateY(-50%); // Centers the arrow vertically
-    color: #f0a500; // Arrow color, corrected to include '#'
-    font-size: 18px; // Arrow size
-    font-weight: 700; // Increases the thickness of the arrow
-  }
-`;
-
 
 
 
@@ -132,31 +91,30 @@ const Button = styled.button`
   }
 `;
 
-const ServiceList = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
+const ServiceList = styled.ul`
+  list-style: none;
   padding: 20px;
-  margin-top: 10px;
 `;
 
-const ServiceItem = styled.div`
-  position: relative;
-  background: rgba(255, 255, 255, 0);
-  padding: 10px;
-  padding-left: 30px; /* Adjust padding to position text as needed */
-  font: normal normal normal 26px/82px Poppins;
-  color: ${props => props.isLast ? 'red' : 'white'};
-
+const ServiceItem = styled.li`
+  padding: 8px 0;
+  margin-left: 40px; // Adjust according to your design needs
   &:before {
-    content: '-';
-    position: absolute;
-    left: 7px; /* Position of the hyphen */
-    color: #E8001A; /* Color of the hyphen */
-    font-size: 30px; /* Size of the hyphen */
+    content: '— '; // Adds a dash before each item
+    color: red; // Orange dash color
+    margin-top:10px;
   }
-
 `;
+
+const Heading = styled.h2`
+  color: #E8001A; // Red color for heading
+  margin: 0 0 4px 30px; // Space between heading and description
+`;
+
+const Description = styled.p`
+  color: white; // White color for description
+`;
+
 
 
 const SSfoot = ({ currentIndex, setCurrentIndex, sslides }) => {
@@ -172,44 +130,25 @@ const SSfoot = ({ currentIndex, setCurrentIndex, sslides }) => {
     return <Container>No Data Available</Container>;
   }
 
-  const { title, subtitle, services, bgImage } = sslides[currentIndex];
+  const { title, subtitle, learningTopics, bgImage } = sslides[currentIndex];
 
   return (
     <Container bgImage={bgImage}>
       <Header>
-      <Button onClick={handlePrev} image={previous} />
-      <Title>{title}</Title>
-      <Button onClick={handleNext} image={next} />
+        <Button onClick={handlePrev} image={previous} />
+        <Title>{title}</Title>
+        <Button onClick={handleNext} image={next} />
       </Header>
-        <Subtitle>{subtitle}</Subtitle>
-        <Htitle>Mastering Graphic Design, You Will Learn:</Htitle>
+      <Subtitle>{subtitle}</Subtitle>
+      <Htitle>Mastering Graphic Design, You Will Learn:</Htitle>
       <ServiceList>
-        {services.map((service, index) => (
-          <ServiceItem key={index} isLast={service === '............Many More'}>
-            {service}
+        {learningTopics.map((topic, index) => (
+          <ServiceItem key={index}>
+            <Heading>{topic.heading}</Heading>
+            <Description>{topic.description}</Description>
           </ServiceItem>
         ))}
       </ServiceList>
-      <Title>Explore These Examples Of Our Work To See How We Can Help You!</Title>
-      <Subtitle>Nex Graphics Samples</Subtitle>
-      <GalleryContainer>
-      {/* First Row */}
-      <LargeImage src={galleryImage1} alt="Large Image 1" style={{ gridColumn: "span 3", gridRow: "span 3" }} />
-      <MediumImage src={galleryImage2} alt="Medium Image 2" style={{ gridColumn: "span 3", gridRow: "span 1" }} />
-      <SmallImage src={galleryImage3} alt="Small Image 3" style={{ gridColumn: "span 2", gridRow: "span 1" }} />
-      <MediumImage src={galleryImage4} alt="Medium Image 4" style={{ gridColumn: "span 3", gridRow: "span 1" }} />
-
-      {/* Second Row */}
-      <MediumImage src={galleryImage5} alt="Medium Image 5" style={{ gridColumn: "span 3", gridRow: "span 1", marginTop:'-25%' }} />
-      <SmallImage src={galleryImage6} alt="Small Image 6" style={{ gridColumn: "span 2", gridRow: "span 1", marginTop:'-40%' }} />
-      <MediumImage src={galleryImage7} alt="Medium Image 7" style={{ gridColumn: "span 3", gridRow: "span 1", marginTop:'2%' }} />
-
-      {/* Third Row */}
-      <LargeImage src={galleryImage8} alt="Large Image 8" style={{ gridColumn: "span 6", gridRow: "span 1", marginTop:'-4%' }} />
-      <LargeImage src={galleryImage9} alt="Large Image 9" style={{ gridColumn: "span 3", gridRow: "span 2", marginLeft:'-33%', marginTop:'-4%' }} />
-
-    </GalleryContainer>
-    <Sub>View All Graphics Samples</Sub>
     </Container>
   );
 };

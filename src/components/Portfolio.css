@@ -39,7 +39,7 @@
 .portfolio-links {
   display: flex;
   gap: 30px;
-  font-size: 1rem;
+  font: normal normal bold 25px/38px Poppins;
   color: #fff;
   margin-right: 30%;
 }

@@ -6,19 +6,34 @@ export const sslides = [
         bgImage: Nexbgstr,
         title: 'Graphic Design - Learning & Performance',
         subtitle: 'Design process is followed to develop a strong foundation in design principles, software proficiency, and creative problem-solving skills.',
-        services: [
-            'Logos', 'Characters & Mascots', 'Display Ads', 'Social Media Posts & Ads', 'Infographics',
-            'Custom Illustrations', 'Powerpoint Templates', 'Presentation Decks', 'Branding & Identity',
-            'Newsletters', 'Web Ads', 'Amazon Ads', 'Brochures', 'Billboards', 'Packaging & Labels',
-            'Flyers & Posters', 'T-Shirt Design', 'Booklets', 'Magazine & Newspaper Ads', 
-            'Business Cards', 'Book Cover Design', 'Product Mock-Ups', 'AI-Generated Images', 'Many More'
-        ]
+        learningTopics: [
+            {
+              heading: 'Introduction to Graphic Design',
+              description: 'Learn the fundamental principles of graphic design.'
+            },
+            {
+              heading: 'Brainstorming and Ideation',
+              description: 'Generate ideas through brainstorming sessions, mind mapping, or mood boards.'
+            },
+            {
+              heading: 'Sketching Concepts',
+              description: 'Walk through rough sketches to visualizing initial ideas and layout possibilities.'
+            },
+            {
+              heading: 'Learning Design Software',
+              description: 'Become proficient in industry-standard design software such as Adobe Photoshop, Illustrator, InDesign.'
+            },
+            {
+              heading: 'Digital Layouts',
+              description: 'Translate sketches into digital formats.'
+            }
+          ]          
     },
     {
         bgImage: Nexbgstr,
         title: 'Flexible UI | UX Solutions For Clients',
         subtitle: 'WHAT WE DO',
-        services: [
+        learningTopics: [
             "User Interface Design",
             "Visual Design",
             "Mobile App Design",
@@ -28,14 +43,14 @@ export const sslides = [
             "Responsive Website Design",
             "User Research & Analysis",
             "Web App Design",
-            "Many More"
+            
         ]
     },
     {
         bgImage: Nexbgstr,
         title: 'Digital Marketing Solutions For Clients',
         subtitle: 'WHAT WE DO',
-        services: [
+        learningTopics: [
             "Search Engine Optimization",
             "Social Media Marketing",
             "Email Marketing",
@@ -46,27 +61,27 @@ export const sslides = [
             "Search Engine Marketing",
             "Content Marketing",
             "E-Commerce Marketing",
-            "Many More"
+            
         ]        
     },
     {
         bgImage: Nexbgstr,
         title: 'Web Development Solutions For Clients',
         subtitle: 'WHAT WE DO',
-        services: [
+        learningTopics: [
             "E-Commerce Website",
             "Application Development",
             "Mobile App Development",
             "24 X 7 Support & Maintenance",
             "Website Development",
-            "Many More"
+            
         ]        
     },
     {
         bgImage: Nexbgstr,
         title: 'Video Design Solutions For Clients',
         subtitle: 'WHAT WE DO',
-        services: [
+        learningTopics: [
             "Logo Animations",
             "UI/UX Animations",
             "Corporate Presentations",
@@ -85,7 +100,7 @@ export const sslides = [
         bgImage: Nexbgstr,
         title: '3D Animation Solutions For Clients',
         subtitle: 'WHAT WE DO',
-        services: [
+        learningTopics: [
             "Game Assets",
             "Product Visualization",
             "VFX",
@@ -95,7 +110,6 @@ export const sslides = [
             "Animation",
             "Architectural Visualization",
             "Environment",
-            "Many More"
         ]                    
     },
 ];

@@ -65,6 +65,12 @@ import nexq16 from "../assets/Nexq16.png";
 import nexq17 from "../assets/Nexq17.png";
 import nexq18 from "../assets/Nexq18.png";
 import nexq19 from "../assets/Nexq19.png";
+import nexu31 from "../assets/Nexu31.png";
+import nexu32 from "../assets/Nexu32.png";
+import nexu33 from "../assets/Nexu33.png";
+import nexu34 from "../assets/Nexu34.png";
+import nexu35 from "../assets/Nexu35.png";
+import nexu36 from "../assets/Nexu36.png";
 import nexq110 from "../assets/Nexq110.png";
 import nexq111 from "../assets/Nexq111.png";
 import nexq112 from "../assets/Nexq112.png";
@@ -97,7 +103,7 @@ const Portfolio = () => {
     },
     "Nex Video Design": {
       pages: [
-        [nexu21, nexu22, nexu23, nexu24, nexu25, nexg26, nexu26, nexu27, nexu28, nexu29, nexu210, nexu211],
+        [nexu21, nexu31, nexu23, nexu32, nexu33, nexg26, nexu34, nexu27, nexu28, nexu35, nexu210, nexu36],
         [nexu21, nexv11, nexu23, nexv12, nexv13, nexg26, nexv14, nexu27, nexu28, nexv16, nexu210, nexv15]
       ]
     },

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Nexbgstr from '../assets/nexbgs.png';
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa';
+import ArrowIcon from './Arrowicon';
 
 const ContactContainer = styled.div`
   display: flex;
@@ -9,6 +10,12 @@ const ContactContainer = styled.div`
   padding: 40px;
   background-image: url(${Nexbgstr});
   color: #fff; /* White text color */
+`;
+
+const StyledOption = styled.option`
+  color: #E8001A;
+  background-color: #FFFFFF; /* White background for consistency */
+  /* Hover effects will not be applied as :hover is not supported for <option> elements */
 `;
 
 const TitleContainer = styled.div`
@@ -99,22 +106,25 @@ const Form = styled.form`
 
 
 const Input = styled.input`
-  width: 100%;
+  width: 88%;
   height: 5%;
   padding: 10px;
   margin-bottom: 20px;
   background: rgba(255, 255, 255, 0.8); /* Slightly transparent background for inputs */
   border-radius: 9px;
-  
+  font: normal normal normal 19px/29px Poppins;
+  color: #5A5A5A;
 `;
 
 const TextArea = styled.textarea`
-  width: 100%;
+  width: 88%;
   height: 100px;
   padding: 10px;
   margin-bottom: 20px;
   background: rgba(255, 255, 255, 0.8); /* Slightly transparent background for textarea */
   border-radius: 9px;
+  font: normal normal normal 19px/29px Poppins;
+  color: #5A5A5A;
 `;
 
 const Button = styled.button`
@@ -157,9 +167,22 @@ const Select = styled.select`
   border-radius: 5px;
   margin-bottom: 20px;
   background: rgba(255, 255, 255, 0.8);
+  font: normal normal normal 19px/29px Poppins;
+  color: #5A5A5A;
+  width: 98%;
 `;
 
+const Container = styled.div`
+  position: relative;
+  width: 90%;
+`;
+
+
 const ContactDetails = () => {
+
+    const [isOpen, setIsOpen] = useState(false);  // Move useState inside the component
+  
+    const toggleDropdown = () => setIsOpen(!isOpen);
   return (
     <ContactContainer>
       <ContactInfo>
@@ -182,16 +205,23 @@ const ContactDetails = () => {
         <Input type="text" placeholder="Enter Your Name*" />
         <Input type="text" placeholder="Enter Your Phone Number*" />
         <Input type="email" placeholder="Enter Your Email ID*" />
-        <Select id="dropdown" required>
-          <option value="" hidden>Choose Services</option>
-          <option value="Graphic Design">Graphic Design</option>
-          <option value="UI/UX Design">UI/UX Design</option>
-          <option value="Digital Marketing">Digital Marketing</option>
-          <option value="Web Development">Web Development</option>
-          <option value="Video Design">Video Design</option>
-          <option value="3D Animation">3D Animation</option>
-          <option value="Workshop & Learning Performance">Workshop & Learning Performance</option>
-        </Select>
+        <Container>
+          <Select
+              onChange={toggleDropdown}
+              onBlur={() => setIsOpen(false)}
+              onFocus={() => setIsOpen(true)}
+            >
+              <StyledOption value="" hidden>Choose Services</StyledOption>
+              <StyledOption value="Graphic Design">Graphic Design</StyledOption>
+              <StyledOption value="UI/UX Design">UI/UX Design</StyledOption>
+              <StyledOption value="Digital Marketing">Digital Marketing</StyledOption>
+              <StyledOption value="Web Development">Web Development</StyledOption>
+              <StyledOption value="Video Design">Video Design</StyledOption>
+              <StyledOption value="3D Animation">3D Animation</StyledOption>
+              <StyledOption value="Workshop & Learning Performance">Workshop & Learning Performance</StyledOption>
+            </Select>
+            <ArrowIcon isOpen={isOpen} />
+          </Container>
         <TextArea placeholder="Message"></TextArea>
         <Button type="submit">Send</Button>
       </Form>
