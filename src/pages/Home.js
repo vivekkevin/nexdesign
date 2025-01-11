@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react'; // Import useEffect here
 import styled from 'styled-components';
 import homeImage1 from '../assets/home_1.png';
 import homeImage2 from '../assets/home_2.png';
 import homeImage3 from '../assets/home_3.png';
+import backgroundMusic from '../assets/Sound.mp3';
 
 
 
@@ -264,6 +265,9 @@ const Title = styled.h1`
   }
 `;
 
+
+
+
 const Hero = () => {
   // Define an array of backgrounds, titles, and subtitles
   const slides = [
@@ -285,6 +289,30 @@ const Hero = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0); // Track the index of the current slide
+
+  useEffect(() => {
+    const audio = new Audio(backgroundMusic);
+    audio.volume = 0.3; // Set volume to 30%
+    audio.loop = true; // Enable looping
+  
+    // Play the audio and handle potential errors
+    const playAudio = async () => {
+      try {
+        await audio.play();
+      } catch (err) {
+        console.error('Failed to play:', err);
+      }
+    };
+  
+    playAudio();
+  
+    // Cleanup function to pause the music when the component unmounts
+    return () => {
+      audio.pause();
+    };
+  }, []);
+  
+  
 
   // Function to Toggle Background and Text
   const handleSlideChange = (index) => {
