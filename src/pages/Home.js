@@ -292,7 +292,7 @@ const Hero = () => {
 
   useEffect(() => {
     const audio = new Audio(backgroundMusic);
-    audio.volume = 0.3; // Set volume to 30%
+    audio.volume = 0.1; // Set volume to 30%
     audio.loop = true; // Enable looping
   
     // Play the audio and handle potential errors
