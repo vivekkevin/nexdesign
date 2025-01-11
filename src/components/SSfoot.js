@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Nexbgstr from '../assets/nexbgs.png';
-import galleryImage1 from '../assets/gallery-image1.png';
+import Nexbgstr from '../assets/nexbgs.png'; // Unused import, consider removing if not needed elsewhere
+import galleryImage1 from '../assets/gallery-image1.png'; // Check if these are used elsewhere or remove
 import galleryImage2 from '../assets/gallery-image2.png';
 import galleryImage3 from '../assets/gallery-image3.png';
 import galleryImage4 from '../assets/gallery-image4.png';
@@ -21,7 +21,6 @@ const Image = styled.img`
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 `;
 
-
 const Container = styled.div`
   background-color: #121212;
   color: white;
@@ -36,58 +35,53 @@ const Container = styled.div`
   min-height: 100vh;
 `;
 
-
 const Header = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
   align-items: center;
-  gap:40px;
+  gap: 40px;
 `;
 
 const Title = styled.h1`
-  font: normal normal normal 40px/82px Poppins;
-  color:rgb(255, 255, 255);
+  font: normal 600 40px/82px Poppins;
 `;
 
-const Subtitle = styled.h1`
-text-align: center;
-font: normal normal normal 25px/60px Poppins;
-letter-spacing: 0px;
-color: #FFFFFF;
-opacity: 1;
+const TitlePart = styled.span`
+  color: ${props => props.color}; // Uses a color prop to determine text color
+`;
+
+const Subtitle = styled.h2` // Changed from h1 for better semantic structure
+  text-align: center;
+  font: normal 300 25px/60px Poppins;
+  color: #FFFFFF;
+  opacity: 1;
 `;
 
 const Htitle = styled.h1`
-text-align: left;
-font: normal normal 600 40px/129px Poppins;
-letter-spacing: 0px;
-color: #E8001A;
-text-transform: capitalize;
-opacity: 1;
+  text-align: center;
+  font: normal 600 40px/129px Poppins;
+  color: #E8001A;
+  text-transform: capitalize;
+  opacity: 1;
 `;
-
-
-
-
 
 const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px; // Specific width for the buttons
-  height: 50px; // Specific height for the buttons
-  padding: 0; // No padding needed if images fit button size
+  width: 50px;
+  height: 50px;
   border: none;
   background: rgba(255, 255, 255, 0);
-  border-radius:50%;
+  border-radius: 50%;
   cursor: pointer;
-  background-image: url(${props => props.image}); // Use image prop for background
+  background-image: url(${props => props.image});
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain; // Ensure image fits within the button without distortion
+  background-size: contain;
   &:hover {
-    background-color: #f0a500; // Change on hover
+    background-color: rgba(240, 165, 0, 0.5); // Added alpha value for transparency
   }
 `;
 
@@ -98,26 +92,66 @@ const ServiceList = styled.ul`
 
 const ServiceItem = styled.li`
   padding: 8px 0;
-  margin-left: 40px; // Adjust according to your design needs
-  &:before {
-    content: '— '; // Adds a dash before each item
-    color: red; // Orange dash color
-    margin-top:10px;
-  }
+  margin-left: 10%;
 `;
 
+const HeadingWrapper = styled.div`
+  text-align: left;
+  margin-top: 20px;
+`;
+
+const Dash = styled.span`
+  display: inline; // Display inline to keep it on the same line as the heading
+  color: red;
+  font-size: 30px; // Adjust size as needed
+  margin-right: 10px; // Adds a small space between the dash and the heading
+  font-weight: bold; // Makes the dash thicker
+`;
+
+
 const Heading = styled.h2`
-  color: #E8001A; // Red color for heading
-  margin: 0 0 4px 30px; // Space between heading and description
+  display: inline; // Ensure the heading is also inline to stay on the same line as the dash
+  color: #FFCF4D;
+  margin: 4px 0;
+  font: normal 600 35px/53px Poppins;
 `;
 
 const Description = styled.p`
-  color: white; // White color for description
+  color: white;
+  font: normal 300 28px/42px Poppins;
+  margin-left:35px;
+`;
+
+const InfoSection = styled.div`
+  display: flex;
+  flex-wrap: wrap; // Allows items to wrap onto the next line
+  justify-content: space-between; // Distributes space between items on the same line
+  padding: 20px;
+  color: white;
+  font-family: Poppins, sans-serif;
+  width: 70%; // Full width of the container
+`;
+
+const InfoItem = styled.div`
+  font: normal normal normal 22px/63px Poppins;
+  margin-bottom: 10px; // Adds space below each item
+  flex: 1 1 50%; // Takes up half of the line by default
+
+  &:last-child {
+    flex-basis: 100%; // Makes the last item take the full line
+  }
 `;
 
 
 
 const SSfoot = ({ currentIndex, setCurrentIndex, sslides }) => {
+  if (!sslides || sslides.length === 0 || currentIndex < 0 || currentIndex >= sslides.length) {
+    return <Container>No Data Available</Container>;
+  }
+
+  const { title, subtitle, learningTopics, htitle, bgImage, infoitem, infoitem1, infoitem2, infoitem3 } = sslides[currentIndex];
+  const titleParts = title.split(" - "); // Splitting the title on " - "
+
   const handlePrev = () => {
     setCurrentIndex(Math.max(0, currentIndex - 1));
   };
@@ -126,28 +160,33 @@ const SSfoot = ({ currentIndex, setCurrentIndex, sslides }) => {
     setCurrentIndex(Math.min(sslides.length - 1, currentIndex + 1));
   };
 
-  if (!sslides || sslides.length === 0 || currentIndex >= sslides.length) {
-    return <Container>No Data Available</Container>;
-  }
-
-  const { title, subtitle, learningTopics, bgImage } = sslides[currentIndex];
-
   return (
     <Container bgImage={bgImage}>
       <Header>
         <Button onClick={handlePrev} image={previous} />
-        <Title>{title}</Title>
+        <Title>
+          <TitlePart color="red">{titleParts[0]}</TitlePart>
+          <TitlePart color="white"> - {titleParts[1]}</TitlePart>
+        </Title>
         <Button onClick={handleNext} image={next} />
       </Header>
       <Subtitle>{subtitle}</Subtitle>
-      <Htitle>Mastering Graphic Design, You Will Learn:</Htitle>
+      <Htitle>{htitle}</Htitle>
       <ServiceList>
         {learningTopics.map((topic, index) => (
           <ServiceItem key={index}>
-            <Heading>{topic.heading}</Heading>
+            <HeadingWrapper>
+              <Dash>—</Dash>
+              <Heading>{topic.heading}</Heading>
+            </HeadingWrapper>
             <Description>{topic.description}</Description>
           </ServiceItem>
         ))}
+          <InfoSection>
+            <InfoItem>{infoitem}</InfoItem>
+            <InfoItem>{infoitem1}</InfoItem><br/>
+            <InfoItem>{infoitem2}</InfoItem>
+          </InfoSection>
       </ServiceList>
     </Container>
   );
