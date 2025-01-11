@@ -77,13 +77,42 @@ const PortfolioCard = styled.div`
 
 const PortfolioCardContent = styled.div`
   color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);  // Added a semi-transparent background
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
+  border-radius: 10px; // Rounded corners
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); // Subtle shadow for depth
+  transition: transform 0.3s ease-in-out; // Smooth transform effect
+
+  h2, h3, p {
+    margin: 10px 0; // Uniform margin for all text elements
+  }
+
+  h2 {
+    font: normal normal medium 40px/130px Poppins;
+    color: #FFBB00; // Highlight color for the name
+  }
+
+  h3 {
+    font-size: 18px; // Smaller font size for role
+    color: #CCCCCC; // Grey color for the role
+  }
+
+  p {
+    font-size: 16px; // Standard font size for descriptions
+    text-align: justify; // Justified text for a cleaner look
+    line-height: 2; // Improved line height for readability
+  }
+
+  &:hover {
+    transform: scale(1.05); // Slightly increase size on hover
+  }
 `;
+
 
 const Image = styled.img`
   width: 100%;
