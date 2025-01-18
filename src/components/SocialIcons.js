@@ -31,12 +31,12 @@ const SocialContainer = styled.div`
   @media (max-width: 424px) and (min-width: 320px) {
     position: absolute;
     right: unset;
-    top: 65%;
+    top: 68%;
     transform: none;
     flex-direction: row; /* Make icons horizontal */
     justify-content: center;
     width: 100%;
-    margin-top: 22px;
+    margin-top: 15px;
     gap: 15px;
   }
 `;
