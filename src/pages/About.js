@@ -36,10 +36,10 @@ const AboutContainer = styled.div`
   @media (max-width: 1280px) and (min-width: 992px) {
 
   }
-  @media (max-width: 991px) and (min-width: 425px) {
+  @media (max-width: 991px) and (min-width: 426px) {
 
   }
-  @media (max-width: 424px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 320px) {
 
   }
 
@@ -60,7 +60,7 @@ const StyledNexImage = styled.img`
     margin-top:10%;
   }
 
-  @media (max-width: 991px) and (min-width: 425px) {
+  @media (max-width: 991px) and (min-width: 426px) {
     width: 60%;  // Adjust the width for smaller devices
     height: auto;  // Maintain natural aspect ratio
     position: relative;  // Fix position relative to the viewport
@@ -68,7 +68,7 @@ const StyledNexImage = styled.img`
     left: 20%;  // Position from the left of the viewport
     z-index: -1;  // Place it behind other content
   }
-  @media (max-width: 424px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 320px) {
     display:none;
   }
   
@@ -91,12 +91,13 @@ const SectionWrapper = styled.div`
   @media (max-width: 1280px) and (min-width: 992px) {
 
   }
-  @media (max-width: 991px) and (min-width: 425px) {
+  @media (max-width: 991px) and (min-width: 426px) {
     height: auto; /* Allow sections to expand based on content */
     flex-direction: column;
   }
-  @media (max-width: 424px) and (min-width: 320px) {
-
+  @media (max-width: 425px) and (min-width: 320px) {
+    height: auto; /* Allow sections to expand based on content */
+    flex-direction: column;
   }
 
 `;
@@ -110,10 +111,10 @@ const SectionWrapper1 = styled(SectionWrapper)`
   @media (max-width: 1280px) and (min-width: 992px) {
     height: 30vh;
   }
-  @media (max-width: 991px) and (min-width: 425px) {
+  @media (max-width: 991px) and (min-width: 426px) {
     height: auto; 
   }
-  @media (max-width: 424px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 320px) {
 
   }
 `;
@@ -126,11 +127,11 @@ const SectionWrapper2 = styled(SectionWrapper)`
   @media (max-width: 1280px) and (min-width: 992px) {
 
   }
-  @media (max-width: 991px) and (min-width: 425px) {
+  @media (max-width: 991px) and (min-width: 426px) {
     height: auto; /* Allow sections to expand based on content */
     padding: 20px; /* Reduced padding for mobile */
   }
-  @media (max-width: 424px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 320px) {
 
   }
 `;
@@ -153,14 +154,14 @@ const LeftSection = styled.div`
   @media (max-width: 1280px) and (min-width: 992px) {
 
   }
-  @media (max-width: 991px) and (min-width: 425px) {
+  @media (max-width: 991px) and (min-width: 426px) {
     width: 100vw;
     height: 90vh; /* Adjust image height for mobile */
     top:-30px;
   }
-  @media (max-width: 424px) and (min-width: 320px) {
-    width: 430px;
-    height: 488px;
+  @media (max-width: 425px) and (min-width: 320px) {
+    width: 100vw;
+    height: 90vh; /* Adjust image height for mobile */
   }
 `;
 
@@ -180,12 +181,12 @@ const RightSection = styled.div`
   @media (max-width: 1280px) and (min-width: 992px) {
 
   }
-  @media (max-width: 991px) and (min-width: 425px) {
+  @media (max-width: 991px) and (min-width: 426px) {
     width: 100%;
     padding: 10px; /* Reduced padding for mobile */
     min-height: 500px;
   }
-  @media (max-width: 424px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 320px) {
     width: 100%;
     padding: 10px; /* Reduced padding for mobile */
     min-height: 400px;
@@ -207,12 +208,13 @@ const WelcomeText = styled.h1`
     bottom: 20%;
     font-size: 28px;
   }
-  @media (max-width: 991px) and (min-width: 425px) {
+  @media (max-width: 991px) and (min-width: 426px) {
     bottom: 16%;
     font-size: 45px; /* Adjust font size for mobile */
   }
-  @media (max-width: 424px) and (min-width: 320px) {
-
+  @media (max-width: 425px) and (min-width: 320px) {
+    bottom: 12%;
+    font-size: 35px; /* Adjust font size for mobile */
   }
 `;
 
@@ -231,12 +233,13 @@ const StudioText = styled.h2`
     bottom: 14%;
     font-size: 32px;
   }
-  @media (max-width: 991px) and (min-width: 425px) {
+  @media (max-width: 991px) and (min-width: 426px) {
     bottom: 8%;
     font-size: 42px;
   }
-  @media (max-width: 424px) and (min-width: 320px) {
-
+  @media (max-width: 425px) and (min-width: 320px) {
+    bottom: 4%;
+    font-size: 30px;
   }
 `;
 
@@ -256,14 +259,15 @@ const RightHeading = styled.h1`
   margin-top:100px;
   font-size: 30px;
   }
-  @media (max-width: 991px) and (min-width: 425px) {
+  @media (max-width: 991px) and (min-width: 426px) {
     font-size: 35px; /* Reduced font size for mobile */
     text-align: center; /* Center align for better visibility */
     margin-top: 20px;
   }
-  @media (max-width: 424px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 320px) {
     font-size: 20px; /* Reduced font size for mobile */
     text-align: center; /* Center align for better visibility */
+    margin-top: 20px;
   }
 `;
 
@@ -279,25 +283,26 @@ const ParagraphText = styled.p`
   overflow-wrap: break-word; /* Prevents text overflow */
   hyphens: auto; /* Adds hyphenation if needed */
 
+  @media (max-width: 1440px) and (min-width: 1281px) {
+
+  }
   @media (max-width: 1280px) and (min-width: 992px) {
   font-size: 16px;
   width: 99%;
   }
-
-  @media (max-width: 768px) {
+  @media (max-width: 991px) and (min-width: 426px) {
     font-size: 20px; /* Reduced font size for mobile */
-    width: 90%; /* Slightly wider for smaller screens */
+    width: 99%; /* Slightly wider for smaller screens */
     text-align: center; /* Keeps justification */
     padding: 0 10px; /* Adds padding for better readability */
   }
-   @media (max-width: 425px){
-   font-size: 15px; /* Reduced font size for mobile */
+  @media (max-width: 425px) and (min-width: 320px) {
+   font-size: 14px; /* Reduced font size for mobile */
     width: 100%; /* Slightly wider for smaller screens */
     text-align: center; /* Keeps justification */
      /* Adds padding for better readability */
     margin-top:-30px;
-    
-   } 
+  }
 `;
 
 
@@ -308,15 +313,22 @@ const WhyChooseUsSection = styled.div`
   align-items: center;
   justify-content: space-around;
   background: #ffffff;
-  @media (max-width: 1280px) and (min-width: 992px){
-  margin-top:-150px;
+
+  @media (max-width: 1440px) and (min-width: 1281px) {
+
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1280px) and (min-width: 992px) {
+    margin-top:-150px;
+  }
+  @media (max-width: 991px) and (min-width: 426px) {
     display: grid;  // Switch to grid layout on mobile
     grid-template-columns: 1fr;  // Single column layout for simplicity
     grid-template-rows: auto auto auto;  // Adjust based on number of items
     grid-gap: 20px;  // Space between grid items
     padding: 20px;  // Adjusted padding for mobile
+  }
+  @media (max-width: 425px) and (min-width: 320px) {
+
   }
 `;
 
@@ -332,22 +344,21 @@ const LeftColumn = styled.div`
   grid-template-columns: repeat(3, 1fr); /* 3 items per row */
   grid-gap: 60px;
   justify-content: center;
-  @media (max-width: 1440px) {
-  grid-gap: 30px;
-  }
 
-  @media (max-width: 1024px) {
-  grid-gap: 4px;
+  @media (max-width: 1440px) and (min-width: 1281px) {
+    grid-gap: 30px;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1280px) and (min-width: 992px) {
+    grid-gap: 4px;
+  }
+  @media (max-width: 991px) and (min-width: 426px) {
     grid-template-columns: repeat(3, 1fr); /* Show 2 items per row on mobile */
     grid-gap: 30px; /* Smaller gaps on mobile */
   }
-   @media (max-width: 425px){
-   grid-template-columns: repeat(3, 1fr); /* Show 2 items per row on mobile */
+  @media (max-width: 425px) and (min-width: 320px) {
+    grid-template-columns: repeat(3, 1fr); /* Show 2 items per row on mobile */
     grid-gap: 3px; /* Smaller gaps on mobile */
-   
-   } 
+  }
 `;
 
 // Center Column: Large Creative Idea Icon
@@ -357,8 +368,17 @@ const CenterColumn = styled.div`
   align-items: center;
   margin-left:50px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1440px) and (min-width: 1281px) {
+
+  }
+  @media (max-width: 1280px) and (min-width: 992px) {
+
+  }
+  @media (max-width: 991px) and (min-width: 426px) {
     margin-top: 20px; /* Add margin for spacing */
+  }
+  @media (max-width: 425px) and (min-width: 320px) {
+
   }
 `;
 
@@ -376,7 +396,7 @@ const LargeIcon = styled.img`
     width: 175px; /* Adjust icon size for mobile */
     height: 150px;
   }
-   @media (max-width: 425px){
+   @media (max-width: 426px){
    width: 150px; /* Adjust icon size for mobile */
     height: 130px;
    } 
@@ -397,7 +417,7 @@ const RightColumn = styled.div`
     @media (max-width: 768px) {
       
     }
-    @media (max-width: 425px) {
+    @media (max-width: 426px) {
     font-size: 25px; /* Reduce size for mobile */
     margin-right:40px;
     } 
@@ -436,7 +456,7 @@ const WhoWeAreContainer = styled.div`
     grid-template-rows: auto auto;  // Automatic row height
     grid-gap: 10px;
   }
-    @media (max-width: 425px){
+    @media (max-width: 426px){
     
     margin-top:-20px;
     }
@@ -489,7 +509,7 @@ const LeftText = styled.div`
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     line-height: 1.2;
-   @media (max-width: 425px){
+   @media (max-width: 426px){
     margin-left: -10px;
   } 
   }
@@ -520,7 +540,7 @@ const StyledImage1 = styled.img`
   width: 280%; 
   height: auto;
   }
-  @media (max-width: 425px){
+  @media (max-width: 426px){
   margin-right:200px;
    width: 150%; 
   }
@@ -541,7 +561,7 @@ const RightText = styled.div`
     font-size: 2vw; /* Increase font size for readability */
     margin-right: 0; /* Remove right margin on mobile */
   }
-  @media (max-width: 425px){
+  @media (max-width: 426px){
   width: 100%; /* Full width for mobile */
    font-size: 12px;
    margin-top:-20px;
@@ -594,7 +614,7 @@ const ServiceBox = styled.div`
     font-size: 1.8vw;
   }
   }
-  @media (max-width: 425px) { 
+  @media (max-width: 426px) { 
   img {
     width: 50px;
     height: 50px;
@@ -622,7 +642,7 @@ const ProcessSection = styled.div`
   @media (max-width: 768px) {
     padding: 40px 20px; /* Adjust padding for mobile */
   }
-  @media (max-width: 425px){
+  @media (max-width: 426px){
     display:none;
   }   
 `;
