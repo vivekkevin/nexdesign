@@ -30,6 +30,19 @@ const AboutContainer = styled.div`
   overflow-y: auto;
   padding-top: 0px; /* Add padding to prevent overlap with navbar */
 
+  @media (max-width: 1440px) and (min-width: 1281px) {
+
+  }
+  @media (max-width: 1280px) and (min-width: 992px) {
+
+  }
+  @media (max-width: 991px) and (min-width: 425px) {
+
+  }
+  @media (max-width: 424px) and (min-width: 320px) {
+
+  }
+
 `;
 
 
@@ -39,14 +52,15 @@ const StyledNexImage = styled.img`
   margin-top: auto; /* Push to the bottom */
   opacity: 0.7; /* Subtle effect */
 
- @media (max-width: 1280px) and (min-width: 992px) {
+  @media (max-width: 1440px) and (min-width: 1281px) {
+
+  }
+  @media (max-width: 1280px) and (min-width: 992px) {
     width: 90%; /* Adjust size for mobile */
     margin-top:10%;
   }
-  
- 
-  
-  @media (max-width: 768px) {
+
+  @media (max-width: 991px) and (min-width: 425px) {
     width: 60%;  // Adjust the width for smaller devices
     height: auto;  // Maintain natural aspect ratio
     position: relative;  // Fix position relative to the viewport
@@ -54,10 +68,10 @@ const StyledNexImage = styled.img`
     left: 20%;  // Position from the left of the viewport
     z-index: -1;  // Place it behind other content
   }
-
-  @media (max-width: 425px){
-  display:none;
+  @media (max-width: 424px) and (min-width: 320px) {
+    display:none;
   }
+  
 `;
 
 
@@ -71,35 +85,53 @@ const SectionWrapper = styled.div`
   background-color: ${({ bgColor }) => bgColor || 'transparent'};
   text-align: left;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1440px) and (min-width: 1281px) {
+
+  }
+  @media (max-width: 1280px) and (min-width: 992px) {
+
+  }
+  @media (max-width: 991px) and (min-width: 425px) {
     height: auto; /* Allow sections to expand based on content */
     flex-direction: column;
-    
   }
+  @media (max-width: 424px) and (min-width: 320px) {
+
+  }
+
 `;
 
 const SectionWrapper1 = styled(SectionWrapper)`
   height: 40vh;
 
-  @media (max-width: 1440px) {
+  @media (max-width: 1440px) and (min-width: 1281px) {
     height: 40vh;
   }
-
-  @media (max-width: 1024px) {
+  @media (max-width: 1280px) and (min-width: 992px) {
     height: 30vh;
   }
+  @media (max-width: 991px) and (min-width: 425px) {
+    height: auto; 
+  }
+  @media (max-width: 424px) and (min-width: 320px) {
 
-  @media (max-width: 768px) {
-    height: auto; /* Allow sections to expand based on content */
   }
 `;
 
 const SectionWrapper2 = styled(SectionWrapper)`
   height: 60vh;
+  @media (max-width: 1440px) and (min-width: 1281px) {
 
-  @media (max-width: 768px) {
+  }
+  @media (max-width: 1280px) and (min-width: 992px) {
+
+  }
+  @media (max-width: 991px) and (min-width: 425px) {
     height: auto; /* Allow sections to expand based on content */
     padding: 20px; /* Reduced padding for mobile */
+  }
+  @media (max-width: 424px) and (min-width: 320px) {
+
   }
 `;
 
@@ -114,14 +146,20 @@ const LeftSection = styled.div`
   justify-content: center;
   align-items: center;
   padding: 20px;
-  
-  @media (max-width: 768px) {
+
+  @media (max-width: 1440px) and (min-width: 1281px) {
+
+  }
+  @media (max-width: 1280px) and (min-width: 992px) {
+
+  }
+  @media (max-width: 991px) and (min-width: 425px) {
     width: 100vw;
     height: 90vh; /* Adjust image height for mobile */
     top:-30px;
   }
-  @media (max-width: 425px){
-  width: 430px;
+  @media (max-width: 424px) and (min-width: 320px) {
+    width: 430px;
     height: 488px;
   }
 `;
@@ -136,14 +174,18 @@ const RightSection = styled.div`
   justify-content: center;
   padding: 50px;
   z-index: 1;
+  @media (max-width: 1440px) and (min-width: 1281px) {
 
-  @media (max-width: 768px) {
+  }
+  @media (max-width: 1280px) and (min-width: 992px) {
+
+  }
+  @media (max-width: 991px) and (min-width: 425px) {
     width: 100%;
     padding: 10px; /* Reduced padding for mobile */
     min-height: 500px;
   }
-
-   @media (max-width: 425px) {
+  @media (max-width: 424px) and (min-width: 320px) {
     width: 100%;
     padding: 10px; /* Reduced padding for mobile */
     min-height: 400px;
@@ -157,14 +199,20 @@ const WelcomeText = styled.h1`
   position: absolute; /* Allow absolute positioning */
   bottom: 15%; /* 75% from the top */
 
-  @media (max-width: 1280px) and (min-width: 992px){
-    bottom: 30%;
+  @media (max-width: 1440px) and (min-width: 1281px) {
+    bottom: 17%;
+    font-size: 45px;
+  }
+  @media (max-width: 1280px) and (min-width: 992px) {
+    bottom: 20%;
     font-size: 28px;
   }
+  @media (max-width: 991px) and (min-width: 425px) {
+    bottom: 16%;
+    font-size: 45px; /* Adjust font size for mobile */
+  }
+  @media (max-width: 424px) and (min-width: 320px) {
 
-  @media (max-width: 768px) {
-    bottom: 13%;
-    font-size: 28px; /* Adjust font size for mobile */
   }
 `;
 
@@ -175,13 +223,20 @@ const StudioText = styled.h2`
   position: absolute; /* Allow absolute positioning */
   bottom: 7%; /* Adjust position for spacing */
 
-   @media (max-width: 1280px) and (min-width: 992px){
-    bottom: 23%;
+  @media (max-width: 1440px) and (min-width: 1281px) {
+    bottom: 10%;
+    font-size: 40px;
+  }
+  @media (max-width: 1280px) and (min-width: 992px) {
+    bottom: 14%;
     font-size: 32px;
-}
-  @media (max-width: 768px) {
-    bottom: 5%;
-    font-size: 24px; /* Reduced font size for mobile */
+  }
+  @media (max-width: 991px) and (min-width: 425px) {
+    bottom: 8%;
+    font-size: 42px;
+  }
+  @media (max-width: 424px) and (min-width: 320px) {
+
   }
 `;
 
@@ -193,20 +248,22 @@ const RightHeading = styled.h1`
   margin-top: 100px;
   margin-bottom: 60px;
 
+  @media (max-width: 1440px) and (min-width: 1281px) {
+  margin-top:100px;
+  font-size: 40px;
+  }
   @media (max-width: 1280px) and (min-width: 992px) {
   margin-top:100px;
   font-size: 30px;
   }
-
-  @media (max-width: 768px) {
+  @media (max-width: 991px) and (min-width: 425px) {
     font-size: 35px; /* Reduced font size for mobile */
     text-align: center; /* Center align for better visibility */
     margin-top: 20px;
   }
-  @media (max-width: 425px){
-  font-size: 20px; /* Reduced font size for mobile */
+  @media (max-width: 424px) and (min-width: 320px) {
+    font-size: 20px; /* Reduced font size for mobile */
     text-align: center; /* Center align for better visibility */
-    
   }
 `;
 

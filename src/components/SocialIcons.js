@@ -17,7 +17,7 @@ const SocialContainer = styled.div`
   @media (max-width: 1280px) and (min-width: 992px) {
 
   }
-  @media (max-width: 991px) and (min-width: 425px) {
+  @media (max-width: 991px) and (min-width: 426px) {
     position: absolute;
     right: unset;
     top: 62%;
@@ -28,10 +28,10 @@ const SocialContainer = styled.div`
     margin-top: 15px;
     gap: 15px;
   }
-  @media (max-width: 424px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 320px) {
     position: absolute;
     right: unset;
-    top: 68%;
+    top: 65%;
     transform: none;
     flex-direction: row; /* Make icons horizontal */
     justify-content: center;
@@ -90,14 +90,14 @@ const IconLink = styled.a`
   @media (max-width: 1280px) and (min-width: 992px) {
 
   }
-  @media (max-width: 991px) and (min-width: 425px) {
+  @media (max-width: 991px) and (min-width: 426px) {
     width: 40px;
     height: 40px;
     margin-top:10px;
     border: 1px solid rgba(255, 255, 255, 0.5); /* Mild white border */
     font-size: 26px;
   }
-  @media (max-width: 424px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 320px) {
     width: 35px;
     height: 35px;
     margin-top:10px;

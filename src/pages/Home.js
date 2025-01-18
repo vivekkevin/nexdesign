@@ -30,11 +30,11 @@ const HeroContainer = styled.div`
   background-size: fixed;
   background-attachment: scroll;
   }
-  @media (max-width: 991px) and (min-width: 425px) {
+  @media (max-width: 991px) and (min-width: 426px) {
   background-size: fixed;
   background-attachment: scroll;
   }
-  @media (max-width: 424px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 320px) {
 
   }
 `;
@@ -54,10 +54,10 @@ const CenterTextContainer = styled.div`
   @media (max-width: 1280px) and (min-width: 992px) {
 
   }
-  @media (max-width: 991px) and (min-width: 425px) {
+  @media (max-width: 991px) and (min-width: 426px) {
 
   }
-  @media (max-width: 424px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 320px) {
     position: relative;
     top: 18%;
     left: unset;
@@ -93,12 +93,12 @@ const YellowCircle = styled.div`
     width: 30vw;
     height: 30vw;
   }
-  @media (max-width: 991px) and (min-width: 425px) {
+  @media (max-width: 991px) and (min-width: 426px) {
     top: 80%;
     width: 50vw;
     height: 50vw;
   }
-  @media (max-width: 424px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 320px) {
     top: 83%;
     width: 50vw;
     height: 50vw;
@@ -127,14 +127,14 @@ const GrayCircle = styled.div`
     width: 70%;
     height: 80%;
   }
-  @media (max-width: 991px) and (min-width: 425px) {
+  @media (max-width: 991px) and (min-width: 426px) {
     padding-bottom: 5%;
     position: absolute;
     top: 10%;
     width: 75%;
     height: 90%;
   }
-  @media (max-width: 424px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 320px) {
     padding-bottom: 5%;
   }
 `;
@@ -178,7 +178,7 @@ const TopText = styled.h1`
     -webkit-text-stroke: 0.1vw #ffffff; /* Increase stroke width for smaller screens */
     text-stroke: 0.1vw #ffffff;
   }
-  @media (max-width: 991px) and (min-width: 425px) {
+  @media (max-width: 991px) and (min-width: 426px) {
     position: absolute;
     top: 13%;
     font-size: 6vw; /* Larger size for small screens */
@@ -186,7 +186,7 @@ const TopText = styled.h1`
     -webkit-text-stroke: 0.1vw #ffffff; /* Increase stroke width for smaller screens */
     text-stroke: 0.1vw #ffffff;
   }
-  @media (max-width: 424px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 320px) {
     font-size: 8vw; 
     line-height: 15vw;
     -webkit-text-stroke: 0.1vw #ffffff;
@@ -213,11 +213,11 @@ const BottomText = styled.h2`
     font-size: 3vw;
     line-height: 18vw;
   }
-  @media (max-width: 991px) and (min-width: 425px) {
+  @media (max-width: 991px) and (min-width: 426px) {
     font-size: 4vw; 
     line-height: 54vw;
   }
-  @media (max-width: 424px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 320px) {
     font-size: 4vw; 
     line-height: 15vw;
   }
@@ -257,7 +257,7 @@ const VerticalButton = styled.div`
   @media (max-width: 1280px) and (min-width: 992px) {
 
   }
-  @media (max-width: 991px) and (min-width: 425px) {
+  @media (max-width: 991px) and (min-width: 426px) {
     position: relative;
     top: 10%;
     left: unset;
@@ -272,7 +272,7 @@ const VerticalButton = styled.div`
       margin: 0 5px;
     }
   }
-  @media (max-width: 424px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 320px) {
     position: relative;
     top: 26%;
     left: unset;
@@ -309,11 +309,11 @@ const Title = styled.h1`
   @media (max-width: 1280px) and (min-width: 992px) {
     margin-top: 300px;
   }
-  @media (max-width: 991px) and (min-width: 425px) {
+  @media (max-width: 991px) and (min-width: 426px) {
     margin-top: 400px;
     font: normal normal normal 32px/68px Poppins;
   }
-  @media (max-width: 424px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 320px) {
     margin-top: 100px;
     font: normal normal normal 22px/68px Poppins;
     z-index: 0;
