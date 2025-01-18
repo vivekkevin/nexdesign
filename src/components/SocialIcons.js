@@ -36,7 +36,7 @@ const SocialContainer = styled.div`
     flex-direction: row; /* Make icons horizontal */
     justify-content: center;
     width: 100%;
-    margin-top: 13px;
+    margin-top: 22px;
     gap: 15px;
   }
 `;
@@ -95,14 +95,14 @@ const IconLink = styled.a`
     height: 40px;
     margin-top:10px;
     border: 1px solid rgba(255, 255, 255, 0.5); /* Mild white border */
-    font-size: 20px;
+    font-size: 26px;
   }
   @media (max-width: 424px) and (min-width: 320px) {
     width: 35px;
     height: 35px;
-    margin-top:20px;
+    margin-top:10px;
     border: 1px solid rgba(255, 255, 255, 0.5); /* Mild white border */
-    font-size: 20px;
+    font-size: 23px;
   }
 `;
 
