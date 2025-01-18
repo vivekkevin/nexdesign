@@ -31,7 +31,7 @@ const SocialContainer = styled.div`
   @media (max-width: 425px) and (min-width: 320px) {
     position: absolute;
     right: unset;
-    top: 65%;
+    top: 68%;
     transform: none;
     flex-direction: row; /* Make icons horizontal */
     justify-content: center;
