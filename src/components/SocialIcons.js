@@ -11,7 +11,13 @@ const SocialContainer = styled.div`
   flex-direction: column;
   gap: 20px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1440px) and (min-width: 1281px) {
+
+  }
+  @media (max-width: 1280px) and (min-width: 992px) {
+
+  }
+  @media (max-width: 991px) and (min-width: 425px) {
     position: absolute;
     right: unset;
     top: 62%;
@@ -22,8 +28,7 @@ const SocialContainer = styled.div`
     margin-top: 15px;
     gap: 15px;
   }
-
-  @media (max-width: 425px) {
+  @media (max-width: 424px) and (min-width: 320px) {
     position: absolute;
     right: unset;
     top: 65%;
@@ -33,7 +38,6 @@ const SocialContainer = styled.div`
     width: 100%;
     margin-top: 13px;
     gap: 15px;
-    
   }
 `;
 
@@ -50,34 +54,23 @@ const IconLink = styled.a`
   justify-content: center;
   border: 2px solid rgba(255, 255, 255, 0.5); /* Mild white border */
   transition: all 0.4s ease-in-out;
-  @media (max-width: 425px){
-  width: 35px;
-  height: 35px;
-  margin-top:40px;
-  border: 1px solid rgba(255, 255, 255, 0.5); /* Mild white border */
-  font-size: 20px;
-  }
   &:hover {
     color: #ffffff; /* Keep icon color white on hover */
     transform: scale(1.2); /* Scale effect */
   }
-
   /* Gradient color effects based on the icon */
   &:hover[data-platform="facebook"] {
     border: 2px solid transparent;
     background: linear-gradient(135deg, #1877f2, #4b97f5); /* Facebook Gradient */
   }
-
   &:hover[data-platform="instagram"] {
     border: 2px solid transparent;
     background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); /* Instagram Gradient */
   }
-
   &:hover[data-platform="linkedin"] {
     border: 2px solid transparent;
     background: linear-gradient(135deg, #0077b5, #2095d3); /* LinkedIn Gradient */
   }
-
   &:hover::before {
     content: "";
     position: absolute;
@@ -89,6 +82,27 @@ const IconLink = styled.a`
     border-radius: 50%;
     z-index: -1;
     filter: blur(5px); /* Glow effect */
+  }
+
+  @media (max-width: 1440px) and (min-width: 1281px) {
+
+  }
+  @media (max-width: 1280px) and (min-width: 992px) {
+
+  }
+  @media (max-width: 991px) and (min-width: 425px) {
+    width: 40px;
+    height: 40px;
+    margin-top:10px;
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Mild white border */
+    font-size: 20px;
+  }
+  @media (max-width: 424px) and (min-width: 320px) {
+    width: 35px;
+    height: 35px;
+    margin-top:20px;
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Mild white border */
+    font-size: 20px;
   }
 `;
 

@@ -22,9 +22,20 @@ const HeroContainer = styled.div`
   color: ${({ theme }) => theme.colors.white};
   overflow: hidden;
 
+  @media (max-width: 1440px) and (min-width: 1281px) {
+  background-size: fixed;
+  background-attachment: scroll;
+  }
   @media (max-width: 1280px) and (min-width: 992px) {
-    background-size: fixed; /* Adjust for smaller screens */
-    background-attachment: scroll; /* Prevents fixed positioning on smaller devices */
+  background-size: fixed;
+  background-attachment: scroll;
+  }
+  @media (max-width: 991px) and (min-width: 425px) {
+  background-size: fixed;
+  background-attachment: scroll;
+  }
+  @media (max-width: 424px) and (min-width: 320px) {
+
   }
 `;
 
@@ -37,13 +48,22 @@ const CenterTextContainer = styled.div`
   transform: translate(-50%, -50%);
   text-align: center;
 
-  @media (max-width: 425px) {
+  @media (max-width: 1440px) and (min-width: 1281px) {
+
+  }
+  @media (max-width: 1280px) and (min-width: 992px) {
+
+  }
+  @media (max-width: 991px) and (min-width: 425px) {
+
+  }
+  @media (max-width: 424px) and (min-width: 320px) {
     position: relative;
     top: 18%;
     left: unset;
     transform: none;
     margin-top: 20px;
-    order: 3; /* Push below the toggle button */
+    order: 3;
   }
 `;
 
@@ -63,19 +83,23 @@ const YellowCircle = styled.div`
   align-items: center;
   justify-content: center;
 
-  @media (max-width: 1280px) and (min-width: 992px) {
-    top: 73%; /* Move the circle further down */
+  @media (max-width: 1440px) and (min-width: 1281px) {
+    top: 73%;
     width: 30vw;
     height: 30vw;
   }
-  /* Adjust position for mobile screens */
-  @media (max-width: 991px) {
-    top: 81%; /* Move the circle further down */
+  @media (max-width: 1280px) and (min-width: 992px) {
+    top: 73%;
+    width: 30vw;
+    height: 30vw;
+  }
+  @media (max-width: 991px) and (min-width: 425px) {
+    top: 80%;
     width: 50vw;
     height: 50vw;
   }
-  @media (max-width: 480px) {
-    top: 83%; /* Move the circle further down */
+  @media (max-width: 424px) and (min-width: 320px) {
+    top: 83%;
     width: 50vw;
     height: 50vw;
   }
@@ -95,14 +119,23 @@ const GrayCircle = styled.div`
   justify-content: flex-end;
   text-align: center;
   padding-bottom: 10%;
-
-  @media (max-width: 991px) {
-    padding-bottom: 5%; /* Adjust spacing for smaller screens */
+  @media (max-width: 1440px) and (min-width: 1281px) {
+    width: 70%;
+    height: 80%;
+  }
+  @media (max-width: 1280px) and (min-width: 992px) {
+    width: 70%;
+    height: 80%;
+  }
+  @media (max-width: 991px) and (min-width: 425px) {
+    padding-bottom: 5%;
     position: absolute;
     top: 10%;
+    width: 75%;
+    height: 90%;
   }
-  @media (max-width: 480px) {
-    padding-bottom: 5%; /* Adjust spacing for smaller screens */
+  @media (max-width: 424px) and (min-width: 320px) {
+    padding-bottom: 5%;
   }
 `;
 
@@ -129,37 +162,34 @@ const TopText = styled.h1`
   /* Shadow for Better Emphasis */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
 
-  @media (max-width: 1440px) {
+  @media (max-width: 1440px) and (min-width: 1281px) {
     position: absolute;
-    top: 35%;
-    font-size: 3vw; /* Larger size for small screens */
+    top: 25%;
+    font-size: 3.2vw; /* Larger size for small screens */
     line-height: 0.05vw;
     -webkit-text-stroke: 0.05vw #ffffff; /* Increase stroke width for smaller screens */
     text-stroke: 0.1vw #ffffff;
   }
-
-  @media (max-width: 1024px) {
+  @media (max-width: 1280px) and (min-width: 992px) {
     position: absolute;
-    top: 30%;
-    font-size: 5vw; /* Larger size for small screens */
+    top: 32%;
+    font-size: 4vw; /* Larger size for small screens */
     line-height: 0.05vw;
     -webkit-text-stroke: 0.1vw #ffffff; /* Increase stroke width for smaller screens */
     text-stroke: 0.1vw #ffffff;
   }
-
-  @media (max-width: 991px) {
+  @media (max-width: 991px) and (min-width: 425px) {
     position: absolute;
-    top: 22%;
-    font-size: 5vw; /* Larger size for small screens */
-    line-height: 0.05vw;
+    top: 13%;
+    font-size: 6vw; /* Larger size for small screens */
+    line-height: 5vw;
     -webkit-text-stroke: 0.1vw #ffffff; /* Increase stroke width for smaller screens */
     text-stroke: 0.1vw #ffffff;
   }
-
-  @media (max-width: 480px) {
-    font-size: 7vw; /* Even larger for very small screens */
-    line-height: 10vw;
-    -webkit-text-stroke: 0.1vw #ffffff; /* Stroke width adjustment */
+  @media (max-width: 424px) and (min-width: 320px) {
+    font-size: 8vw; 
+    line-height: 15vw;
+    -webkit-text-stroke: 0.1vw #ffffff;
     text-stroke: 0.01vw #ffffff;
   }
 `;
@@ -175,12 +205,21 @@ const BottomText = styled.h2`
   margin-bottom: 0;
   padding-bottom: 0.5rem;
 
-  @media (max-width: 1280px) and (min-width: 992px) {
-    font-size: 2vw; /* Adjust font size for smaller screens */
-    line-height: 15vw;
+  @media (max-width: 1440px) and (min-width: 1281px) {
+    font-size: 2vw;
+    line-height: 23vw;
   }
-  @media (max-width: 425px)  {
-     font-size: 5vw; 
+  @media (max-width: 1280px) and (min-width: 992px) {
+    font-size: 3vw;
+    line-height: 18vw;
+  }
+  @media (max-width: 991px) and (min-width: 425px) {
+    font-size: 4vw; 
+    line-height: 54vw;
+  }
+  @media (max-width: 424px) and (min-width: 320px) {
+    font-size: 4vw; 
+    line-height: 15vw;
   }
 `;
 
@@ -194,18 +233,6 @@ const VerticalButton = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  @media (max-width: 425px) {
-    position: relative;
-    top: 30%;
-    left: unset;
-    transform: none;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 10px;
-    gap: 10px;
-  }
-
   .line {
     width: 0.5rem;
     height: 2.5rem;
@@ -213,12 +240,6 @@ const VerticalButton = styled.div`
     border-radius: 0.5rem;
     transition: background 0.3s ease-in-out;
     background: #ffffff; /* Default color */
-
-    @media (max-width: 425px) {
-      width: 2rem;
-      height: 0.5rem;
-      margin: 0 5px;
-    }
   }
 
   .line.active {
@@ -229,6 +250,45 @@ const VerticalButton = styled.div`
     transform: scale(1.1);
     transition: all 0.3s ease;
   }
+
+  @media (max-width: 1440px) and (min-width: 1281px) {
+
+  }
+  @media (max-width: 1280px) and (min-width: 992px) {
+
+  }
+  @media (max-width: 991px) and (min-width: 425px) {
+    position: relative;
+    top: 10%;
+    left: unset;
+    transform: none;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 10px;
+    .line {
+      width: 2rem;
+      height: 0.5rem;
+      margin: 0 5px;
+    }
+  }
+  @media (max-width: 424px) and (min-width: 320px) {
+    position: relative;
+    top: 26%;
+    left: unset;
+    transform: none;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 10px;
+    z-index: 1;
+    .line {
+      width: 2rem;
+      height: 0.5rem;
+      margin: 0 5px;
+    }
+  }
+  
 `;
 
 
@@ -241,12 +301,22 @@ const Title = styled.h1`
   font-weight: 100; /* Use regular font weight */
   font-style: normal; /* Regular style */
   margin-top: 150px;
+
+  @media (max-width: 1440px) and (min-width: 1281px) {
+    font: normal normal normal 32px/68px Poppins;
+    margin-top: 250px;
+  }
   @media (max-width: 1280px) and (min-width: 992px) {
     margin-top: 300px;
   }
-  @media (max-width: 425px) {
-    font-size: 5vw;
-    
+  @media (max-width: 991px) and (min-width: 425px) {
+    margin-top: 400px;
+    font: normal normal normal 32px/68px Poppins;
+  }
+  @media (max-width: 424px) and (min-width: 320px) {
+    margin-top: 100px;
+    font: normal normal normal 22px/68px Poppins;
+    z-index: 0;
   }
 `;
 
