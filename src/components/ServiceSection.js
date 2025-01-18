@@ -46,18 +46,36 @@ const ServicesHeader = styled.div`
   justify-content: space-between;
   align-items: normal;
   
+  @media (max-width: 1280px) and (min-width: 992px){
+   width: 80%;
+   font-size:24px;
+  
+}
 
   h1 {
-    font-family: 'Montserrat', sans-serif;
+    font: normal normal normal 45px/82px Poppins;
     font-size: 70px;
     color: #ff0000;
     margin-top: 0px;
+
+  @media (max-width: 1280px) and (min-width: 992px){
+  font: normal normal bold 50px Poppins;
+   width: 80%;
+   margin-top: -15px; 
+}
   }
   h2 {
     font: normal normal normal 45px/82px Poppins;
     font-size: 45px;
     color:rgb(255, 255, 255);
     margin-bottom: 0px;
+
+  @media (max-width: 1280px) and (min-width: 992px){
+   width: 80%;
+   font-size:45px;
+   margin-top: -10px;
+  
+}
   }
 
   span {
@@ -68,6 +86,11 @@ const ServicesHeader = styled.div`
       cursor: pointer;
       transition: color 0.3s;
 
+      @media (max-width: 1280px) and (min-width: 992px) {
+          font-size: 18px;
+           margin-top:80px;
+           margin-right:90px;
+           
       &:hover {
           color: #ffdd00; /* Bright yellow on hover */
       }
@@ -75,21 +98,8 @@ const ServicesHeader = styled.div`
       &.active {
           color: #f0a500; /* Stay yellow when active */
       }
+          
   }
-
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    text-align: center;
-
-    h1 {
-      font-size: 8vw;
-      margin-bottom: 20px;
-    }
-
-    span {
-      font-size: 5vw;
-    }
   }
 `;
 
@@ -103,8 +113,9 @@ const ServiceGrid = styled.div`
   background: rgba(0, 0, 0, 0.6);
 
   
-  @media (max-width: 1428px) {
-    grid-template-columns: repeat(2, 1fr);
+ @media (max-width: 1280px) and (min-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
+    
   }
 
   @media (max-width: 768px) {
@@ -118,10 +129,15 @@ const ServiceCard = styled.div`
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  height: 400px;
   cursor: pointer;
   background: black;
-
+  
+  @media (max-width: 1280px) and (min-width: 992px){
+  
+    height: 300px;
+    }
+ 
+  
   img {
     width: 100%;
     height: 100%;
@@ -157,13 +173,19 @@ const ServiceCard = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 20px;
+    
     border-radius: 5px;
     z-index: 2;  // Ensures the logo stays above the overlay
     width: 170px; // Adjust width as needed
     height: auto;
     transition: transform 0.3s ease-in-out;
 
+    @media (max-width: 1280px) and (min-width: 992px){
+    position: absolute;
+     
+    bottom:-10px;
+    left: 10px;
+    }
     @media (max-width: 768px) {
       width: 30px; // Adjust size for mobile
     }

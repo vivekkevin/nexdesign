@@ -23,7 +23,7 @@ const SocialContainer = styled.div`
     gap: 15px;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 425px) {
     position: absolute;
     right: unset;
     top: 65%;
@@ -31,8 +31,9 @@ const SocialContainer = styled.div`
     flex-direction: row; /* Make icons horizontal */
     justify-content: center;
     width: 100%;
-    margin-top: 15px;
+    margin-top: 13px;
     gap: 15px;
+    
   }
 `;
 
@@ -49,7 +50,13 @@ const IconLink = styled.a`
   justify-content: center;
   border: 2px solid rgba(255, 255, 255, 0.5); /* Mild white border */
   transition: all 0.4s ease-in-out;
-
+  @media (max-width: 425px){
+  width: 35px;
+  height: 35px;
+  margin-top:40px;
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Mild white border */
+  font-size: 20px;
+  }
   &:hover {
     color: #ffffff; /* Keep icon color white on hover */
     transform: scale(1.2); /* Scale effect */

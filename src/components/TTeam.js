@@ -47,6 +47,21 @@ const PortfolioHeading = styled.h1`
   }
   h2 { color: #FFFFFF; }
   h3 { color: #E8001A; font-weight: bold; }
+
+  @media (max-width: 1280px) and (min-width: 992px){
+  h2{
+  font: 58px Poppins;
+  margin-left: -40%;
+   margin-top: 0px;
+  
+  }
+  h3{
+  font: 58px Poppins;
+  line-height: 20px;
+  margin-left: -40%;
+  font-weight:600;
+  }
+  }
 `;
 
 const PortfolioLinks = styled.div`
@@ -54,14 +69,35 @@ const PortfolioLinks = styled.div`
   gap: 30px;
   font-size: 1rem;
   color: #fff;
-  margin-right: 20%;
+  margin-right: 10%;
   font: normal normal normal 25px/82px Poppins;
+
+  @media (max-width: 1280px) and (min-width: 992px){
+  font: normal normal normal 18px Poppins
+  
+  
+  }
+  span{
+   @media (max-width: 1280px) and (min-width: 992px){
+   margin-top:120px;
+   margin-left:-100px;
+   margin-right:130px;
+   }
+   }
+
+  }
 `;
 
 const PortfolioGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   padding: 70px;
+
+  @media (max-width: 1280px) and (min-width: 992px){
+  padding: 70px 0px;
+  margin-top:-60px;
+
+  }
 `;
 
 const PortfolioCard = styled.div`
@@ -111,12 +147,18 @@ const PortfolioCardContent = styled.div`
   &:hover {
     transform: scale(1.05); // Slightly increase size on hover
   }
+   
 `;
 
 
 const Image = styled.img`
   width: 100%;
   height: 100%;
+
+  @media (max-width: 1280px) and (min-width: 992px){
+  width: 100%;
+  height: 100%;
+  }
 `;
 
 const ToggleContainer = styled.div`
@@ -144,7 +186,7 @@ const RectToggle = styled.div`
 
 const teamMembers = [
   { name: "Sachin Kumar", role: "Chief Executive Officer", slogan: "'' We Create, You Succeed ''", description: "We believe in the power of storytelling through the art of animation and visual effects. As CEO, I am honored to lead a company that not only thrives on innovation but also places a strong emphasis on collaboration, creativity, and client success.", image: image1, bgColor: "#222" },
-  { name: "Sumedha NR", role: "Chief Creative Officer", slogan: "'' Immersive Digital Artistry Mastery ''", description: "As CCO, I am driven by the vision of bringing imagination to life through animation and visual effects, blending artistry with cutting-edge technology to create experiences that captivate, inspire and place creativity at the core of everything.", image: image6, bgColor: "#E8001A" },
+  { name: "Sumedha NR", role: "Chief Creative Officer", slogan: "''Immersive Digital Artistry Mastery''", description: "As CCO, I am driven by the vision of bringing imagination to life through animation and visual effects, blending artistry with cutting-edge technology to create experiences that captivate, inspire and place creativity at the core of everything.", image: image6, bgColor: "#E8001A" },
   { name: "Sahana R Shindhe", role: "Chief Operating Officer", slogan: "'' Your Story, Our Animation ''", description: "As COO drives operational excellence, ensuring seamless collaboration and innovation. With a passion for fostering creativity, they empower teams to deliver captivating animation and visual effects, transforming imaginative concepts into impactful experiences.", image: image2, bgColor: "#222" },
   { name: "Rashmi Hegde", role: "Lead - Motion Graphics Designer", description: "As Lead Motion Graphics Designer at Nex Design Studio, I craft visually stunning animations that bring stories to life. With a keen eye for detail and a passion for creativity, I collaborate with teams to deliver captivating designs that inspire and engage audiences.", image: image4, bgColor: "#E8001A" },
   { name: "Naveena K", role: "Senior - UI | UX Designer", description: "As Senior UI/UX Designer at Nex Design Studio, I blend creativity with user-centered design principles to create intuitive and engaging interfaces. My focus is on enhancing user experiences, ensuring that every interaction is seamless, enjoyable, and visually compelling for our clients.", image: image5, bgColor: "#E8001A" },

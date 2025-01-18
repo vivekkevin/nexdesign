@@ -18,6 +18,8 @@ const MainHeadContainer = styled.h1`
   flex-wrap: wrap;
   margin-top:-10px;
   margin-bottom:-10px;
+
+  
 `;
 
 // Container for Text Overlays
@@ -31,12 +33,16 @@ const DynamicTextContainer = styled.div`
   display: flex;
   justify-content: left;
   align-item:center;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Poppins';
   font-size: 3vw;
-  font-weight: 700;
+  font-weight: 600;
   background: #f0a500;
   width: fit-content;
-
+  
+  @media (max-width: 1280px) and (min-width: 992px){
+  padding:0px 10px;
+  font: normal normal bold 58px Poppins;
+  }
   @media (max-width: 768px) {
     font-size: 10vw;
   }
@@ -46,6 +52,7 @@ const DynamicTextContainer = styled.div`
 const WhiteText = styled.span`
   color: #ffffff;
   padding: 5px 5px;
+
 `;
 
 // Red Text Styling
@@ -62,7 +69,9 @@ const SubText = styled.h2`
   font-weight: 400;
   text-transform: capitalize;
   line-height: 60px;
-
+  @media (max-width: 1280px) and (min-width: 992px){
+  font-size: 30px;
+  }
   @media (max-width: 768px) {
     font-size: 4vw;
   }

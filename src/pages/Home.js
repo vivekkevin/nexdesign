@@ -22,7 +22,7 @@ const HeroContainer = styled.div`
   color: ${({ theme }) => theme.colors.white};
   overflow: hidden;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1280px) and (min-width: 992px) {
     background-size: fixed; /* Adjust for smaller screens */
     background-attachment: scroll; /* Prevents fixed positioning on smaller devices */
   }
@@ -37,9 +37,9 @@ const CenterTextContainer = styled.div`
   transform: translate(-50%, -50%);
   text-align: center;
 
-  @media (max-width: 768px) {
+  @media (max-width: 425px) {
     position: relative;
-    top: 25%;
+    top: 18%;
     left: unset;
     transform: none;
     margin-top: 20px;
@@ -63,19 +63,13 @@ const YellowCircle = styled.div`
   align-items: center;
   justify-content: center;
 
-  @media (max-width: 1440px) {
-    top: 75%; /* Move the circle further down */
+  @media (max-width: 1280px) and (min-width: 992px) {
+    top: 73%; /* Move the circle further down */
     width: 30vw;
-    height: 25vw;
-  }
-
-  @media (max-width: 1024px) {
-    top: 75%; /* Move the circle further down */
-    width: 50vw;
-    height: 40vw;
+    height: 30vw;
   }
   /* Adjust position for mobile screens */
-  @media (max-width: 768px) {
+  @media (max-width: 991px) {
     top: 81%; /* Move the circle further down */
     width: 50vw;
     height: 50vw;
@@ -102,7 +96,7 @@ const GrayCircle = styled.div`
   text-align: center;
   padding-bottom: 10%;
 
-  @media (max-width: 768px) {
+  @media (max-width: 991px) {
     padding-bottom: 5%; /* Adjust spacing for smaller screens */
     position: absolute;
     top: 10%;
@@ -153,7 +147,7 @@ const TopText = styled.h1`
     text-stroke: 0.1vw #ffffff;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 991px) {
     position: absolute;
     top: 22%;
     font-size: 5vw; /* Larger size for small screens */
@@ -181,24 +175,12 @@ const BottomText = styled.h2`
   margin-bottom: 0;
   padding-bottom: 0.5rem;
 
-  @media (max-width: 1440px) {
+  @media (max-width: 1280px) and (min-width: 992px) {
     font-size: 2vw; /* Adjust font size for smaller screens */
-    line-height: 12vw;
+    line-height: 15vw;
   }
-
-  @media (max-width: 1024px) {
-    font-size: 3vw; /* Adjust font size for smaller screens */
-    line-height: 23vw;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 3vw; /* Adjust font size for smaller screens */
-    line-height: 38vw;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 5vw; /* Increase font size for very small screens */
-    line-height: 18vw;
+  @media (max-width: 425px)  {
+     font-size: 5vw; 
   }
 `;
 
@@ -213,9 +195,9 @@ const VerticalButton = styled.div`
   flex-direction: column;
   align-items: center;
 
-  @media (max-width: 768px) {
+  @media (max-width: 425px) {
     position: relative;
-    top: 17%;
+    top: 30%;
     left: unset;
     transform: none;
     flex-direction: row;
@@ -232,7 +214,7 @@ const VerticalButton = styled.div`
     transition: background 0.3s ease-in-out;
     background: #ffffff; /* Default color */
 
-    @media (max-width: 768px) {
+    @media (max-width: 425px) {
       width: 2rem;
       height: 0.5rem;
       margin: 0 5px;
@@ -259,9 +241,12 @@ const Title = styled.h1`
   font-weight: 100; /* Use regular font weight */
   font-style: normal; /* Regular style */
   margin-top: 150px;
-
-  @media (max-width: 768px) {
-    font-size: 8vw;
+  @media (max-width: 1280px) and (min-width: 992px) {
+    margin-top: 300px;
+  }
+  @media (max-width: 425px) {
+    font-size: 5vw;
+    
   }
 `;
 
@@ -292,8 +277,8 @@ const Hero = () => {
 
   useEffect(() => {
     const audio = new Audio(backgroundMusic);
-    audio.volume = 0.1; // Set volume to 30%
-    audio.loop = true; // Enable looping
+    audio.volume = 0; // Set volume to 30%
+    audio.loop = false; // Enable looping
   
     // Play the audio and handle potential errors
     const playAudio = async () => {

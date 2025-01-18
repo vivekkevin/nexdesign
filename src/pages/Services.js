@@ -12,6 +12,7 @@ const ServicesContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   background: #111111;
+
 `;
 
 const Services = () => {

@@ -29,24 +29,24 @@ const ContactInfo = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 20px;
-  margin-left: 100px;
+  margin-left: 80px;
 
   h1 {
     font-size: 50px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins';
     margin-bottom: 20px;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1280px) and (min-width: 992px) {
       font-size: 2.6vw;
+      margin-top:-30px;
     }
 
-    @media (max-width: 768px) {
-      font-size: 3vw;
-      
-
+    @media (max-width: 425px) {
+      font-size: 5vw;
+      margin-top:-20px;
+      margin-right:110px;
     }
   }
-  
  
   p {
     font-size: 22px;
@@ -54,14 +54,19 @@ const ContactInfo = styled.div`
     line-height: 2.2;
     width:90%;
 
-    @media (max-width: 1024px) {
-      font-size: 1.4vw;
+   @media (max-width: 1280px) and (min-width: 992px) {
+      font-size: 1.2vw;
     }
 
     @media (max-width: 768px) {
       font-size: 2vw;
       line-height: 2.6;
     }
+     @media (max-width: 425px) {
+      font-size: 3vw;
+      margin-top:-10px;
+     
+    } 
   }
 
   a {
@@ -84,6 +89,9 @@ const ContactInfo = styled.div`
 const ContactDetails = styled.div`
   display: flex;
   flex-direction: column;
+  @media (max-width: 425px){
+  margin-top:130%;
+  }
 
   p {
     display: flex;
@@ -99,6 +107,11 @@ const ContactDetails = styled.div`
     @media (max-width: 768px) {
       font-size: 2vw;
     }
+    @media (max-width: 425px) {
+      font-size: 3.5vw;
+      padding:5px;
+      
+    }  
 
     svg {
       display: flex;
@@ -135,6 +148,15 @@ const SocialIconsContainer = styled.div`
     margin: 0; /* Remove default margin */
     font-size: 24px;
     color: #ffffff;
+
+    @media (max-width: 1280px) and (min-width: 992px){
+    font-size: 14px;
+    color: #ffffff;
+  }
+    @media (max-width: 425px){
+    font-size: 14px;
+    color: #ffffff;
+    }
   }
 
   a {
@@ -149,11 +171,24 @@ const SocialIconsContainer = styled.div`
     font-size: 24px;
     transition: background-color 0.3s, color 0.3s; /* Smooth transition */
 
+    @media (max-width: 1280px) and (min-width: 992px){
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    }
+    @media (max-width: 425px){
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    }
+
     &:hover {
       background-color: #f0a500; /* Background color on hover */
       color: #111111; /* Icon color on hover */
+
+    
     }
-  }
+}
 `;
 
 
@@ -167,9 +202,16 @@ const ContactForm = styled.div`
   padding: 20px;
   gap:10px;
   margin-top:40px;
-
+  @media (max-width: 1280px) and (min-width: 992px){
+   margin-top:-10px;
+  }
   @media (max-width: 768px) {
     width: 100%;
+  }
+     @media (max-width: 425px) {
+    width: 100%;
+    margin-top:-190%;
+    margin-left:15px;
   }
 `;
 
@@ -178,28 +220,28 @@ const FooterNav = styled.nav`
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
-  gap: 40px; /* Space between links */
+  gap: 30px; /* Space between links */
   
 
   a {
     color: #ffffff;
     text-decoration: none;
     font-size: 20px;
+
+  @media (max-width: 1280px) and (min-width: 992px){
+  font-size: 14px;
+  margin-top:20px;
+  }
+
+  @media (max-width: 425px){
+   font-size: 14px;
+  }
     
 
     &:hover {
       color: #f0a500; /* Highlight on hover */
     }
   }
-  @media (max-width: 1440px) {
-  a{
-  font-size: 18px;
-  }
-  @media (max-width: 1024px) {
-  a{
-  font-size: 14px;
-  }
-}
 `;
 
 // Styled Input and Textarea
@@ -211,6 +253,19 @@ const Input = styled.input`
   width: 90%;
   font: normal normal normal 19px/29px Poppins;
   color: #5A5A5A;
+
+  @media (max-width: 1280px) and (min-width: 992px){
+  width:80%;
+  padding: 10px;
+  font: normal normal bold 14px Poppins;
+  }
+  @media (max-width: 425px){
+   width:100%;
+  padding: 10px;
+  margin-bottom:5px;
+  font: normal normal bold 14px Poppins;
+  
+  }
 `;
 
 const Textarea = styled.textarea`
@@ -222,11 +277,27 @@ const Textarea = styled.textarea`
   margin-bottom: 20px;
   font: normal normal normal 19px/29px Poppins;
   color: #5A5A5A;
+
+  @media (max-width: 1280px) and (min-width: 992px){
+  height: 100px;
+   width: 80%;
+   font: normal normal bold 14px Poppins;
+  }
+   @media (max-width: 425px){
+   height: 100px;
+   width: 100%;
+   font: normal normal bold 14px Poppins;
+   margin-top:-10px;
+   }
 `;
 
 const Container = styled.div`
-  position: relative;
+  position:relative;
   width: 90%;
+  @media (max-width: 1280px) and (min-width: 992px){
+  position:relative;
+  width: 90%;
+  }
 `;
 
 // Styled Select
@@ -240,6 +311,17 @@ const Select = styled.select`
   color: #5A5A5A;
   -webkit-appearance: none; /* Removes default styling for select in Chrome */
   -moz-appearance: none;    /* Removes default styling for select in Firefox */
+
+  @media (max-width: 1280px) and (min-width: 992px){
+  width:90%;
+  padding:10px;
+  font: normal normal bold 14px Poppins;
+  }
+  @media (max-width: 425px){
+    width:110%;
+  padding:10px;
+  font: normal normal bold 14px Poppins;
+  }
 `;
 
 const StyledOption = styled.option`
@@ -263,16 +345,18 @@ const SubmitButton = styled.button`
   &:hover {
     background: #ffcc3f;
   }
-  
-  @media (max-width: 1440px) {
-  font-size: 180px;
-  width: 20%;
+   
+  @media (max-width: 1280px) and (min-width: 992px){
+  padding:  10px;
+  font-size: 80%;
+  }
+  @media (max-width: 425px){
+  padding:  10px;
+  font-size: 80%;
+  width:fit-content;
+  margin-top:-10px;
   }
 
-  @media (max-width: 1024px) {
-  font-size: 10%;
-  width: 25%;
-  }
 `;
 
 // Main Wrapper with Background Image
@@ -291,18 +375,8 @@ const Footer = styled.footer`
   text-align: center;
   color: #ffffff;
   font-size: 20px;
-
-  @media (max-width: 1440px) {
-    font-size: 18px;
-  }
-
-  @media (max-width: 1440px) {
-    font-size: 15px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 15px;
-    text-align: left;
+  @media (max-width: 425px){
+  margin-top:70%;
   }
 
   a {
@@ -313,9 +387,21 @@ const Footer = styled.footer`
     &:hover {
       color: #f0a500;
     }
+     
   }
+     
+    p{
+    @media (max-width: 1280px) and (min-width: 992px){
+    margin-top:-20px;
+    font: normal normal normal 18px Poppins;
+    }
+    @media (max-width: 425px){
+    margin-top:-20px;
+    font: normal normal normal 12px Poppins;
+    }
+    }
 `;
-
+  
 
 
 // Contact Component

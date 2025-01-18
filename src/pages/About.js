@@ -29,6 +29,7 @@ const AboutContainer = styled.div`
   flex-direction: column;
   overflow-y: auto;
   padding-top: 0px; /* Add padding to prevent overlap with navbar */
+
 `;
 
 
@@ -38,13 +39,12 @@ const StyledNexImage = styled.img`
   margin-top: auto; /* Push to the bottom */
   opacity: 0.7; /* Subtle effect */
 
-  @media (max-width: 1440px) {
-    width: 80%; /* Adjust size for mobile */
+ @media (max-width: 1280px) and (min-width: 992px) {
+    width: 90%; /* Adjust size for mobile */
+    margin-top:10%;
   }
   
-  @media (max-width: 1440px) {
-    width: 90%; /* Adjust size for mobile */
-  }
+ 
   
   @media (max-width: 768px) {
     width: 60%;  // Adjust the width for smaller devices
@@ -53,6 +53,10 @@ const StyledNexImage = styled.img`
     top: 30%;  // Position from the top of the viewport
     left: 20%;  // Position from the left of the viewport
     z-index: -1;  // Place it behind other content
+  }
+
+  @media (max-width: 425px){
+  display:none;
   }
 `;
 
@@ -70,7 +74,7 @@ const SectionWrapper = styled.div`
   @media (max-width: 768px) {
     height: auto; /* Allow sections to expand based on content */
     flex-direction: column;
-    padding: 30px; /* Reduced padding for mobile */
+    
   }
 `;
 
@@ -110,11 +114,15 @@ const LeftSection = styled.div`
   justify-content: center;
   align-items: center;
   padding: 20px;
-
+  
   @media (max-width: 768px) {
     width: 100vw;
     height: 90vh; /* Adjust image height for mobile */
     top:-30px;
+  }
+  @media (max-width: 425px){
+  width: 430px;
+    height: 488px;
   }
 `;
 
@@ -134,6 +142,12 @@ const RightSection = styled.div`
     padding: 10px; /* Reduced padding for mobile */
     min-height: 500px;
   }
+
+   @media (max-width: 425px) {
+    width: 100%;
+    padding: 10px; /* Reduced padding for mobile */
+    min-height: 400px;
+  }
 `;
 
 const WelcomeText = styled.h1`
@@ -143,12 +157,9 @@ const WelcomeText = styled.h1`
   position: absolute; /* Allow absolute positioning */
   bottom: 15%; /* 75% from the top */
 
-  @media (max-width: 1440px) {
-  font-size: 45px;
-  }
-
-  @media (max-width: 1024px) {
-  font-size: 40px;
+  @media (max-width: 1280px) and (min-width: 992px){
+    bottom: 30%;
+    font-size: 28px;
   }
 
   @media (max-width: 768px) {
@@ -164,10 +175,10 @@ const StudioText = styled.h2`
   position: absolute; /* Allow absolute positioning */
   bottom: 7%; /* Adjust position for spacing */
 
-  @media (max-width: 1440px) {
-  font-size: 35px;
-  }
-
+   @media (max-width: 1280px) and (min-width: 992px){
+    bottom: 23%;
+    font-size: 32px;
+}
   @media (max-width: 768px) {
     bottom: 5%;
     font-size: 24px; /* Reduced font size for mobile */
@@ -182,7 +193,7 @@ const RightHeading = styled.h1`
   margin-top: 100px;
   margin-bottom: 60px;
 
-  @media (max-width: 1540px) and (min-width : 1281px) {
+  @media (max-width: 1280px) and (min-width: 992px) {
   margin-top:100px;
   font-size: 30px;
   }
@@ -191,6 +202,11 @@ const RightHeading = styled.h1`
     font-size: 35px; /* Reduced font size for mobile */
     text-align: center; /* Center align for better visibility */
     margin-top: 20px;
+  }
+  @media (max-width: 425px){
+  font-size: 20px; /* Reduced font size for mobile */
+    text-align: center; /* Center align for better visibility */
+    
   }
 `;
 
@@ -206,9 +222,9 @@ const ParagraphText = styled.p`
   overflow-wrap: break-word; /* Prevents text overflow */
   hyphens: auto; /* Adds hyphenation if needed */
 
-  @media (max-width: 1024px) {
-  font-size: 14px;
-  width: 90%;
+  @media (max-width: 1280px) and (min-width: 992px) {
+  font-size: 16px;
+  width: 99%;
   }
 
   @media (max-width: 768px) {
@@ -217,6 +233,14 @@ const ParagraphText = styled.p`
     text-align: center; /* Keeps justification */
     padding: 0 10px; /* Adds padding for better readability */
   }
+   @media (max-width: 425px){
+   font-size: 15px; /* Reduced font size for mobile */
+    width: 100%; /* Slightly wider for smaller screens */
+    text-align: center; /* Keeps justification */
+     /* Adds padding for better readability */
+    margin-top:-30px;
+    
+   } 
 `;
 
 
@@ -226,9 +250,10 @@ const WhyChooseUsSection = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 40px 0;
   background: #ffffff;
-
+  @media (max-width: 1280px) and (min-width: 992px){
+  margin-top:-150px;
+  }
   @media (max-width: 768px) {
     display: grid;  // Switch to grid layout on mobile
     grid-template-columns: 1fr;  // Single column layout for simplicity
@@ -261,6 +286,11 @@ const LeftColumn = styled.div`
     grid-template-columns: repeat(3, 1fr); /* Show 2 items per row on mobile */
     grid-gap: 30px; /* Smaller gaps on mobile */
   }
+   @media (max-width: 425px){
+   grid-template-columns: repeat(3, 1fr); /* Show 2 items per row on mobile */
+    grid-gap: 3px; /* Smaller gaps on mobile */
+   
+   } 
 `;
 
 // Center Column: Large Creative Idea Icon
@@ -280,19 +310,19 @@ const LargeIcon = styled.img`
   width: 500px;
   height: 450px;
 
-  @media (max-width: 1440px) {
-    width: 300px;
-    height: 250px;
-  }
-
-  @media (max-width: 1024px) {
+  @media (max-width: 1280px) and (min-width: 992pxrepeat(3, 1fr)) {
     width: 250px;
-    height: 200px;
+    height: 250px;
+    margin-bottom:50px;
   }
   @media (max-width: 768px) {
     width: 175px; /* Adjust icon size for mobile */
     height: 150px;
   }
+   @media (max-width: 425px){
+   width: 150px; /* Adjust icon size for mobile */
+    height: 130px;
+   } 
 `;
 
 // Right Column: Why Choose Us Text
@@ -304,10 +334,16 @@ const RightColumn = styled.div`
     font-weight: bold;
     line-height: 1.2;
     margin-bottom: 20px;
-
-    @media (max-width: 768px) {
-      font-size: 35px; /* Reduce size for mobile */
+    @media (max-width: 1280px) and (min-width: 992px){
+    margin-right:40px;
     }
+    @media (max-width: 768px) {
+      
+    }
+    @media (max-width: 425px) {
+    font-size: 25px; /* Reduce size for mobile */
+    margin-right:40px;
+    } 
   }
 `;
 
@@ -335,7 +371,7 @@ const WhoWeAreContainer = styled.div`
   margin-right:5%;
   align-items: center;
   padding: 20px;
-  gap:180px;
+  gap:110px;
 
   @media (max-width: 768px) {
     display: grid;
@@ -343,6 +379,10 @@ const WhoWeAreContainer = styled.div`
     grid-template-rows: auto auto;  // Automatic row height
     grid-gap: 10px;
   }
+    @media (max-width: 425px){
+    
+    margin-top:-20px;
+    }
 `;
 
 const FirstColumn = styled.div`
@@ -381,6 +421,8 @@ const LeftText = styled.div`
     width: 20%;
   }
 
+  
+
   @media (max-width: 768px) {
     margin-left: 0;
     width: 90%; /* Full width for mobile */
@@ -390,6 +432,9 @@ const LeftText = styled.div`
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     line-height: 1.2;
+   @media (max-width: 425px){
+    margin-left: -10px;
+  } 
   }
   }
 `;
@@ -405,12 +450,24 @@ const ImageSection1 = styled.div`
     justify-content: flex-start; /* Align image to the start */
     margin-bottom: 10px; /* Extra bottom margin for spacing between elements */
   }
+ 
+
 `;
 
 const StyledImage1 = styled.img`
   width: 280%; 
   height: auto;
   border-radius: 10px;
+
+  @media (max-width: 1280px) and (min-width: 992px){
+  width: 280%; 
+  height: auto;
+  }
+  @media (max-width: 425px){
+  margin-right:200px;
+   width: 150%; 
+  }
+  
 `;
 
 const RightText = styled.div`
@@ -418,10 +475,8 @@ const RightText = styled.div`
   line-height: 2.5;
   color: #333;
 
-  @media (max-width: 1024px) {
-  width: 70%;
-  font-size: 1.4vw;
-  margin-right:100px;
+  @media (max-width: 1280px) and (min-width: 992px) {
+  font-size: 12px;
   }
 
   @media (max-width: 768px) {
@@ -429,9 +484,12 @@ const RightText = styled.div`
     font-size: 2vw; /* Increase font size for readability */
     margin-right: 0; /* Remove right margin on mobile */
   }
+  @media (max-width: 425px){
+  width: 100%; /* Full width for mobile */
+   font-size: 12px;
+   margin-top:-20px;
+  }  
 `;
-
-
 // Individual Service Icon Box Styling
 const ServiceBox = styled.div`
   text-align: center;
@@ -479,6 +537,15 @@ const ServiceBox = styled.div`
     font-size: 1.8vw;
   }
   }
+  @media (max-width: 425px) { 
+  img {
+    width: 50px;
+    height: 50px;
+  }
+  h3 {
+    font-size: 1.8vw;
+  }
+  }
 `;
 
 const ProcessSection = styled.div`
@@ -490,13 +557,17 @@ const ProcessSection = styled.div`
   flex-direction: column;
   text-align: center;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1280px) and (min-width: 992px) {
+  margin-top:-150px;
   height: 80vh;
   }
 
   @media (max-width: 768px) {
     padding: 40px 20px; /* Adjust padding for mobile */
   }
+  @media (max-width: 425px){
+    display:none;
+  }   
 `;
 
 
@@ -517,6 +588,7 @@ const SectionTitle = styled.h1`
   span {
     font-size: 4vw;
   }
+   } 
 `;
 
 const ProcessContainer = styled.div`
@@ -527,13 +599,11 @@ const ProcessContainer = styled.div`
   margin-top: 40px;
   margin-left:90px;
 
-  @media (max-width: 1440px) {
-  margin-top: 110px;
+  @media (max-width: 1280px) and (min-width: 992px) {
+  margin-top: 10px;
   }
 
-  @media (max-width: 1024px) {
-  margin-top: 80px;
-  }
+
 
   @media (max-width: 768px) {
     display: none; // Hide the grid layout on small screens
@@ -583,14 +653,15 @@ const ProcessCard = styled.div`
     font-size: 0.9em;
     font-weight: 500;
   }
-  @media (max-width: 1440px) {
-    width: 75%;
-    height: 46%;
+  @media (max-width: 1280px) and (min-width: 992px) {
+    width: 89%;
+    height: 52%;
   .number {
     font-size: 2em;
   }
   .icon {
     width: 50px;
+    margin-top:-10px;
   }
   h3 {
     font-size: 1em;
@@ -605,28 +676,6 @@ const ProcessCard = styled.div`
   }
   }
 
-  @media (max-width: 1024px) {
-    width: 94%;
-    height: 49%;
-  .number {
-    font-size: 1.5em;
-  }
-  .icon {
-    margin-top: 2px;
-    width: 42px;
-  }
-  h3 {
-    font-size: 0.8em;
-    margin-bottom: 15px;
-    color: #111;
-  }
-
-  p {
-    color: #555;
-    font-size: 0.6em;
-    font-weight: 600;
-  }
-  }
 
   @media (max-width: 768px) {
     position: relative; // Only apply absolute positioning on mobile

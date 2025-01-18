@@ -20,8 +20,8 @@ const NavbarContainer = styled.div`
   z-index: 10;
   transition: background 0.3s ease;
 
-  @media (max-width: 768px) {
-    padding: 10px 30px;
+  @media (max-width: 1280px) and (min-width: 992px) {
+    padding: 5px;
     background: transparent !important; /* Ensures transparency on mobile */
   }
 `;
@@ -36,7 +36,10 @@ const Logo = styled.div`
   img {
     width: ${({ isHomePage }) => (isHomePage ? '230px' : '180px')}; /* Larger on Home */
     transition: width 0.3s ease-in-out;
-
+    @media (max-width: 1280px) and (min-width: 992px){
+    width: ${({ isHomePage }) => (isHomePage ? '240px' : '180px')}; 
+    padding:30px;
+    }
     @media (max-width: 768px) {
       width: ${({ isHomePage }) => (isHomePage ? '140px' : '120px')}; /* Adjust for mobile */
     }
@@ -46,15 +49,12 @@ const Logo = styled.div`
 
 const Menu = styled.div`
   display: flex;
-  gap: 25px;
 
-  @media (max-width: 1440px) {
-  gap: 18px;
+  @media (max-width: 1280px) and (min-width: 992px) {
+  margin-right:30px;
   }
 
-  @media (max-width: 1024px) {
-  gap: 1px;
-  }
+  
 
   @media (max-width: 768px) {
     display: ${({ isMobileMenuOpen }) => (isMobileMenuOpen ? 'flex' : 'none')};
@@ -90,8 +90,10 @@ const MenuItem = styled(NavLink)`
     color: #ffcc3f; /* Slightly lighter yellow on hover */
   }
 
-  @media (max-width: 1024px) {
-  padding: 7px;
+ @media (max-width: 1280px) and (min-width: 992px) {
+  padding: 10px;
+  margin-right:10px;
+
   }
 
   @media (max-width: 768px) {
@@ -99,7 +101,7 @@ const MenuItem = styled(NavLink)`
     border: 1px solid #ffffff;
     padding: 5px 30px;
     width: 70%; /* Centered bounding box */
-    margin: -3px 0; /* Spacing between items */
+    margin: 15px 0; /* Spacing between items */
   }
 `;
 

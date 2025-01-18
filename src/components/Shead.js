@@ -182,14 +182,12 @@ const BottomText = styled.h2`
   margin-bottom: 0;
   padding-bottom: 0.5rem;
 
-  @media (max-width: 1440px) {
-    font-size: 2vw; /* Adjust font size for smaller screens */
-    line-height: 12vw;
-  }
+  
 
-  @media (max-width: 1024px) {
-    font-size: 3vw; /* Adjust font size for smaller screens */
-    line-height: 23vw;
+ @media (max-width: 1280px) and (min-width: 992px) {
+    font-size: 2vw; /* Adjust font size for smaller screens */
+    line-height: 10vw;
+  
   }
 
   @media (max-width: 768px) {
@@ -254,13 +252,15 @@ const VerticalButton = styled.div`
 
 const Title = styled.h1`
   font-size: 2.5vw;
-  
   color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.fonts.montserratBold};
   margin-top: 20%;
   font-weight: 5px; /* Use regular font weight */
   font-style: normal; /* Regular style */
-
+  @media (max-width: 1280px) and (min-width: 992px){
+  font-size: 30px;
+  margin-bottom: -200px;
+  }
   @media (max-width: 768px) {
     font-size: 8vw;
   }
