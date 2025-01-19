@@ -39,7 +39,7 @@ const AboutContainer = styled.div`
   @media (max-width: 991px) and (min-width: 426px) {
 
   }
-  @media (max-width: 425px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 310px) {
 
   }
 
@@ -68,7 +68,7 @@ const StyledNexImage = styled.img`
     left: 20%;  // Position from the left of the viewport
     z-index: -1;  // Place it behind other content
   }
-  @media (max-width: 425px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 310px) {
     display:none;
   }
   
@@ -80,10 +80,10 @@ const SectionWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content:center;
   background-color: ${({ bgColor }) => bgColor || 'transparent'};
   text-align: left;
+  
 
   @media (max-width: 1440px) and (min-width: 1281px) {
 
@@ -95,7 +95,7 @@ const SectionWrapper = styled.div`
     height: auto; /* Allow sections to expand based on content */
     flex-direction: column;
   }
-  @media (max-width: 425px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 310px) {
     height: auto; /* Allow sections to expand based on content */
     flex-direction: column;
   }
@@ -104,7 +104,7 @@ const SectionWrapper = styled.div`
 
 const SectionWrapper1 = styled(SectionWrapper)`
   height: 40vh;
-
+  flex-wrap: wrap;
   @media (max-width: 1440px) and (min-width: 1281px) {
     height: 40vh;
   }
@@ -114,7 +114,7 @@ const SectionWrapper1 = styled(SectionWrapper)`
   @media (max-width: 991px) and (min-width: 426px) {
     height: auto; 
   }
-  @media (max-width: 425px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 310px) {
 
   }
 `;
@@ -131,8 +131,8 @@ const SectionWrapper2 = styled(SectionWrapper)`
     height: auto; /* Allow sections to expand based on content */
     padding: 20px; /* Reduced padding for mobile */
   }
-  @media (max-width: 425px) and (min-width: 320px) {
-
+  @media (max-width: 425px) and (min-width: 310px) {
+  height: 50vh;
   }
 `;
 
@@ -159,7 +159,7 @@ const LeftSection = styled.div`
     height: 90vh; /* Adjust image height for mobile */
     top:-30px;
   }
-  @media (max-width: 425px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 310px) {
     width: 100vw;
     height: 90vh; /* Adjust image height for mobile */
   }
@@ -186,7 +186,7 @@ const RightSection = styled.div`
     padding: 10px; /* Reduced padding for mobile */
     min-height: 500px;
   }
-  @media (max-width: 425px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 310px) {
     width: 100%;
     padding: 10px; /* Reduced padding for mobile */
     min-height: 400px;
@@ -212,7 +212,7 @@ const WelcomeText = styled.h1`
     bottom: 16%;
     font-size: 45px; /* Adjust font size for mobile */
   }
-  @media (max-width: 425px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 310px) {
     bottom: 12%;
     font-size: 35px; /* Adjust font size for mobile */
   }
@@ -237,7 +237,7 @@ const StudioText = styled.h2`
     bottom: 8%;
     font-size: 42px;
   }
-  @media (max-width: 425px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 310px) {
     bottom: 4%;
     font-size: 30px;
   }
@@ -264,7 +264,7 @@ const RightHeading = styled.h1`
     text-align: center; /* Center align for better visibility */
     margin-top: 20px;
   }
-  @media (max-width: 425px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 310px) {
     font-size: 20px; /* Reduced font size for mobile */
     text-align: center; /* Center align for better visibility */
     margin-top: 20px;
@@ -296,7 +296,7 @@ const ParagraphText = styled.p`
     text-align: center; /* Keeps justification */
     padding: 0 10px; /* Adds padding for better readability */
   }
-  @media (max-width: 425px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 310px) {
    font-size: 14px; /* Reduced font size for mobile */
     width: 100%; /* Slightly wider for smaller screens */
     text-align: center; /* Keeps justification */
@@ -313,12 +313,20 @@ const WhyChooseUsSection = styled.div`
   align-items: center;
   justify-content: space-around;
   background: #ffffff;
+  gap:100px;
+
 
   @media (max-width: 1440px) and (min-width: 1281px) {
 
   }
   @media (max-width: 1280px) and (min-width: 992px) {
-    margin-top:-150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: #ffffff;
+  gap:10px;
+  margin-top:-60px;
+  height:50vh;
   }
   @media (max-width: 991px) and (min-width: 426px) {
     display: grid;  // Switch to grid layout on mobile
@@ -327,8 +335,12 @@ const WhyChooseUsSection = styled.div`
     grid-gap: 20px;  // Space between grid items
     padding: 20px;  // Adjusted padding for mobile
   }
-  @media (max-width: 425px) and (min-width: 320px) {
-
+  @media (max-width: 425px) and (min-width: 310px) {
+    display: grid;  // Switch to grid layout on mobile
+    grid-template-columns: 1fr;  // Single column layout for simplicity
+    grid-template-rows: auto auto auto;  // Adjust based on number of items
+    grid-gap: 10px;  // Space between grid items
+    padding: 5px;  // Adjusted padding for mobile
   }
 `;
 
@@ -355,9 +367,10 @@ const LeftColumn = styled.div`
     grid-template-columns: repeat(3, 1fr); /* Show 2 items per row on mobile */
     grid-gap: 30px; /* Smaller gaps on mobile */
   }
-  @media (max-width: 425px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 310px) {
     grid-template-columns: repeat(3, 1fr); /* Show 2 items per row on mobile */
     grid-gap: 3px; /* Smaller gaps on mobile */
+    
   }
 `;
 
@@ -377,7 +390,7 @@ const CenterColumn = styled.div`
   @media (max-width: 991px) and (min-width: 426px) {
     margin-top: 20px; /* Add margin for spacing */
   }
-  @media (max-width: 425px) and (min-width: 320px) {
+  @media (max-width: 425px) and (min-width: 310px) {
 
   }
 `;
@@ -387,40 +400,53 @@ const LargeIcon = styled.img`
   width: 500px;
   height: 450px;
 
-  @media (max-width: 1280px) and (min-width: 992pxrepeat(3, 1fr)) {
+  @media (max-width: 1440px) and (min-width: 1281px) {
     width: 250px;
     height: 250px;
     margin-bottom:50px;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1280px) and (min-width: 992px) {
+    width: 200px;
+    height: 200px;
+    margin-bottom:30px;
+  }
+  @media (max-width: 991px) and (min-width: 426px) {
     width: 175px; /* Adjust icon size for mobile */
     height: 150px;
   }
-   @media (max-width: 426px){
-   width: 150px; /* Adjust icon size for mobile */
-    height: 130px;
-   } 
+  @media (max-width: 425px) and (min-width: 310px) {
+    width: 120px; /* Adjust icon size for mobile */
+    height: 110px;
+    margin-left:-20px;
+  }
 `;
 
 // Right Column: Why Choose Us Text
 const RightColumn = styled.div`
   text-align: right; /* Ensures right alignment */
-  
+  font: normal normal normal 24px/68px Montserrat;
   h1 {
-    font-size: 3vw; /* Increase the overall heading size */
     font-weight: bold;
     line-height: 1.2;
     margin-bottom: 20px;
-    @media (max-width: 1280px) and (min-width: 992px){
-    margin-right:40px;
+  }
+  @media (max-width: 1440px) and (min-width: 1281px) {
+
+  }
+  @media (max-width: 1280px) and (min-width: 992px) {
+  font: normal normal normal 20px/68px Montserrat;
+    h1 {
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: 20px;
     }
-    @media (max-width: 768px) {
-      
-    }
-    @media (max-width: 426px) {
-    font-size: 25px; /* Reduce size for mobile */
+  }
+  @media (max-width: 991px) and (min-width: 426px) {
+
+  }
+  @media (max-width: 425px) and (min-width: 310px) {
+    font: normal normal normal 12px/68px Montserrat;
     margin-right:40px;
-    } 
   }
 `;
 
@@ -444,75 +470,106 @@ const NexText = styled.h1`
 // Container for "Who We Are" Section
 const WhoWeAreContainer = styled.div`
   display: flex;
-  margin-left:5%;
-  margin-right:5%;
   align-items: center;
   padding: 20px;
   gap:110px;
+  @media (max-width: 1440px) and (min-width: 1281px) {
 
-  @media (max-width: 768px) {
+  }
+  @media (max-width: 1280px) and (min-width: 992px) {
+
+  }
+  @media (max-width: 991px) and (min-width: 426px) {
     display: grid;
     grid-template-columns: 2fr 1fr;  // Two columns in the first row
     grid-template-rows: auto auto;  // Automatic row height
     grid-gap: 10px;
   }
-    @media (max-width: 426px){
-    
-    margin-top:-20px;
-    }
+  @media (max-width: 425px) and (min-width: 310px) {
+    display: grid;
+    grid-template-columns: 2fr 1fr;  // Two columns in the first row
+    grid-template-rows: auto auto;  // Automatic row height
+    grid-gap: 10px;
+  }
 `;
 
 const FirstColumn = styled.div`
-  @media (max-width: 768px) {
-    grid-column: 1;  // Takes the first fraction in the first row
+  width:40%;
+  @media (max-width: 1440px) and (min-width: 1281px) {
+    width:60%;
+  }
+  @media (max-width: 1280px) and (min-width: 992px) {
+    width:100%;
+  }
+  @media (max-width: 991px) and (min-width: 426px) {
+    width:100%;
+    grid-column: 1;
+  }
+  @media (max-width: 425px) and (min-width: 310px) {
+    display: flex;
+    align-items: center; /* Centers content horizontally in the flex container */
+    justify-content: center; /* Centers content vertically */
+    width: 260%; /* Full width */
   }
 `;
 
 const SecondColumn = styled.div`
-  @media (max-width: 768px) {
-    grid-column: 2;  // Takes the second fraction in the first row
+
+  @media (max-width: 1440px) and (min-width: 1281px) {
+
+  }
+  @media (max-width: 1280px) and (min-width: 992px) {
+
+  }
+  @media (max-width: 991px) and (min-width: 426px) {
+    grid-column: 2;
+  }
+  @media (max-width: 425px) and (min-width: 310px) {
+
   }
 `;
 
 const FullWidthColumn = styled.div`
-  @media (max-width: 768px) {
+  @media (max-width: 991px) and (min-width: 426px) {
     grid-column: 1 / -1;  // Spans from the first to the last column in the grid
   }
+  @media (max-width: 425px) and (min-width: 310px) {
+    grid-column: 1 / -1;  // Spans from the first to the last column in the grid
+  } 
 `;
 
 
 const LeftText = styled.div`
   margin-left:50px;
   text-align: left;
+  font: normal normal normal 24px/68px Montserrat;
   h1 {
-    font-size: 3vw;
-    font-family: 'Montserrat', sans-serif;
     margin: 0;
     line-height: 1.2; /* Adjust line height for proper spacing */
-    width:200%;
+    }
+  @media (max-width: 1440px) and (min-width: 1281px) {
+
   }
-
-
-  @media (max-width: 1024px) {
-    margin-left:100px;
-    width: 20%;
-  }
-
-  
-
-  @media (max-width: 768px) {
-    margin-left: 0;
-    width: 90%; /* Full width for mobile */
-
+  @media (max-width: 1280px) and (min-width: 992px) {
+    margin-left:10px;
+    font: normal normal normal 20px/68px Montserrat;
   h1 {
-    font-size: 5vw; /* Larger font size for better readability on smaller screens */
-    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    line-height: 1.2; /* Adjust line height for proper spacing */
+    }
+  }
+  @media (max-width: 991px) and (min-width: 426px) {
+    margin-left: 0;
+    font: normal normal normal 18px/68px Montserrat;
+  h1 {
     margin: 0;
     line-height: 1.2;
-   @media (max-width: 426px){
-    margin-left: -10px;
-  } 
+    }
   }
+  @media (max-width: 425px) and (min-width: 310px) {
+    margin-left: -10px;
+    font: normal normal normal 12px/68px Montserrat;
+
   }
 `;
 
@@ -520,19 +577,34 @@ const ImageSection1 = styled.div`
   display: flex;
   justify-content: center;
   margin-left:80px;
+  
+  @media (max-width: 1440px) and (min-width: 1281px) {
 
-  @media (max-width: 768px) {
+  }
+  @media (max-width: 1280px) and (min-width: 992px) {
+    margin-left:10px;
+    width: 40%; /* Adjusted width for the image section */
+    display: flex;
+    justify-content: flex-start; /* Align image to the start */
+    margin-bottom: 10px; /* Extra bottom margin for spacing between elements */
+  }
+  @media (max-width: 991px) and (min-width: 426px) {
     width: 15%; /* Adjusted width for the image section */
     display: flex;
     justify-content: flex-start; /* Align image to the start */
     margin-bottom: 10px; /* Extra bottom margin for spacing between elements */
   }
- 
+  @media (max-width: 425px) and (min-width: 310px) {
+    width: 15%; /* Adjusted width for the image section */
+    display: flex;
+    justify-content: flex-start; /* Align image to the start */
+    margin-bottom: 10px; /* Extra bottom margin for spacing between elements */
+  }
 
 `;
 
 const StyledImage1 = styled.img`
-  width: 280%; 
+  width: 200%; 
   height: auto;
   border-radius: 10px;
 
@@ -552,26 +624,32 @@ const RightText = styled.div`
   line-height: 2.5;
   color: #333;
 
-  @media (max-width: 1280px) and (min-width: 992px) {
-  font-size: 12px;
-  }
+  @media (max-width: 1440px) and (min-width: 1281px) {
 
-  @media (max-width: 768px) {
+  }
+  @media (max-width: 1280px) and (min-width: 992px) {
+    font-size: 12px;
+  }
+  @media (max-width: 991px) and (min-width: 426px) {
     width: 100%; /* Full width for mobile */
     font-size: 2vw; /* Increase font size for readability */
     margin-right: 0; /* Remove right margin on mobile */
   }
-  @media (max-width: 426px){
-  width: 100%; /* Full width for mobile */
-   font-size: 12px;
-   margin-top:-20px;
-  }  
+  @media (max-width: 425px) and (min-width: 310px) {
+    display:flex;
+    
+    text-align:center;
+    font-size: 2.8vw;
+     line-height: 2;
+     padding: 0 5px;
+    
+    
+  }
 `;
 // Individual Service Icon Box Styling
 const ServiceBox = styled.div`
   text-align: center;
   width: 150px;
-
   img {
     width: 100px;
     height: 100px;
@@ -588,13 +666,13 @@ const ServiceBox = styled.div`
     font-size: 0.9vw;
     color: #555;
   }
-  @media (max-width: 1440px) {
+  @media (max-width: 1440px) and (min-width: 1281px) {
   img {
     width: 70px;
     height: 70px;
   }
   }
-  @media (max-width: 1024px) {
+  @media (max-width: 1280px) and (min-width: 992px) {
   margin-left:5px;
   img {
     width: 40px;
@@ -604,7 +682,7 @@ const ServiceBox = styled.div`
     font-size: 1.2vw;
   }
   }
-  @media (max-width: 768px) {
+  @media (max-width: 991px) and (min-width: 426px) {
   margin-left:5px;
   img {
     width: 50px;
@@ -614,13 +692,15 @@ const ServiceBox = styled.div`
     font-size: 1.8vw;
   }
   }
-  @media (max-width: 426px) { 
+  @media (max-width: 425px) and (min-width: 310px) {
+  margin-left:15px;
+  width: 40px;
   img {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
   }
   h3 {
-    font-size: 1.8vw;
+    font-size: 2.8vw;
   }
   }
 `;
@@ -679,9 +759,6 @@ const ProcessContainer = styled.div`
   @media (max-width: 1280px) and (min-width: 992px) {
   margin-top: 10px;
   }
-
-
-
   @media (max-width: 768px) {
     display: none; // Hide the grid layout on small screens
   }
@@ -886,7 +963,6 @@ const About = () => {
           <LeftText>
             <h1><GrayText>who </GrayText>
               <br /> {/* Line break */}<RedText>ARE </RedText><GrayText1>we</GrayText1></h1>
-
           </LeftText>
           </FirstColumn>
           <SecondColumn>
@@ -947,8 +1023,8 @@ const About = () => {
         <h1>
               <GrayText>why </GrayText>
               <br /> {/* Line break */}
-              <RedText>CHOOSE </RedText>
-              <GrayText>us</GrayText>
+              <RedText>CHOOSE <GrayText>us</GrayText></RedText>
+              
             </h1>
         </RightColumn>
         </SecondColumn1>
