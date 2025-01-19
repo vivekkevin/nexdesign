@@ -14,12 +14,17 @@ const ContactContainer = styled.div`
   color: #ffffff;
   width: 100%;
 
-  @media (max-width: 768px) {
+  @media (max-width: 991px) and (min-width: 426px){
     flex-direction: column;
     padding: 20px 20px;
-    
+  } 
+  
+  @media (max-width: 425px) and (min-width: 320px) {
+    flex-direction: column;
+    padding: 20px 20px;
   }
 `;
+
 
 
 // Left Container for Contact Information
@@ -35,38 +40,13 @@ const ContactInfo = styled.div`
     font-size: 50px;
     font-family: 'Poppins';
     margin-bottom: 20px;
-
-    @media (max-width: 1280px) and (min-width: 992px) {
-      font-size: 2.6vw;
-      margin-top:-30px;
-    }
-
-    @media (max-width: 425px) {
-      font-size: 5vw;
-      margin-top:-20px;
-      margin-right:110px;
-    }
   }
- 
+
   p {
     font-size: 22px;
     margin-bottom: 20px;
     line-height: 2.2;
-    width:90%;
-
-   @media (max-width: 1280px) and (min-width: 992px) {
-      font-size: 1.2vw;
-    }
-
-    @media (max-width: 768px) {
-      font-size: 2vw;
-      line-height: 2.6;
-    }
-     @media (max-width: 425px) {
-      font-size: 3vw;
-      margin-top:-10px;
-     
-    } 
+    width: 90%;
   }
 
   a {
@@ -77,20 +57,64 @@ const ContactInfo = styled.div`
       color: #f0a500;
     }
   }
-  @media (max-width: 1024px) {
-      margin-left: 60px;
+
+  @media (max-width: 1280px) and (min-width: 992px) {
+    h1 {
+      font-size: 2.6vw;
+      margin-top: -30px;
+    }
+    p {
+      font-size: 1.2vw;
+    }
   }
-  @media (max-width: 1024px) {
-      margin-left: 10px;
+
+  @media (max-width: 991px) and (min-width: 426px) {
+  margin-left: 10px;
+    h1 {
+      font-size: 5vw;
+      margin-bottom: 20px;
+      text-align: left;
+      margin-right:10px;
+    }
+
+    p {
+      font-size: 2vw;
+      margin-top: -10px;
+    }
+  }
+
+  @media (max-width: 425px) and (min-width: 320px) {
+    margin-left: 10px;
+      // This ensures that contact info remains below the form on mobile screens
+
+    h1 {
+      font-size: 5vw;
+      margin-top: -20px;
+      text-align:left;
+    }
+    p {
+      font-size: 3vw;
+      margin-top: -10px;
+    }
   }
 `;
+
 
 // Contact Details Container
 const ContactDetails = styled.div`
   display: flex;
   flex-direction: column;
-  @media (max-width: 425px){
-  margin-top:130%;
+  @media (max-width: 1440px) and (min-width: 1281px) {
+
+  }
+  @media (max-width: 1280px) and (min-width: 992px) {
+
+  }
+  @media (max-width: 991px) and (min-width: 426px){
+  margin-top:20px;
+  }
+  @media (max-width: 425px) and (min-width: 320px) {
+    margin-top:20px;
   }
 
   p {
@@ -100,17 +124,17 @@ const ContactDetails = styled.div`
     margin-bottom: 10px;
     gap: 10px; /* Space between the icon and the text */
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1280px) and (min-width: 992px) {
       font-size: 1.6vw;
     }
 
-    @media (max-width: 768px) {
-      font-size: 2vw;
-    }
-    @media (max-width: 425px) {
-      font-size: 3.5vw;
+    @media (max-width: 991px) and (min-width: 426px) {
+      font-size: 2.5vw;
       padding:5px;
-      
+    }
+    @media (max-width: 425px) and (min-width: 320px) {
+      font-size: 3vw;
+      padding:5px;
     }  
 
     svg {
@@ -200,20 +224,39 @@ const ContactForm = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 20px;
-  gap:10px;
-  margin-top:40px;
-  @media (max-width: 1280px) and (min-width: 992px){
-   margin-top:-10px;
+  gap: 10px;
+  margin-top: 40px;
+
+  &.mobileContactForm {
+    display: none; // Hide by default
+    @media (max-width: 991px) { // Show only on mobile
+      display: flex;
+    }
   }
-  @media (max-width: 768px) {
-    width: 100%;
+
+  &.desktopContactForm {
+    display: flex; // Show by default
+    @media (max-width: 991px) { // Hide on mobile
+      display: none;
+    }
   }
-     @media (max-width: 425px) {
+
+  @media (max-width: 1280px) and (min-width: 992px) {
+    margin-top: -10px;
+  }
+
+  @media (max-width: 991px) and (min-width: 426px) {
     width: 100%;
-    margin-top:-190%;
-    margin-left:15px;
+     padding: 0px;
+    margin-top: 0px;
+  }
+  @media (max-width: 425px) and (min-width: 320px) {
+    width: 100%;
+     padding: 0px;
+    margin-top: 0px;
   }
 `;
+
 
 const FooterNav = styled.nav`
   margin-top: 20px;
@@ -375,9 +418,6 @@ const Footer = styled.footer`
   text-align: center;
   color: #ffffff;
   font-size: 20px;
-  @media (max-width: 425px){
-  margin-top:70%;
-  }
 
   a {
     color: #ffffff;
@@ -387,20 +427,34 @@ const Footer = styled.footer`
     &:hover {
       color: #f0a500;
     }
-     
   }
-     
-    p{
-    @media (max-width: 1280px) and (min-width: 992px){
-    margin-top:-20px;
-    font: normal normal normal 18px Poppins;
+
+  @media (max-width: 1440px) and (min-width: 1281px) {
+    // Add styles for this range if needed
+  }
+
+  @media (max-width: 1280px) and (min-width: 992px) {
+    p {
+      margin-top: -20px;
+      font: normal normal normal 18px Poppins;
     }
-    @media (max-width: 425px){
-    margin-top:-20px;
-    font: normal normal normal 12px Poppins;
+  }
+
+  @media (max-width: 991px) and (min-width: 426px) {
+    p {
+      margin-top: 20px;
+      font: normal normal normal 18px Poppins;
     }
+  }
+
+  @media (max-width: 425px) and (min-width: 320px) {
+    p {
+      margin-top: -20px;
+      font: normal normal normal 12px Poppins;
     }
+  }
 `;
+
   
 
 
@@ -422,6 +476,31 @@ const Contact = () => {
             Whether you’re launching a new brand or revitalizing an existing one, we’re here to help.
             Reach out to us today and let’s start building something amazing together.
           </p>
+
+          <ContactForm className="mobileContactForm">
+          <Input type="text" placeholder="Enter Your Name*" required />
+          <Input type="tel" placeholder="Enter Your Phone Number*" required />
+          <Input type="email" placeholder="Enter Your Email ID*" required />
+          <Container>
+          <Select
+              onChange={toggleDropdown}
+              onBlur={() => setIsOpen(false)}
+              onFocus={() => setIsOpen(true)}
+            >
+              <StyledOption value="" hidden>Choose Services</StyledOption>
+              <StyledOption value="Graphic Design">Graphic Design</StyledOption>
+              <StyledOption value="UI/UX Design">UI/UX Design</StyledOption>
+              <StyledOption value="Digital Marketing">Digital Marketing</StyledOption>
+              <StyledOption value="Web Development">Web Development</StyledOption>
+              <StyledOption value="Video Design">Video Design</StyledOption>
+              <StyledOption value="3D Animation">3D Animation</StyledOption>
+              <StyledOption value="Workshop & Learning Performance">Workshop & Learning Performance</StyledOption>
+            </Select>
+            <ArrowIcon isOpen={isOpen} />
+          </Container>
+          <Textarea placeholder="Message" required></Textarea>
+          <SubmitButton type="submit">Send</SubmitButton>
+        </ContactForm>
           <ContactDetails>
             <p>
               <FaEnvelope /> connect@nexdesignstudio.com
@@ -453,8 +532,7 @@ const Contact = () => {
         </FooterNav>
         </ContactInfo>
 
-        {/* Right Section: Contact Form */}
-        <ContactForm>
+        <ContactForm className="desktopContactForm">
           <Input type="text" placeholder="Enter Your Name*" required />
           <Input type="tel" placeholder="Enter Your Phone Number*" required />
           <Input type="email" placeholder="Enter Your Email ID*" required />
@@ -478,6 +556,7 @@ const Contact = () => {
           <Textarea placeholder="Message" required></Textarea>
           <SubmitButton type="submit">Send</SubmitButton>
         </ContactForm>
+
       </ContactContainer>
 
       {/* Footer Section */}

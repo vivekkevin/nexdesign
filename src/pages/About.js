@@ -642,8 +642,6 @@ const RightText = styled.div`
     font-size: 2.8vw;
      line-height: 2;
      padding: 0 5px;
-    
-    
   }
 `;
 // Individual Service Icon Box Styling
@@ -720,6 +718,7 @@ const ProcessSection = styled.div`
   }
 
   @media (max-width: 768px) {
+  display:none;
     padding: 40px 20px; /* Adjust padding for mobile */
   }
   @media (max-width: 426px){
